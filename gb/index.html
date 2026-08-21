@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Guest Handbook — Husafell | Heimkoma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #1C3A5C;
+  --navy-d:    #12263E;
+  --navy-m:    #2A4D72;
+  --gold:      #C49A3A;
+  --gold-l:    #D4B060;
+  --white:     #FFFFFF;
+  --off:       #F7F7F5;
+  --card:      #FAFAF8;
+  --text:      #1A1A1A;
+  --text-m:    #3C3C3C;
+  --muted:     #6B6B6B;
+  --border:    #E0E0DA;
+  --border-l:  #EBEBE6;
+  --warn-bg:   #FFFBEF;
+  --warn-bdr:  #C49A3A;
+  --red-bg:    #FFF4F4;
+  --red-bdr:   #B84040;
+  --green-ok:  #2A6B45;
+  --nav-h:     56px;
+  --max:       820px;
+  --r:         5px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  font-size: 15.5px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--navy-m); text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { font-weight: 600; }
+code {
+  font-family: 'Inter', monospace;
+  background: rgba(28,58,92,.08);
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: .87em;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* HEADER */
+.site-header {
+  background: var(--navy);
+  padding: 48px 28px 44px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.logo-img {
+  height: 26px;
+  filter: brightness(0) invert(1);
+  opacity: .9;
+}
+.logo-sep {
+  width: 1px;
+  height: 20px;
+  background: rgba(255,255,255,.2);
+}
+.logo-lbl {
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.42);
+}
+.hero-eyebrow {
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--gold-l);
+  margin-bottom: 12px;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.01em;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.hero-sub {
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 36px;
+}
+
+/* SEARCH */
+.search-wrap {
+  max-width: 440px;
+  margin: 0 auto;
+  position: relative;
+}
+.search-input {
+  width: 100%;
+  padding: 12px 42px 12px 44px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: var(--r);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: .9rem;
+  outline: none;
+  transition: background .2s, border-color .2s;
+}
+.search-input::placeholder { color: rgba(255,255,255,.35); }
+.search-input:focus {
+  background: rgba(255,255,255,.14);
+  border-color: rgba(196,154,58,.6);
+}
+.s-ico {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,.38);
+  pointer-events: none;
+}
+.s-clear {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.5);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 4px;
+  display: none;
+}
+.s-clear.on { display: block; }
+
+/* NAV */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy-d);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.sticky-nav .wrap {
+  display: flex;
+  align-items: center;
+  height: var(--nav-h);
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 0;
+}
+.sticky-nav .wrap::-webkit-scrollbar { display: none; }
+.nav-pill {
+  flex-shrink: 0;
+  padding: 0 15px;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.44);
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color .18s, border-color .18s;
+}
+.nav-pill:hover { color: rgba(255,255,255,.82); text-decoration: none; }
+.nav-pill.on { color: var(--gold-l); border-bottom-color: var(--gold); }
+
+/* CHAPTERS */
+.chapter {
+  padding: 60px 0 40px;
+  border-bottom: 1px solid var(--border);
+}
+.chapter:last-of-type { border-bottom: none; }
+
+.ch-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.ch-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #E8E8E4;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.ch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--gold);
+}
+
+/* SUBSECTION */
+.sub { margin-bottom: 28px; }
+.sub-lbl {
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: block;
+}
+.sub h3 {
+  font-size: .94rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 20px 0 8px;
+}
+.sub p { margin-bottom: 10px; color: var(--text-m); }
+
+.divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+/* DARK INFO CARD */
+.dcard {
+  background: var(--navy);
+  border-radius: var(--r);
+  padding: 20px 22px;
+  margin-bottom: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+}
+.dc-lbl {
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-l);
+  display: block;
+  margin-bottom: 5px;
+}
+.dc-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+}
+.dc-val a { color: #fff; }
+.dc-val code {
+  font-family: 'Inter', monospace;
+  font-size: .85rem;
+  background: rgba(255,255,255,.12);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+/* LIGHT BLOCK */
+.lblock {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 16px 18px;
+  margin-bottom: 10px;
+}
+.lb-lbl {
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 5px;
+}
+.lb-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.lblock p { font-size: .87rem; margin: 4px 0 0; color: var(--muted); }
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* BULLET LIST */
+.blist { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.blist li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-l);
+  line-height: 1.55;
+  color: var(--text-m);
+  font-size: .93rem;
+}
+.blist li:last-child { border-bottom: none; }
+.blist li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 9px;
+  border-radius: 1px;
+}
+
+/* STEP LIST */
+.slist {
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.slist li {
+  counter-increment: step;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  padding: 11px 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  font-size: .93rem;
+  color: var(--text-m);
+}
+.slist li::before {
+  content: counter(step);
+  min-width: 22px;
+  height: 22px;
+  background: var(--navy);
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+/* WARN BOXES */
+.warn-box {
+  border-radius: var(--r);
+  padding: 12px 16px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+  border-left: 3px solid var(--warn-bdr);
+  background: var(--warn-bg);
+}
+.warn-box.red {
+  border-left-color: var(--red-bdr);
+  background: var(--red-bg);
+}
+.warn-box .w-ico { flex-shrink: 0; font-size: .9rem; margin-top: 3px; }
+.warn-box .w-txt { font-size: .9rem; color: var(--text-m); line-height: 1.55; }
+
+/* IMAGE PLACEHOLDER */
+.ph-box {
+  width: 100%;
+  min-height: 190px;
+  border-radius: var(--r);
+  background: var(--off);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0;
+}
+.ph-inner { text-align: center; padding: 24px; }
+.ph-ico { font-size: 1.5rem; display: block; margin-bottom: 8px; opacity: .25; }
+.ph-lbl {
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #C0C0BA;
+  margin-bottom: 5px;
+}
+.ph-inner p { font-size: .8rem; color: #B0B0AA; }
+
+.ph-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+.ph-grid .ph-box { min-height: 120px; }
+
+/* PRICE TABLE */
+.ptable { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.ptable tr { border-bottom: 1px solid var(--border); }
+.ptable tr:last-child { border-bottom: none; }
+.ptable td { padding: 9px 0; font-size: .91rem; }
+.ptable td:first-child { color: var(--text-m); }
+.ptable td:last-child { text-align: right; font-weight: 600; color: var(--navy); }
+
+/* CHECKOUT CHECKLIST */
+.cklist { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+.ci {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 11px 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  cursor: pointer;
+  background: var(--card);
+  transition: border-color .15s;
+  user-select: none;
+}
+.ci:hover { border-color: var(--navy-m); }
+.ci input { display: none; }
+.ci-box {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 2px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .18s;
+  color: transparent;
+}
+.ci.done { background: #F0F7F3; border-color: #6BAB85; }
+.ci.done .ci-box { background: var(--green-ok); border-color: var(--green-ok); color: #fff; }
+.ci.done .ci-lbl { text-decoration: line-through; color: var(--muted); }
+.ci-lbl { font-size: .91rem; color: var(--text-m); }
+.ck-reset {
+  margin-top: 12px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 7px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: .78rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+}
+.ck-reset:hover { border-color: var(--navy); color: var(--navy); }
+
+/* EMERGENCY SECTION */
+#emergency {
+  background: var(--navy-d);
+  padding: 60px 0 70px;
+}
+#emergency .ch-num { color: rgba(255,255,255,.1); }
+#emergency .ch-title { color: #fff; border-bottom-color: #c84040; }
+#emergency .sub-lbl { color: #e09090; }
+
+.ec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+.ec-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r);
+  padding: 20px;
+  text-align: center;
+}
+.ec-lbl {
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  display: block;
+  margin-bottom: 10px;
+}
+.ec-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+}
+.ec-val.sm {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 4px;
+}
+.ec-card a { color: inherit; }
+
+/* FAB */
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 200;
+  background: #B84040;
+  color: #fff;
+  border: none;
+  border-radius: var(--r);
+  padding: 10px 16px 10px 13px;
+  font-family: 'Inter', sans-serif;
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  box-shadow: 0 2px 16px rgba(184,64,64,.4);
+  transition: transform .18s, box-shadow .18s;
+}
+.fab:hover {
+  transform: translateY(-1px);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(184,64,64,.5);
+}
+
+/* FOOTER */
+.site-footer {
+  background: var(--navy-d);
+  color: rgba(255,255,255,.35);
+  padding: 28px 24px;
+  text-align: center;
+  font-size: .82rem;
+  border-top: 2px solid var(--gold);
+}
+.site-footer a { color: var(--gold-l); }
+.ft-logo {
+  height: 16px;
+  opacity: .35;
+  vertical-align: middle;
+  margin-right: 8px;
+  filter: brightness(0) invert(1);
+}
+
+/* SEARCH HIGHLIGHT */
+mark.hl {
+  background: rgba(196,154,58,.3);
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* NO RESULTS */
+.no-res { text-align: center; padding: 60px 24px; color: var(--muted); display: none; }
+.no-res.on { display: block; }
+.no-res h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+@media print {
+  .sticky-nav, .fab, .site-footer, .search-wrap { display: none; }
+  .chapter { page-break-inside: avoid; }
+}
+
+@media (max-width: 600px) {
+  .site-header { padding: 36px 20px 30px; }
+  .chapter { padding: 44px 0 32px; }
+  .ch-num { font-size: 2rem; }
+  .ph-grid { grid-template-columns: 1fr 1fr; }
+  .fab { bottom: 12px; right: 12px; }
+  .dcard { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="top">
+  <div class="logo-row">
+    <img src="https://heimkoma.app/guest_handbook/images/logo.svg" alt="Heimkoma" class="logo-img">
+    <div class="logo-sep"></div>
+    <span class="logo-lbl">Guest Handbook</span>
+  </div>
+  <p class="hero-eyebrow">Heimkoma &middot; Iceland</p>
+  <h1 class="hero-name">H&uacute;safell</h1>
+  <p class="hero-sub">Luxury Vacation Home</p>
+  <div class="search-wrap">
+    <svg class="s-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input type="search" id="s-input" class="search-input" placeholder="Search handbook&hellip;" autocomplete="off">
+    <button class="s-clear" id="s-clear" aria-label="Clear search">&times;</button>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <div class="wrap">
+    <a href="#arrival"    class="nav-pill" data-s="arrival">Arrival</a>
+    <a href="#inside"     class="nav-pill" data-s="inside">Inside</a>
+    <a href="#systems"    class="nav-pill" data-s="systems">Systems</a>
+    <a href="#groceries"  class="nav-pill" data-s="groceries">Groceries</a>
+    <a href="#services"   class="nav-pill" data-s="services">Services</a>
+    <a href="#activities" class="nav-pill" data-s="activities">Activities</a>
+    <a href="#trash"      class="nav-pill" data-s="trash">Trash</a>
+    <a href="#checkout"   class="nav-pill" data-s="checkout">Check Out</a>
+    <a href="#emergency"  class="nav-pill" data-s="emergency">Emergency</a>
+  </div>
+</nav>
+
+<main id="content">
+
+<!-- ═══════════════════════════════════
+     CH 1 — ARRIVAL
+═══════════════════════════════════ -->
+<section class="chapter" id="arrival">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">01</span>
+    <h2 class="ch-title">Arrival, Access &amp; Parking</h2>
+  </div>
+
+  <div class="sub">
+    <span class="sub-lbl">Address &amp; Navigation</span>
+    <div class="dcard">
+      <div>
+        <span class="dc-lbl">Address</span>
+        <span class="dc-val"><a href="https://maps.app.goo.gl/AnhHdTu5yub5UR3n9" target="_blank">Hraunbrekkur 22, 311 Borgarnes</a></span>
+      </div>
+      <div>
+        <span class="dc-lbl">Google Maps</span>
+        <span class="dc-val" style="font-size:1rem;"><a href="https://hja.heimkoma.app/s1h1map" target="_blank">hja.heimkoma.app/s1h1map</a></span>
+      </div>
+      <div>
+        <span class="dc-lbl">Plus Code</span>
+        <span class="dc-val"><code>P445+24 H&uacute;safell</code></span>
+      </div>
+    </div>
+    <div class="warn-box">
+      <span class="w-ico">&#9888;&#65039;</span>
+      <div class="w-txt">The house is in a remote area with no street lights. Use Google Maps and follow navigation exactly. Download offline maps as a backup.</div>
+    </div>
+    <ul class="blist">
+      <li>All parking spaces outside the house are reserved for you</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Check-in &amp; Front Door</span>
+    <div class="two-col">
+      <div class="lblock">
+        <span class="lb-lbl">Check-in from</span>
+        <div class="lb-val">15:00</div>
+        <p>Access details in your welcome email</p>
+      </div>
+      <div class="lblock">
+        <span class="lb-lbl">Check-out by</span>
+        <div class="lb-val">11:00</div>
+        <p>See checkout checklist &mdash; Chapter 8</p>
+      </div>
+    </div>
+    <ul class="blist">
+      <li>Lockbox located near the front door &mdash; code sent by email and on the booking platform</li>
+      <li>Front door locks manually with the key. No auto-lock &mdash; no risk of locking yourself out</li>
+      <li>Please lock the door whenever you leave</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Master Electricity Switch &#9888;&#65039;</span>
+    <p>Inside the front door, look to the <strong>right-hand side</strong> &mdash; a light switch above the security system. This is the <strong>master electricity switch</strong>. You do not need to operate the security system.</p>
+    <img src="images/master-switch.jpeg" alt="Master electricity switch inside entrance" style="width:100%;border-radius:5px;display:block;">
+    <div class="two-col">
+      <div class="lblock">
+        <span class="lb-lbl">On Arrival</span>
+        <div class="lb-val">Turn ON</div>
+        <p>Activates all lights and electrical systems</p>
+      </div>
+      <div class="lblock" style="border-left: 2px solid var(--warn-bdr);">
+        <span class="lb-lbl">When Leaving</span>
+        <div class="lb-val">Turn OFF</div>
+        <p>Important &mdash; helps protect the house</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CH 2 — INSIDE
+═══════════════════════════════════ -->
+<section class="chapter" id="inside">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">02</span>
+    <h2 class="ch-title">Inside the House</h2>
+  </div>
+
+  <div class="sub">
+    <span class="sub-lbl">General</span>
+    <ul class="blist">
+      <li>Please remove shoes indoors</li>
+      <li>Treat the home as you would your own</li>
+      <li>Pets are welcome &mdash; please clean thoroughly after them</li>
+      <li>Be considerate of neighbours, especially during evening hours</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Wi-Fi</span>
+    <div class="dcard">
+      <div>
+        <span class="dc-lbl">Network name</span>
+        <span class="dc-val"><code>Hraunbrekkur 22</code></span>
+      </div>
+      <div>
+        <span class="dc-lbl">Password</span>
+        <span class="dc-val"><code>skogarkot</code></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Kitchen &amp; Pantry</span>
+    <p>Fully equipped &mdash; microwave, air fryer, spacious stovetop, oven, and a premium outdoor grill.</p>
+    <ul class="blist">
+      <li><strong>Free to use:</strong> all spices, cooking oils, and any food already in the house (opened or unopened)</li>
+    </ul>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CH 3 — SYSTEMS
+═══════════════════════════════════ -->
+<section class="chapter" id="systems">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">03</span>
+    <h2 class="ch-title">House Systems &amp; Amenities</h2>
+  </div>
+
+  <div class="sub">
+    <span class="sub-lbl">Ice Machine</span>
+    <p>Located in the laundry room. Available throughout your stay.</p>
+    <ol class="slist">
+      <li>Add fresh water to the reservoir</li>
+      <li>Turn the machine ON</li>
+      <li>Ice is ready in approximately 10 minutes</li>
+    </ol>
+    <p style="margin-top:10px;font-size:.87rem;color:var(--muted);">To empty: remove the plug in the front right corner underneath &mdash; drain into the sink. No need to turn off at checkout.</p>
+    <img src="images/ice-machine.jpeg" alt="Ice machine in laundry room" style="width:100%;border-radius:5px;display:block;">
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Sauna &mdash; Harvia Kip Electric Oven</span>
+    <div class="two-col">
+      <div class="lblock">
+        <span class="lb-lbl">Left Dial</span>
+        <div class="lb-val">Timer</div>
+        <p>Turn clockwise past first section. Set 1&ndash;4 hours for immediate heat.</p>
+      </div>
+      <div class="lblock">
+        <span class="lb-lbl">Right Dial</span>
+        <div class="lb-val">Temperature</div>
+        <p>Clockwise = hotter &nbsp;&middot;&nbsp; Counter-clockwise = cooler</p>
+      </div>
+    </div>
+    <div class="warn-box">
+      <span class="w-ico">&#9888;&#65039;</span>
+      <div class="w-txt"><strong>Delay feature:</strong> If the timer dial is turned too far into the 1&ndash;8 hour delay section, the sauna will not heat immediately. Turn it back to the 1&ndash;4 hour range for instant start.</div>
+    </div>
+    <ul class="blist">
+      <li>Sauna turns off automatically when the timer runs out</li>
+      <li>Always double-check it is OFF before leaving the house</li>
+    </ul>
+    <img src="images/sauna-controls.jpeg" alt="Sauna control panel" style="width:100%;border-radius:5px;display:block;">
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Hot Tub</span>
+    <div class="warn-box">
+      <span class="w-ico">&#8505;&#65039;</span>
+      <div class="w-txt">The control panel is in the <strong>storage room</strong> inside the guest house &mdash; at the opposite end from the entrance.</div>
+    </div>
+    <img src="images/hot-tub-controls.jpeg" alt="Hot tub control panel" style="width:100%;border-radius:5px;display:block;">
+
+    <h3>Controls</h3>
+    <ul class="blist">
+      <li>One control turns the water ON / OFF</li>
+      <li>One control opens / closes the drain at the bottom</li>
+      <li>Do not adjust any internal technical settings</li>
+    </ul>
+
+    <h3>Filling</h3>
+    <ol class="slist" style="margin-top:8px;">
+      <li>Turn ON the water</li>
+      <li>Close the drain (turn both buttons)</li>
+      <li>Allow the tub to fill fully &mdash; temperature maintained automatically</li>
+      <li>Always place the lid on between uses</li>
+    </ol>
+
+    <h3>Emptying &mdash; Required Before Departure</h3>
+    <div class="warn-box red" style="margin-top:10px;">
+      <span class="w-ico">&#9888;&#65039;</span>
+      <div class="w-txt"><strong>Mandatory:</strong> The hot tub must be emptied before you leave.</div>
+    </div>
+    <ol class="slist">
+      <li>Turn OFF the water</li>
+      <li>Open the drain</li>
+      <li>Allow to empty completely (no need to monitor)</li>
+      <li>Brush the sides of the tub while half-empty</li>
+    </ol>
+
+    <h3>Lid Instructions</h3>
+    <p>The lid is heavy &mdash; two people recommended. <strong>The patio can be very slippery when wet.</strong></p>
+    <div class="ph-grid">
+      <div><img src="images/lid1.jpeg" alt="Step 1 — store lid upright" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 1</p></div>
+      <div><img src="images/lid2.jpeg" alt="Step 2 — fold over and adjust" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 2</p></div>
+      <div><img src="images/lid3.jpeg" alt="Step 3 — push under handrail" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 3</p></div>
+      <div><img src="images/lid4.jpeg" alt="Step 4 — secure with latch" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 4</p></div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CH 4 — GROCERIES
+═══════════════════════════════════ -->
+<section class="chapter" id="groceries">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">04</span>
+    <h2 class="ch-title">Groceries, Liquor &amp; ATMs</h2>
+  </div>
+
+  <div class="sub">
+    <div class="warn-box red">
+      <span class="w-ico">&#128722;</span>
+      <div class="w-txt">There are <strong>no grocery stores, liquor stores, or ATMs in H&uacute;safell.</strong> Plan all shopping before arriving, or stop on the way.</div>
+    </div>
+    <span class="sub-lbl" style="margin-top:20px;">Nearest Town &mdash; Borgarnes</span>
+    <p>Approximately a 50 minute drive from the house.</p>
+    <ul class="blist">
+      <li>B&oacute;nus</li>
+      <li>Kr&oacute;nan</li>
+      <li>Nett&oacute;</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Liquor Store</span>
+    <ul class="blist">
+      <li>Nearest <a href="https://www.vinbudin.is" target="_blank">V&iacute;nb&uacute;&eth;in</a>: Borgarnes &mdash; limited opening hours, plan ahead</li>
+      <li>Order online with pickup at <a href="https://smarikid.is" target="_blank">smarikid.is</a> &mdash; open daily except Sundays until 23:00</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Cards &amp; ATMs</span>
+    <ul class="blist">
+      <li>Credit and debit cards are universally accepted in Iceland</li>
+      <li>Very little need for cash &mdash; even parking, fuel, and caf&eacute;s accept cards</li>
+      <li>ATMs available in Borgarnes &mdash; none in H&uacute;safell</li>
+    </ul>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CH 5 — SERVICES
+═══════════════════════════════════ -->
+<section class="chapter" id="services">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">05</span>
+    <h2 class="ch-title">Extra Services &amp; Comforts</h2>
+  </div>
+
+  <div class="sub">
+    <span class="sub-lbl">Wine &amp; Beer &mdash; Honesty System</span>
+    <p>Wine is in the wine rack. Beer and coffee are in the black cupboard by the sofa. Please pay only for what you consume.</p>
+    <table class="ptable">
+      <tr><td>Red wine</td><td>&euro;40 / bottle</td></tr>
+      <tr><td>White wine</td><td>&euro;40 / bottle</td></tr>
+      <tr><td>Sparkling wine</td><td>&euro;30 / bottle</td></tr>
+      <tr><td>Beer (pack)</td><td>&euro;50</td></tr>
+      <tr><td>Coffee (10 pk)</td><td>&euro;15</td></tr>
+    </table>
+    <p style="margin-top:12px;font-size:.87rem;color:var(--muted);">Pay via PayPal QR code, on the <a href="https://www.airbnb.com" target="_blank">Airbnb app</a>, or leave cash in the house.</p>
+    <div style="padding:16px 0;text-align:center;">
+      <img src="images/paypal-qr.jpeg" alt="PayPal QR code" style="width:220px;max-width:100%;border-radius:5px;display:block;margin:0 auto;">
+      <p style="font-size:.8rem;color:#999;margin-top:8px;">Scan to pay via PayPal</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Breakfast &amp; Dining</span>
+    <div class="lblock">
+      <span class="lb-lbl">Breakfast</span>
+      <div class="lb-val">Hotel H&uacute;safell</div>
+      <p>Short walk or drive from the house. Opening hours are seasonal.</p>
+      <p style="margin-top:5px;"><a href="https://husafell.is" target="_blank" style="font-size:.85rem;">husafell.is</a></p>
+    </div>
+    <p style="margin-top:10px;font-size:.87rem;color:var(--muted);">Lunch and dinner at the restaurant and bistro &mdash; menus vary by season. Check <a href="https://husafell.is" target="_blank">husafell.is</a> for current details.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CH 6 — ACTIVITIES
+═══════════════════════════════════ -->
+<section class="chapter" id="activities">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">06</span>
+    <h2 class="ch-title">Outdoor Activities</h2>
+  </div>
+
+  <div class="sub">
+    <p>H&uacute;safell is surrounded by forests, lava fields, rivers, and glaciers &mdash; with Langjokull glacier nearby.</p>
+
+    <span class="sub-lbl" style="margin-top:20px;">Hiking &amp; Walking</span>
+    <ul class="blist">
+      <li>Multiple marked trails start directly in H&uacute;safell</li>
+      <li>Ranges from easy family walks to longer hikes</li>
+      <li>Routes through birch forests, lava landscapes, and river valleys</li>
+    </ul>
+    <p style="margin-top:10px;font-size:.87rem;">Trail map: <a href="https://hja.heimkoma.app/s1h1walk" target="_blank">hja.heimkoma.app/s1h1walk</a></p>
+    <div style="padding:16px 0;text-align:center;">
+      <img src="images/hiking-qr.png" alt="Hiking trail map QR code" style="width:220px;max-width:100%;border-radius:5px;display:block;margin:0 auto;">
+      <p style="font-size:.8rem;color:#999;margin-top:8px;">Scan for trail map</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Adventure &amp; Geothermal</span>
+    <ul class="blist">
+      <li>Canyon Baths &mdash; guided geothermal bathing in a secluded canyon</li>
+      <li>Geothermal pools in the H&uacute;safell area (seasonal)</li>
+      <li>Glacier tours and ice tunnels on Langjokull</li>
+      <li>Snowmobiling</li>
+      <li>Horse riding</li>
+      <li>Mountain biking</li>
+      <li>Northern lights viewing (winter)</li>
+      <li>Midnight sun hiking (summer)</li>
+    </ul>
+    <p style="margin-top:12px;font-size:.87rem;">Bookings &amp; info: <a href="https://husafell.is" target="_blank">husafell.is</a></p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CH 7 — TRASH
+═══════════════════════════════════ -->
+<section class="chapter" id="trash">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">07</span>
+    <h2 class="ch-title">Trash &amp; Waste</h2>
+  </div>
+
+  <div class="sub">
+    <div class="warn-box red">
+      <span class="w-ico">&#9888;&#65039;</span>
+      <div class="w-txt"><strong>No trash pickup in the countryside.</strong> Please take your trash with you and drop it at the service-centre containers on your way out.</div>
+    </div>
+
+    <span class="sub-lbl" style="margin-top:18px;">Sorting (Optional)</span>
+    <ul class="blist">
+      <li>Paper and plastic can be separated</li>
+      <li>Single-use soda, beer, and wine containers</li>
+      <li>All other waste goes together</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <span class="sub-lbl">Bin Locations</span>
+    <ul class="blist">
+      <li>Small bin in the kitchen</li>
+      <li>Larger bins outside the downstairs bathroom door, near the maintenance room</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <span class="sub-lbl">Disposal Location</span>
+    <div class="lblock">
+      <span class="lb-lbl">Service Centre Containers</span>
+      <div class="lb-val" style="font-size:1rem;">M4XM+RHG H&uacute;safell</div>
+      <p><a href="https://maps.app.goo.gl/5nqYzo6vTptNQiCT8" target="_blank">Open in Google Maps &rarr;</a></p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CH 8 — CHECKOUT
+═══════════════════════════════════ -->
+<section class="chapter" id="checkout">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">08</span>
+    <h2 class="ch-title">Check Out</h2>
+  </div>
+
+  <div class="sub">
+    <div class="dcard">
+      <div>
+        <span class="dc-lbl">Check-out time</span>
+        <span class="dc-val">11:00</span>
+      </div>
+      <div>
+        <span class="dc-lbl">Drive to Reykjav&iacute;k</span>
+        <span class="dc-val">2 hours</span>
+      </div>
+      <div>
+        <span class="dc-lbl">Drive to KEF Airport</span>
+        <span class="dc-val">2 h 30 min</span>
+      </div>
+    </div>
+
+    <span class="sub-lbl" style="margin-top:26px;">Before You Leave &mdash; Checklist</span>
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:4px;">Tap each item when done.</p>
+
+    <div class="cklist">
+      <label class="ci" id="ci-sauna">
+        <input type="checkbox">
+        <span class="ci-box">
+          <svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+        <span class="ci-lbl">Sauna is turned OFF</span>
+      </label>
+      <label class="ci" id="ci-hottub">
+        <input type="checkbox">
+        <span class="ci-box">
+          <svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+        <span class="ci-lbl">Hot tub is EMPTY and sides brushed</span>
+      </label>
+      <label class="ci" id="ci-elec">
+        <input type="checkbox">
+        <span class="ci-box">
+          <svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+        <span class="ci-lbl">Master electricity switch is OFF</span>
+      </label>
+      <label class="ci" id="ci-trash">
+        <input type="checkbox">
+        <span class="ci-box">
+          <svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+        <span class="ci-lbl">Trash taken to service-centre containers</span>
+      </label>
+      <label class="ci" id="ci-dish">
+        <input type="checkbox">
+        <span class="ci-box">
+          <svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+        <span class="ci-lbl">Dishwasher started (if used)</span>
+      </label>
+      <label class="ci" id="ci-windows">
+        <input type="checkbox">
+        <span class="ci-box">
+          <svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+        <span class="ci-lbl">All windows closed and all doors locked</span>
+      </label>
+      <label class="ci" id="ci-key">
+        <input type="checkbox">
+        <span class="ci-box">
+          <svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+        <span class="ci-lbl">Key returned to lockbox</span>
+      </label>
+    </div>
+    <button class="ck-reset" id="ck-reset">Reset checklist</button>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════
+     EMERGENCY
+═══════════════════════════════════ -->
+<section class="chapter" id="emergency">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num" style="color:rgba(255,255,255,.1);">SOS</span>
+    <h2 class="ch-title">Emergency &amp; Contacts</h2>
+  </div>
+
+  <div class="sub">
+    <div class="ec-grid">
+      <div class="ec-card">
+        <span class="ec-lbl">Emergency Services</span>
+        <a href="tel:112" class="ec-val">112</a>
+      </div>
+      <div class="ec-card">
+        <span class="ec-lbl">Heimkoma (Host)</span>
+        <a href="tel:+3546476000" class="ec-val">+354 647 6000</a>
+      </div>
+      <div class="ec-card">
+        <span class="ec-lbl">Email</span>
+        <a href="mailto:help@heimkoma.app" class="ec-val sm">help@heimkoma.app</a>
+      </div>
+    </div>
+    <div class="warn-box red" style="margin-top:20px;background:rgba(255,255,255,.05);border-left-color:rgba(200,80,80,.45);">
+      <span class="w-ico">&#128222;</span>
+      <div class="w-txt" style="color:rgba(255,255,255,.65);">Contact us immediately if there is damage, a system is not working, or you are unsure how to operate any equipment.</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<div class="no-res" id="no-res">
+  <h2>Nothing found</h2>
+  <p>Try a different search term</p>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>
+    <img src="https://heimkoma.app/guest_handbook/images/logo.svg" alt="Heimkoma" class="ft-logo">
+    Heimkoma Guest Handbook &nbsp;&middot;&nbsp; <a href="#top">&#8593; Back to top</a>
+  </p>
+  <p style="margin-top:5px;font-size:.76rem;">
+    <a href="https://heimkoma.app" target="_blank">heimkoma.app</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://hja.heimkoma.app/husafellmap" target="_blank">Detailed area map &rarr;</a>
+  </p>
+</footer>
+
+<!-- FAB -->
+<a class="fab" href="tel:112">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 17z"></path>
+  </svg>
+  Emergency 112
+</a>
+
+<script>
+/* ACTIVE NAV ON SCROLL */
+(function() {
+  var pills = document.querySelectorAll('.nav-pill');
+  var sections = document.querySelectorAll('section.chapter');
+  if (!window.IntersectionObserver) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        pills.forEach(function(p) { p.classList.remove('on'); });
+        var active = document.querySelector('.nav-pill[data-s="' + e.target.id + '"]');
+        if (active) {
+          active.classList.add('on');
+          active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }
+    });
+  }, { rootMargin: '-56px 0px -50% 0px', threshold: 0 });
+  sections.forEach(function(s) { obs.observe(s); });
+})();
+
+/* CHECKOUT CHECKLIST */
+(function() {
+  var KEY = 'hk_co_husafell';
+  var items = document.querySelectorAll('.ci');
+
+  function save() {
+    var s = {};
+    items.forEach(function(el) { s[el.id] = el.classList.contains('done'); });
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e) {}
+  }
+
+  function load() {
+    try {
+      var s = JSON.parse(localStorage.getItem(KEY) || '{}');
+      items.forEach(function(el) {
+        if (s[el.id]) {
+          el.classList.add('done');
+          var cb = el.querySelector('input[type="checkbox"]');
+          if (cb) cb.checked = true;
+        }
+      });
+    } catch(e) {}
+  }
+
+  items.forEach(function(el) {
+    el.addEventListener('click', function() {
+      el.classList.toggle('done');
+      var cb = el.querySelector('input[type="checkbox"]');
+      if (cb) cb.checked = el.classList.contains('done');
+      save();
+    });
+  });
+
+  var resetBtn = document.getElementById('ck-reset');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      items.forEach(function(el) {
+        el.classList.remove('done');
+        var cb = el.querySelector('input[type="checkbox"]');
+        if (cb) cb.checked = false;
+      });
+      save();
+    });
+  }
+  load();
+})();
+
+/* SEARCH */
+(function() {
+  var inp = document.getElementById('s-input');
+  var clr = document.getElementById('s-clear');
+  var chapters = document.querySelectorAll('section.chapter');
+  var noRes = document.getElementById('no-res');
+  if (!inp) return;
+
+  var originals = [];
+
+  function collectOriginals() {
+    originals = [];
+    var nodes = document.querySelectorAll('section.chapter p, section.chapter li, section.chapter h2, section.chapter h3');
+    nodes.forEach(function(el) {
+      originals.push({ el: el, html: el.innerHTML });
+    });
+  }
+
+  function restore() {
+    originals.forEach(function(o) { o.el.innerHTML = o.html; });
+  }
+
+  function escapeRegex(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function run(q) {
+    restore();
+    q = q.trim();
+    clr.classList.toggle('on', q.length > 0);
+    if (!q) {
+      chapters.forEach(function(c) { c.style.display = ''; });
+      if (noRes) noRes.classList.remove('on');
+      return;
+    }
+    var re = new RegExp('(' + escapeRegex(q) + ')', 'gi');
+    var any = false;
+    chapters.forEach(function(c) {
+      if (c.textContent.toLowerCase().indexOf(q.toLowerCase()) !== -1) {
+        c.style.display = '';
+        any = true;
+        originals.forEach(function(o) {
+          if (c.contains(o.el)) {
+            o.el.innerHTML = o.html.replace(re, '<mark class="hl">$1</mark>');
+          }
+        });
+      } else {
+        c.style.display = 'none';
+      }
+    });
+    if (noRes) noRes.classList.toggle('on', !any);
+  }
+
+  inp.addEventListener('input', function() { run(inp.value); });
+  clr.addEventListener('click', function() { inp.value = ''; run(''); });
+  setTimeout(collectOriginals, 300);
+})();
+</script>
+</body>
+</html>

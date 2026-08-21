@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heimkoma Passport | Discover More of Iceland</title>
+<meta name="description" content="Join Heimkoma Passport and receive travel inspiration, seasonal guides, exclusive updates and early access to new premium holiday homes across Iceland.">
+<link rel="canonical" href="https://heimkoma.app/passport">
+<meta property="og:title" content="Heimkoma Passport | Discover More of Iceland">
+<meta property="og:description" content="Join Heimkoma Passport and receive travel inspiration, seasonal guides, exclusive updates and early access to new premium holiday homes across Iceland.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1F3D59; --navy-deep: #152b40; --navy-mid: #2a4f72;
+    --sky: #8AB9ED; --sand: #D4CEBE; --sand-light: #ece8e1;
+    --charcoal: #36393E; --gold: #FDB400; --gold-light: #fec84b;
+    --fog: #F7FBFE; --white: #ffffff; --text-dark: #1a1a1a; --text-mid: #555;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); font-weight: 300; color: var(--text-dark); background: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 4rem; transition: background .4s, box-shadow .4s, padding .4s; }
+  nav.scrolled { background: rgba(255,255,255,.97); box-shadow: 0 1px 0 rgba(0,0,0,.07); padding: .9rem 4rem; }
+  .nav-logo { display: block; text-decoration: none; line-height: 0; }
+  .nav-logo .lw { display: block; } .nav-logo .ld { display: none; }
+  nav.scrolled .nav-logo .lw { display: none; } nav.scrolled .nav-logo .ld { display: block; }
+  .nav-logo svg { height: 24px; width: auto; }
+  .nav-cta { background: var(--gold); color: var(--navy-deep); border: none; padding: .65rem 1.6rem; font-family: var(--sans); font-weight: 500; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background .2s; white-space: nowrap; }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* PHOTOS */
+  .ph { position: relative; overflow: hidden; display: flex; align-items: flex-end; background: linear-gradient(150deg,#0d2135 0%,#1F3D59 45%,#3a7090 100%); }
+  .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* HERO */
+  #hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+  #hero .hero-bg { position: absolute; inset: 0; }
+  #hero .hero-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,31,48,.35) 0%, rgba(13,31,48,.55) 60%, rgba(13,31,48,.85) 100%); }
+  .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 760px; margin: 0 auto; padding: 9rem 2rem 6rem; text-align: center; }
+  .hero-eyebrow { font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.6rem; font-weight: 400; display: flex; align-items: center; justify-content: center; gap: .9rem; }
+  .hero-eyebrow::before, .hero-eyebrow::after { content:''; display:block; width:2rem; height:1px; background:var(--gold); }
+  h1.hero-headline { font-family: var(--serif); font-weight: 400; font-size: clamp(3rem,7vw,5.4rem); line-height: 1.05; color: var(--white); margin-bottom: 1.1rem; letter-spacing: -.01em; }
+  .hero-sub-lead { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(1.3rem,2vw,1.6rem); color: var(--sky); margin-bottom: 1.6rem; }
+  .hero-sub { font-size: 1rem; font-weight: 300; line-height: 1.85; color: rgba(255,255,255,.75); max-width: 520px; margin: 0 auto 2.6rem; }
+  .hero-actions { display: flex; justify-content: center; }
+  .btn-primary { background: var(--gold); color: var(--navy-deep); padding: 1rem 2.6rem; font-family: var(--sans); font-weight: 500; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background .2s, transform .15s; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--navy); padding: .9rem 2.2rem; font-family: var(--sans); font-weight: 400; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; border: 1px solid rgba(31,61,89,.3); cursor: pointer; text-decoration: none; display: inline-block; transition: all .2s; }
+  .btn-outline:hover { border-color: var(--navy); background: rgba(31,61,89,.05); }
+  .hero-fine { margin-top: 2.2rem; font-size: .72rem; letter-spacing: .06em; color: rgba(255,255,255,.55); display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+  .hero-fine span:not(:last-child)::after { content: '·'; margin-left: .6rem; color: rgba(255,255,255,.3); }
+  .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .5rem; color: rgba(255,255,255,.5); font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; }
+  .scroll-line { width: 1px; height: 36px; background: rgba(255,255,255,.3); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:.2}50%{opacity:.7} }
+
+  section { padding: 6rem 4rem; }
+  .si { max-width: 1100px; margin: 0 auto; }
+  .eyebrow { font-size: .7rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); font-weight: 400; margin-bottom: 1rem; display: flex; align-items: center; gap: .7rem; }
+  .eyebrow::before { content:''; display:block; width:1.5rem; height:1px; background:var(--gold); }
+  h2.st { font-family: var(--serif); font-weight: 300; font-size: clamp(1.9rem,3vw,2.9rem); line-height: 1.15; color: var(--navy); margin-bottom: 1.2rem; }
+  h2.st em { font-style: italic; }
+  .sb { font-size: .97rem; font-weight: 300; line-height: 1.9; color: var(--text-mid); max-width: 560px; }
+  .sb + .sb { margin-top: 1.1rem; }
+  .dv { width: 2.5rem; height: 1px; background: var(--gold); margin: 1.4rem 0; }
+  .fu { opacity:0; transform:translateY(22px); transition:opacity .7s ease,transform .7s ease; }
+  .fu.vis { opacity:1; transform:none; }
+
+  /* WHY JOIN */
+  #why { background: var(--fog); border-top: 1px solid rgba(31,61,89,.06); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; margin-top: 3rem; }
+  .why-grid .ph { aspect-ratio: 4/5; }
+
+  /* BENEFIT CARDS */
+  #receive { background: var(--white); }
+  .bene-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(31,61,89,.08); margin-top:3.5rem; }
+  .bene-item { background:var(--white); padding:2.2rem 2rem; transition:background .3s; }
+  .bene-item:hover { background:var(--fog); }
+  .bene-ic { width:44px; height:44px; background:rgba(253,180,0,.10); display:flex; align-items:center; justify-content:center; margin-bottom:1.2rem; }
+  .bene-ic svg { width:20px; height:20px; stroke:var(--gold); fill:none; stroke-width:1.5; }
+  .bene-t { font-family:var(--serif); font-size:1.2rem; font-weight:400; color:var(--navy); margin-bottom:.6rem; }
+  .bene-x { font-size:.85rem; font-weight:300; line-height:1.8; color:var(--text-mid); }
+  .mid-cta { text-align: center; margin-top: 4rem; padding-top: 4rem; border-top: 1px solid rgba(31,61,89,.08); }
+  .mid-cta h3 { font-family: var(--serif); font-weight: 300; font-size: clamp(1.6rem,2.5vw,2.2rem); color: var(--navy); margin-bottom: .4rem; }
+  .mid-cta h3 em { font-style: italic; }
+  .mid-cta p { font-size: .92rem; color: var(--text-mid); margin-bottom: 2rem; }
+
+  /* RETURNING VISITORS */
+  #returning { background: var(--sand-light); }
+  .ret-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 4.5rem; align-items: center; }
+  .ret-grid .ph { aspect-ratio: 5/4; }
+
+  /* DISCOVER MORE */
+  #discover { background: var(--white); }
+  .disc-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4.5rem; align-items: center; }
+  .disc-grid .ph { aspect-ratio: 4/5; }
+  blockquote.cq { font-family:var(--serif); font-size:clamp(1.2rem,1.7vw,1.5rem); font-weight:300; font-style:italic; color:var(--navy); line-height:1.5; border-left:3px solid var(--gold); padding-left:1.3rem; margin: 1.3rem 0; }
+
+  /* ABOUT */
+  #about { background: var(--navy); }
+  #about .eyebrow { color: var(--gold); }
+  #about h2.st { color: var(--white); }
+  #about .sb { color: rgba(255,255,255,.6); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; }
+  .about-grid .ph { aspect-ratio: 16/10; }
+
+  /* FINAL CTA / FORM */
+  #cta { background:linear-gradient(150deg,#0d1f30 0%,#1F3D59 55%,#2a4f72 100%); padding:7rem 4rem; position:relative; overflow:hidden; }
+  #cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(253,180,0,.09) 0%,transparent 70%); }
+  .cta-inner { position:relative; z-index:1; max-width:980px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+  .cta-ey { font-size:.7rem; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; display:flex; align-items:center; gap:.7rem; }
+  .cta-ey::before { content:''; display:block; width:1.5rem; height:1px; background:var(--gold); }
+  h2.cta-h { font-family:var(--serif); font-size:clamp(2rem,3.5vw,3.1rem); font-weight:300; font-style:italic; color:var(--white); line-height:1.15; margin-bottom:1.2rem; }
+  .cta-sub { font-size:.92rem; font-weight:300; color:rgba(255,255,255,.6); line-height:1.85; margin-bottom:1.5rem; }
+  .form-hdg { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:1.2rem; }
+
+  /* HubSpot overrides */
+  .hsw .hs-form fieldset { max-width:100% !important; }
+  .hsw .hs-form .hs-input { width:100% !important; background:rgba(255,255,255,.08) !important; border:1px solid rgba(255,255,255,.2) !important; color:#fff !important; font-family:var(--sans) !important; font-size:.88rem !important; font-weight:300 !important; padding:.8rem 1rem !important; border-radius:0 !important; box-shadow:none !important; outline:none !important; }
+  .hsw .hs-form .hs-input:focus { border-color:rgba(255,255,255,.5) !important; background:rgba(255,255,255,.13) !important; }
+  .hsw .hs-form .hs-input option { background:var(--navy-deep); color:#fff; }
+  .hsw .hs-form label { font-family:var(--sans) !important; font-size:.7rem !important; letter-spacing:.15em !important; text-transform:uppercase !important; font-weight:400 !important; color:rgba(255,255,255,.45) !important; margin-bottom:.4rem !important; display:block !important; }
+  .hsw .hs-form .hs-form-field { margin-bottom:1rem !important; }
+  .hsw .hs-form .hs-form-booleancheckbox-display { display:flex !important; align-items:flex-start !important; gap:.6rem !important; font-size:.78rem !important; font-weight:300 !important; letter-spacing:0 !important; text-transform:none !important; color:rgba(255,255,255,.55) !important; }
+  .hsw .hs-form .hs-form-booleancheckbox-display input { margin-top:.25rem !important; }
+  .hsw .hs-form .hs-button { background:var(--gold) !important; color:var(--navy-deep) !important; border:none !important; border-radius:0 !important; font-family:var(--sans) !important; font-size:.8rem !important; font-weight:500 !important; letter-spacing:.1em !important; text-transform:uppercase !important; padding:.9rem 2rem !important; cursor:pointer !important; width:100% !important; transition:background .2s !important; margin-top:.4rem !important; }
+  .hsw .hs-form .hs-button:hover { background:var(--gold-light) !important; }
+  .hsw .hs-form .hs-error-msgs { list-style:none !important; }
+  .hsw .hs-form .hs-error-msgs li label { color:#f9a8a8 !important; font-size:.72rem !important; letter-spacing:.05em !important; text-transform:none !important; }
+  .hsw .submitted-message { font-family:var(--serif) !important; font-size:1.3rem !important; font-weight:300 !important; color:var(--gold) !important; line-height:1.6 !important; }
+
+  /* Light HubSpot variant (for section on white/sand background) */
+  .hsw.hsw-light .hs-form .hs-input { background:rgba(31,61,89,.04) !important; border:1px solid rgba(31,61,89,.18) !important; color:var(--text-dark) !important; }
+  .hsw.hsw-light .hs-form .hs-input:focus { border-color:var(--navy) !important; background:rgba(31,61,89,.07) !important; }
+  .hsw.hsw-light .hs-form label { color:rgba(31,61,89,.5) !important; }
+  .hsw.hsw-light .hs-form .hs-form-booleancheckbox-display { color:var(--text-mid) !important; }
+  .hsw.hsw-light .hs-form .hs-button { background:var(--navy) !important; color:#fff !important; }
+  .hsw.hsw-light .hs-form .hs-button:hover { background:var(--navy-mid) !important; }
+  .hsw.hsw-light .submitted-message { color:var(--navy) !important; }
+
+  /* Fallback form */
+  .fb-form { display:flex; flex-direction:column; gap:.85rem; }
+  .fb-field { display:flex; flex-direction:column; gap:.35rem; }
+  .fb-label { font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.4); font-weight:400; }
+  .fb-input, .fb-select { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); color:var(--white); font-family:var(--sans); font-size:.88rem; font-weight:300; padding:.8rem 1rem; outline:none; appearance:none; width:100%; transition:border-color .2s,background .2s; }
+  .fb-input:focus, .fb-select:focus { border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.12); }
+  .fb-input::placeholder { color:rgba(255,255,255,.25); }
+  .fb-select option { background:#152b40; color:var(--white); }
+  .fb-grid { display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+  .fb-consent { display:flex; align-items:flex-start; gap:.6rem; font-size:.78rem; font-weight:300; line-height:1.6; color:rgba(255,255,255,.55); }
+  .fb-consent input { margin-top:.25rem; flex-shrink:0; }
+  .fb-submit { background:var(--gold); color:var(--navy-deep); border:none; font-family:var(--sans); font-size:.8rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; padding:.9rem; cursor:pointer; margin-top:.4rem; transition:background .2s; width:100%; }
+  .fb-submit:hover { background:var(--gold-light); }
+  .fb-note { font-size:.72rem; color:rgba(255,255,255,.3); margin-top:.6rem; font-weight:300; }
+  .fb-success { display:none; font-family:var(--serif); font-size:1.3rem; font-weight:300; color:var(--gold); line-height:1.6; }
+
+  /* Light fallback (mid-page form on white bg) */
+  .hsw-light .fb-label { color:rgba(31,61,89,.5); }
+  .hsw-light .fb-input, .hsw-light .fb-select { background:rgba(31,61,89,.04); border:1px solid rgba(31,61,89,.18); color:var(--text-dark); }
+  .hsw-light .fb-input::placeholder { color:rgba(31,61,89,.3); }
+  .hsw-light .fb-consent { color:var(--text-mid); }
+  .hsw-light .fb-submit { background:var(--navy); color:#fff; }
+  .hsw-light .fb-submit:hover { background:var(--navy-mid); }
+  .hsw-light .fb-note { color:rgba(31,61,89,.4); }
+  .hsw-light .fb-success { color:var(--navy); }
+
+  footer { background:var(--charcoal); padding:3rem 4rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; }
+  .footer-logo svg { height:22px; width:auto; opacity:.55; }
+  .footer-links { display:flex; gap:2rem; }
+  .footer-links a { font-size:.75rem; font-weight:300; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); text-decoration:none; transition:color .2s; }
+  .footer-links a:hover { color:rgba(255,255,255,.7); }
+  .footer-legal { font-size:.7rem; color:rgba(255,255,255,.22); font-weight:300; }
+
+  @media (max-width:960px) {
+    nav { padding:1rem 1.5rem; } nav.scrolled { padding:.75rem 1.5rem; }
+    section { padding:4rem 1.5rem; }
+    .hero-inner { padding:7rem 1.5rem 4rem; }
+    .why-grid, .ret-grid, .disc-grid, .about-grid, .cta-inner { grid-template-columns:1fr; gap:2.5rem; }
+    .ret-grid { direction: ltr; }
+    .bene-grid { grid-template-columns:1fr 1fr; }
+    #cta { padding:4.5rem 1.5rem; }
+    footer { flex-direction:column; align-items:flex-start; padding:2.5rem 1.5rem; }
+  }
+  @media (max-width:600px) {
+    .bene-grid, .fb-grid { grid-template-columns:1fr; }
+    .hero-fine { flex-direction: column; gap: .3rem; }
+    .hero-fine span::after { display: none; }
+  }
+</style>
+</head>
+<body id="top">
+
+<nav id="main-nav">
+  <a href="#top" class="nav-logo">
+    <svg class="lw" viewBox="0 0 1252 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#c1)"><path d="M60.5 0H3.8C1.8 0 .2 1.6.2 3.6v131.6c0 3.1 3.8 4.7 6.1 2.6L62.8 85.4c.7-.7 1.1-1.6 1.1-2.6L64.1 3.6C64.1 1.6 62.5 0 60.5 0z" fill="#fff"/><path d="M174.3 0h54c2 0 3.6 1.6 3.6 3.6V135c0 3.1-3.8 4.7-6.1 2.5L172 85.4c-.7-.7-1.1-1.6-1.1-2.5l-.2-79.3c0-2-1.6-3.6-3.6-3.6z" fill="#fff"/><path d="M113.3 83.4L1.2 188.9c-.8.7-1.2 1.7-1.2 2.7v23.6C0 217.3 1.7 219 3.8 219h63.4c1 0 2-.4 2.7-1.1l42.4-42c1.5-1.5 3.9-1.5 5.4 0l43.4 43c.7.7 1.7 1.1 2.7 1.1h64.3c2.1 0 3.8-1.7 3.8-3.8v-21.5c0-1-.4-2-1.2-2.7L118.6 83.4c-1.5-1.4-3.8-1.4-5.3 0z" fill="#fff"/></g>
+      <path d="M1252 164h-15.7l-11-26.4h-39.7l-11 26.4h-15.2l43.5-103.5h5.6L1252 164zm-32-38.7-10.1-25c-1.4-3.4-3-8.2-4.3-12.5h-.3c-1.1 4.3-2.9 9.1-4.3 12.5l-10.1 25z" fill="#fff"/>
+      <path d="M1132.9 164h-14.7l-4.2-46.1c-.6-6.9-1.3-15.7-1.6-23.2h-.3c-3.2 7.2-8.2 17.1-11.6 23.6L1076.9 165h-5.7l-24-46.4c-3.5-6.7-7.8-15.8-11.3-23.3h-.3c-.3 7.8-1.1 16.8-1.6 22.8L1029.9 164H1016l8.8-102.1h9.6l27.2 52.5c4 7.8 9.5 18.4 12.8 26.2h.3c3.2-7.8 8.2-17.7 12.5-26.2l26.9-52.5h9.6z" fill="#fff"/>
+      <path d="M986.7 112.8c0 33.1-26.9 53.1-54.1 53.1s-54.1-20-54.1-53.1c0-32.8 26.9-53 54.1-53s54.1 20.2 54.1 53zm-15.7.3c0-25.3-19.8-39.5-38.4-39.5-18.9 0-38.4 14.2-38.4 39.5s19.5 39.7 38.4 39.7c18.6 0 38.4-14.4 38.4-39.7z" fill="#fff"/>
+      <path d="M860.3 164h-20l-39-47.8h-.2V164h-15.5V61.9h15.5v48.2h.2l40.1-48.2h17.4l-42 49.8z" fill="#fff"/>
+      <path d="M751.9 164h-14.7l-4.2-46.1c-.6-6.9-1.2-15.7-1.5-23.2h-.3c-3.2 7.2-8.2 17.1-11.5 23.6L695.9 165h-5.8l-24-46.4c-3.5-6.7-7.8-15.8-11.3-23.3h-.3c-.3 7.8-1.1 16.8-1.6 22.8L648.9 164H635l8.8-102.1h9.6l27.2 52.5c4 7.8 9.5 18.4 12.8 26.2h.3c3.2-7.8 8.2-17.7 12.5-26.2l26.9-52.5h9.6z" fill="#fff"/>
+      <path d="M599.9 164h-15.5V61.9h15.5zM555.6 164h-60.7V61.9H550v13.3h-39.5v30.9h33.1v13.3h-33.1v31.3h45.1zM458.1 164h-15.5v-44.6h-52.7V164h-15.5V61.9h15.5v44.2h52.7V61.9h15.5z" fill="#fff"/>
+      <defs><clipPath id="c1"><rect width="232" height="220" fill="#fff"/></clipPath></defs>
+    </svg>
+    <svg class="ld" viewBox="0 0 1252 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#c2)"><path d="M60.5 0H3.8C1.8 0 .2 1.6.2 3.6v131.6c0 3.1 3.8 4.7 6.1 2.6L62.8 85.4c.7-.7 1.1-1.6 1.1-2.6L64.1 3.6C64.1 1.6 62.5 0 60.5 0z" fill="#1F3D59"/><path d="M174.3 0h54c2 0 3.6 1.6 3.6 3.6V135c0 3.1-3.8 4.7-6.1 2.5L172 85.4c-.7-.7-1.1-1.6-1.1-2.5l-.2-79.3c0-2-1.6-3.6-3.6-3.6z" fill="#1F3D59"/><path d="M113.3 83.4L1.2 188.9c-.8.7-1.2 1.7-1.2 2.7v23.6C0 217.3 1.7 219 3.8 219h63.4c1 0 2-.4 2.7-1.1l42.4-42c1.5-1.5 3.9-1.5 5.4 0l43.4 43c.7.7 1.7 1.1 2.7 1.1h64.3c2.1 0 3.8-1.7 3.8-3.8v-21.5c0-1-.4-2-1.2-2.7L118.6 83.4c-1.5-1.4-3.8-1.4-5.3 0z" fill="#1F3D59"/></g>
+      <path d="M1252 164h-15.7l-11-26.4h-39.7l-11 26.4h-15.2l43.5-103.5h5.6L1252 164zm-32-38.7-10.1-25c-1.4-3.4-3-8.2-4.3-12.5h-.3c-1.1 4.3-2.9 9.1-4.3 12.5l-10.1 25z" fill="#1F3D59"/>
+      <path d="M1132.9 164h-14.7l-4.2-46.1c-.6-6.9-1.3-15.7-1.6-23.2h-.3c-3.2 7.2-8.2 17.1-11.6 23.6L1076.9 165h-5.7l-24-46.4c-3.5-6.7-7.8-15.8-11.3-23.3h-.3c-.3 7.8-1.1 16.8-1.6 22.8L1029.9 164H1016l8.8-102.1h9.6l27.2 52.5c4 7.8 9.5 18.4 12.8 26.2h.3c3.2-7.8 8.2-17.7 12.5-26.2l26.9-52.5h9.6z" fill="#1F3D59"/>
+      <path d="M986.7 112.8c0 33.1-26.9 53.1-54.1 53.1s-54.1-20-54.1-53.1c0-32.8 26.9-53 54.1-53s54.1 20.2 54.1 53zm-15.7.3c0-25.3-19.8-39.5-38.4-39.5-18.9 0-38.4 14.2-38.4 39.5s19.5 39.7 38.4 39.7c18.6 0 38.4-14.4 38.4-39.7z" fill="#1F3D59"/>
+      <path d="M860.3 164h-20l-39-47.8h-.2V164h-15.5V61.9h15.5v48.2h.2l40.1-48.2h17.4l-42 49.8zM751.9 164h-14.7l-4.2-46.1c-.6-6.9-1.2-15.7-1.5-23.2h-.3c-3.2 7.2-8.2 17.1-11.5 23.6L695.9 165h-5.8l-24-46.4c-3.5-6.7-7.8-15.8-11.3-23.3h-.3c-.3 7.8-1.1 16.8-1.6 22.8L648.9 164H635l8.8-102.1h9.6l27.2 52.5c4 7.8 9.5 18.4 12.8 26.2h.3c3.2-7.8 8.2-17.7 12.5-26.2l26.9-52.5h9.6zM599.9 164h-15.5V61.9h15.5zM555.6 164h-60.7V61.9H550v13.3h-39.5v30.9h33.1v13.3h-33.1v31.3h45.1zM458.1 164h-15.5v-44.6h-52.7V164h-15.5V61.9h15.5v44.2h52.7V61.9h15.5z" fill="#1F3D59"/>
+      <defs><clipPath id="c2"><rect width="232" height="220" fill="#fff"/></clipPath></defs>
+    </svg>
+  </a>
+  <a href="#join" class="nav-cta">Join Passport</a>
+</nav>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg ph"><img src="images/image1.jpg" alt="Dramatic Icelandic highlands with a glacial lake at sunset"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Heimkoma &middot; Iceland</div>
+    <h1 class="hero-headline">Heimkoma Passport</h1>
+    <p class="hero-sub-lead">Your passport to discovering more of Iceland.</p>
+    <p class="hero-sub">Join travellers from around the world who love Iceland and receive carefully selected travel inspiration, seasonal guides, exclusive updates and early access to new Heimkoma homes.</p>
+    <div class="hero-actions">
+      <a href="#join" class="btn-primary">Join Heimkoma Passport</a>
+    </div>
+    <div class="hero-fine">
+      <span>Free to join</span>
+      <span>No membership fee</span>
+      <span>Unsubscribe at any time</span>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
+</section>
+
+<!-- ═══════════════════════════════════
+     WHY JOIN
+═══════════════════════════════════ -->
+<section id="why">
+  <div class="si">
+    <div class="why-grid">
+      <div class="ph fu"><img src="images/image4.jpg" alt="Wild lupine fields with distant sea stacks veiled in fog"></div>
+      <div class="fu" style="transition-delay:.15s">
+        <div class="eyebrow">Why Join</div>
+        <h2 class="st">Why Join Heimkoma <em>Passport?</em></h2>
+        <div class="dv"></div>
+        <p class="sb">Iceland is a country you'll never fully discover in just one visit.</p>
+        <p class="sb">Whether you've already fallen in love with Iceland or you're dreaming about your next adventure, Heimkoma Passport helps you discover more of what makes this country extraordinary.</p>
+        <p class="sb">A few times each year we'll share carefully selected inspiration, new destinations, seasonal travel ideas and exclusive updates from Heimkoma.</p>
+        <p class="sb">We only send emails when we have something genuinely worth sharing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     WHAT YOU'LL RECEIVE
+═══════════════════════════════════ -->
+<section id="receive">
+  <div class="si">
+    <div class="fu"><div class="eyebrow">Member Benefits</div><h2 class="st">What You'll <em>Receive</em></h2></div>
+    <div class="bene-grid fu" style="transition-delay:.1s">
+      <div class="bene-item">
+        <div class="bene-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36z"/></svg></div>
+        <div class="bene-t">Travel Inspiration</div>
+        <div class="bene-x">Beautiful destinations, hidden gems and seasonal travel ideas from across Iceland.</div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+        <div class="bene-t">New Premium Homes</div>
+        <div class="bene-x">Be among the first to discover new Heimkoma homes in beautiful locations around Iceland.</div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 16l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg></div>
+        <div class="bene-t">Passport Privileges</div>
+        <div class="bene-x">Occasional returning guest benefits, early access to selected opportunities and exclusive Passport updates.</div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="bene-t">Seasonal Guides</div>
+        <div class="bene-x">Northern Lights, summer adventures, Christmas escapes, road trips and much more.</div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="bene-t">Local Recommendations</div>
+        <div class="bene-x">Restaurants, caf&eacute;s, attractions and experiences recommended by people who know Iceland.</div>
+      </div>
+      <div class="bene-item">
+        <div class="bene-ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+        <div class="bene-t">Inspiration Worth Reading</div>
+        <div class="bene-x">Interesting stories and ideas &mdash; not weekly marketing emails.</div>
+      </div>
+    </div>
+
+    <div class="mid-cta fu" style="transition-delay:.1s">
+      <h3>Ready for your next <em>Icelandic adventure?</em></h3>
+      <p>Join Heimkoma Passport today.</p>
+
+      <div class="hsw hsw-light" style="max-width:480px;margin:0 auto;text-align:left;">
+        <!--
+          ══════════════════════════════════════════════
+          HUBSPOT FORM (mid-page) — add your IDs before going live
+          ──────────────────────────────────────────────
+          Same form as the one at the bottom of the page.
+          Replace YOUR_PORTAL_ID and YOUR_FORM_ID below.
+          ══════════════════════════════════════════════
+        -->
+        <div id="hs-form-mid"></div>
+        <template id="fb-tpl-mid">
+          <form class="fb-form" onsubmit="fbSubmit(event,'fb-ok-mid')">
+            <div class="fb-grid">
+              <div class="fb-field"><label class="fb-label">First name</label><input class="fb-input" type="text" placeholder="Anna" required></div>
+              <div class="fb-field"><label class="fb-label">Last name</label><input class="fb-input" type="text" placeholder="Schmidt" required></div>
+            </div>
+            <div class="fb-field"><label class="fb-label">Email</label><input class="fb-input" type="email" placeholder="anna@example.com" required></div>
+            <div class="fb-field"><label class="fb-label">Country</label><input class="fb-input" type="text" placeholder="Germany" required></div>
+            <label class="fb-consent"><input type="checkbox" required>I agree to receive occasional emails from Heimkoma and understand that I can unsubscribe at any time.</label>
+            <button type="submit" class="fb-submit">Join Heimkoma Passport</button>
+            <p class="fb-note">Free to join. No membership fee. No spam.</p>
+          </form>
+          <div id="fb-ok-mid" class="fb-success">Welcome to Heimkoma Passport &mdash; check your inbox to confirm.</div>
+        </template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     RETURNING VISITORS
+═══════════════════════════════════ -->
+<section id="returning">
+  <div class="si">
+    <div class="ret-grid">
+      <div class="fu">
+        <div class="eyebrow">For Returning Guests</div>
+        <h2 class="st">Already Stayed <em>With Us?</em></h2>
+        <div class="dv"></div>
+        <p class="sb">Thank you for choosing Heimkoma. We hope your stay was filled with unforgettable memories.</p>
+        <p class="sb">Joining Heimkoma Passport is the easiest way to stay connected and discover even more of Iceland before your next visit.</p>
+        <p class="sb">You'll receive inspiration, new destinations and occasional Passport privileges reserved for our community.</p>
+      </div>
+      <div class="ph fu" style="transition-delay:.15s"><img src="images/image3.jpg" alt="H&uacute;sav&iacute;k harbour with traditional boats and colourful houses beneath a snow-capped mountain"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     DISCOVER MORE WITH HEIMKOMA
+═══════════════════════════════════ -->
+<section id="discover">
+  <div class="si">
+    <div class="disc-grid">
+      <div class="ph fu"><img src="images/image6.jpg" alt="A premium Heimkoma holiday home in Iceland"></div>
+      <div class="fu" style="transition-delay:.15s">
+        <div class="eyebrow">Beyond Passport</div>
+        <h2 class="st">There's More Than <em>One Way</em> to Enjoy Iceland</h2>
+        <div class="dv"></div>
+        <p class="sb">Many of our guests return to Iceland year after year. Some eventually begin dreaming about owning a holiday home here.</p>
+        <blockquote class="cq">Most people assume buying an entire property is the only option. It isn't.</blockquote>
+        <p class="sb">Heimkoma also helps families enjoy premium holiday homes through professionally managed shared ownership. Instead of owning an entire home, you can own a share in one carefully selected holiday home &mdash; or even a portfolio of homes located in different parts of Iceland.</p>
+        <p class="sb">We take care of everything, including furnishing, maintenance, bookings and day-to-day management, so you simply enjoy your time in Iceland.</p>
+        <p class="sb">If you'd ever like to learn more, we'd be happy to tell you how it works.</p>
+        <div style="margin-top:2rem;">
+          <a href="https://lp.heimkoma.app/own_in_iceland/" class="btn-outline">Learn More About Shared Ownership</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     ABOUT HEIMKOMA
+═══════════════════════════════════ -->
+<section id="about">
+  <div class="si">
+    <div class="about-grid">
+      <div class="fu">
+        <div class="eyebrow">About Heimkoma</div>
+        <h2 class="st">About <em>Heimkoma</em></h2>
+        <div class="dv"></div>
+        <p class="sb">Heimkoma creates premium holiday experiences while making holiday home ownership simpler than ever.</p>
+        <p class="sb">Whether you're visiting Iceland for the first time, returning every year or exploring the possibility of owning a share in a beautiful holiday home, we're here to help you experience the very best of Iceland.</p>
+      </div>
+      <div class="ph fu" style="transition-delay:.15s"><img src="images/image5.jpg" alt="A red-roofed Icelandic church on the Sn&aelig;fellsnes peninsula with snow-capped mountains behind"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FINAL CTA + FORM
+═══════════════════════════════════ -->
+<section id="cta">
+  <div class="ph" style="position:absolute;inset:0;opacity:.5;"><img src="images/image2.jpg" alt="Reynisfjara black sand beach with sea stacks at dusk"></div>
+  <div class="cta-inner fu">
+    <div>
+      <div class="cta-ey">Join The Community</div>
+      <h2 class="cta-h">Your next Icelandic<br>adventure starts here.</h2>
+      <p class="cta-sub">Join Heimkoma Passport and become part of a community of travellers who share a passion for Iceland. Receive travel inspiration, discover new destinations and be the first to hear about new Heimkoma homes.</p>
+    </div>
+    <div id="join">
+      <div class="form-hdg">Join Heimkoma Passport</div>
+      <div class="hsw">
+        <!--
+          ══════════════════════════════════════════════
+          HUBSPOT FORM (final) — add your IDs before going live
+          ──────────────────────────────────────────────
+          1. Go to HubSpot → Marketing → Forms
+          2. Create a form with fields:
+                First name (required)
+                Last name  (required)
+                Email      (required)
+                Country    (required)
+                Legal consent checkbox:
+                  "I agree to receive occasional emails from
+                   Heimkoma and understand that I can
+                   unsubscribe at any time."
+          3. Copy your Portal ID  →  replace YOUR_PORTAL_ID below
+          4. Copy the Form ID     →  replace YOUR_FORM_ID below
+          5. Set region to "eu1" (EU data centre) or "na1" (US)
+          6. This same form is embedded twice on this page —
+             once here (#hs-form-final) and once mid-page
+             (#hs-form-mid). Update the IDs in the script at
+             the bottom of the page for both.
+          ══════════════════════════════════════════════
+        -->
+        <div id="hs-form-final"></div>
+        <template id="fb-tpl-final">
+          <form class="fb-form" onsubmit="fbSubmit(event,'fb-ok-final')">
+            <div class="fb-grid">
+              <div class="fb-field"><label class="fb-label">First name</label><input class="fb-input" type="text" placeholder="Anna" required></div>
+              <div class="fb-field"><label class="fb-label">Last name</label><input class="fb-input" type="text" placeholder="Schmidt" required></div>
+            </div>
+            <div class="fb-field"><label class="fb-label">Email</label><input class="fb-input" type="email" placeholder="anna@example.com" required></div>
+            <div class="fb-field"><label class="fb-label">Country</label><input class="fb-input" type="text" placeholder="Germany" required></div>
+            <label class="fb-consent"><input type="checkbox" required>I agree to receive occasional emails from Heimkoma and understand that I can unsubscribe at any time.</label>
+            <button type="submit" class="fb-submit">Join Heimkoma Passport</button>
+            <p class="fb-note">Free to join. No membership fee. No spam. Just inspiration worth opening.</p>
+          </form>
+          <div id="fb-ok-final" class="fb-success">Welcome to Heimkoma Passport &mdash; check your inbox to confirm.</div>
+        </template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg viewBox="0 0 1252 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto;opacity:.5">
+    <g clip-path="url(#cf)"><path d="M60.5 0H3.8C1.8 0 .2 1.6.2 3.6v131.6c0 3.1 3.8 4.7 6.1 2.6L62.8 85.4c.7-.7 1.1-1.6 1.1-2.6L64.1 3.6C64.1 1.6 62.5 0 60.5 0z" fill="#fff"/><path d="M174.3 0h54c2 0 3.6 1.6 3.6 3.6V135c0 3.1-3.8 4.7-6.1 2.5L172 85.4c-.7-.7-1.1-1.6-1.1-2.5l-.2-79.3c0-2-1.6-3.6-3.6-3.6z" fill="#fff"/><path d="M113.3 83.4L1.2 188.9c-.8.7-1.2 1.7-1.2 2.7v23.6C0 217.3 1.7 219 3.8 219h63.4c1 0 2-.4 2.7-1.1l42.4-42c1.5-1.5 3.9-1.5 5.4 0l43.4 43c.7.7 1.7 1.1 2.7 1.1h64.3c2.1 0 3.8-1.7 3.8-3.8v-21.5c0-1-.4-2-1.2-2.7L118.6 83.4c-1.5-1.4-3.8-1.4-5.3 0z" fill="#fff"/></g>
+    <path d="M1252 164h-15.7l-11-26.4h-39.7l-11 26.4h-15.2l43.5-103.5h5.6L1252 164zm-32-38.7-10.1-25c-1.4-3.4-3-8.2-4.3-12.5h-.3c-1.1 4.3-2.9 9.1-4.3 12.5l-10.1 25zM1132.9 164h-14.7l-4.2-46.1c-.6-6.9-1.3-15.7-1.6-23.2h-.3c-3.2 7.2-8.2 17.1-11.6 23.6L1076.9 165h-5.7l-24-46.4c-3.5-6.7-7.8-15.8-11.3-23.3h-.3c-.3 7.8-1.1 16.8-1.6 22.8L1029.9 164H1016l8.8-102.1h9.6l27.2 52.5c4 7.8 9.5 18.4 12.8 26.2h.3c3.2-7.8 8.2-17.7 12.5-26.2l26.9-52.5h9.6zM986.7 112.8c0 33.1-26.9 53.1-54.1 53.1s-54.1-20-54.1-53.1c0-32.8 26.9-53 54.1-53s54.1 20.2 54.1 53zm-15.7.3c0-25.3-19.8-39.5-38.4-39.5-18.9 0-38.4 14.2-38.4 39.5s19.5 39.7 38.4 39.7c18.6 0 38.4-14.4 38.4-39.7zM860.3 164h-20l-39-47.8h-.2V164h-15.5V61.9h15.5v48.2h.2l40.1-48.2h17.4l-42 49.8zM751.9 164h-14.7l-4.2-46.1c-.6-6.9-1.2-15.7-1.5-23.2h-.3c-3.2 7.2-8.2 17.1-11.5 23.6L695.9 165h-5.8l-24-46.4c-3.5-6.7-7.8-15.8-11.3-23.3h-.3c-.3 7.8-1.1 16.8-1.6 22.8L648.9 164H635l8.8-102.1h9.6l27.2 52.5c4 7.8 9.5 18.4 12.8 26.2h.3c3.2-7.8 8.2-17.7 12.5-26.2l26.9-52.5h9.6zM599.9 164h-15.5V61.9h15.5zM555.6 164h-60.7V61.9H550v13.3h-39.5v30.9h33.1v13.3h-33.1v31.3h45.1zM458.1 164h-15.5v-44.6h-52.7V164h-15.5V61.9h15.5v44.2h52.7V61.9h15.5z" fill="rgba(255,255,255,.5)"/>
+    <defs><clipPath id="cf"><rect width="232" height="220" fill="#fff"/></clipPath></defs>
+  </svg>
+  <div class="footer-links">
+    <a href="https://heimkoma.app">heimkoma.app</a>
+    <a href="mailto:info@heimkoma.app">Contact</a>
+    <a href="#top">Back to top</a>
+  </div>
+  <div class="footer-legal">&copy; 2026 Heimkoma. All rights reserved. Iceland.</div>
+</footer>
+
+<script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+  const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }); }, { threshold: 0.1 });
+  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+
+  function fbSubmit(e, okId) {
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById(okId).style.display = 'block';
+  }
+
+  /*
+    ══════════════════════════════════════════════
+    HUBSPOT CONFIG — replace before going live
+    ══════════════════════════════════════════════
+  */
+  var HS_REGION   = "eu1";
+  var HS_PORTAL   = "146306237";
+  var HS_FORM     = "354f0207-8396-440c-9b57-f71920fc43de";
+
+  function mountForm(targetId, fallbackTplId) {
+    if (typeof hbspt !== 'undefined' && HS_PORTAL !== 'YOUR_PORTAL_ID' && HS_FORM !== 'YOUR_FORM_ID') {
+      hbspt.forms.create({
+        region: HS_REGION,
+        portalId: HS_PORTAL,
+        formId: HS_FORM,
+        target: '#' + targetId
+      });
+    } else {
+      var target = document.getElementById(targetId);
+      var tpl = document.getElementById(fallbackTplId);
+      if (target && tpl) target.innerHTML = tpl.innerHTML;
+    }
+  }
+
+  function initForms() {
+    mountForm('hs-form-mid', 'fb-tpl-mid');
+    mountForm('hs-form-final', 'fb-tpl-final');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initForms);
+  } else {
+    initForms();
+  }
+</script>
+</body>
+</html>
