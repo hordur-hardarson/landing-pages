@@ -528,7 +528,8 @@ code {
   font-weight: 400;
   margin-top: 4px;
 }
-.ec-card a { color: inherit; }
+.ec-card a { color: #fff; text-decoration: none; }
+.ec-card a:hover { color: var(--gold-l); }
 
 /* FAB */
 .fab {
@@ -578,6 +579,108 @@ code {
 }
 
 /* SEARCH HIGHLIGHT */
+
+/* FINAL NOTE */
+.final-note {
+  background: var(--navy);
+  padding: 64px 28px 72px;
+  text-align: center;
+  border-top: 3px solid var(--gold);
+}
+.fn-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 28px;
+  line-height: 1.15;
+}
+.fn-body {
+  max-width: 560px;
+  margin: 0 auto;
+  color: rgba(255,255,255,.62);
+  font-size: .97rem;
+  line-height: 1.8;
+}
+.fn-body p { margin-bottom: 16px; }
+.fn-body p:last-child { margin-bottom: 0; }
+.fn-closing {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--gold-l);
+}
+.fn-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+  margin: 40px auto 0;
+  opacity: .9;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* PWA INSTALL BANNER */
+.pwa-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 300;
+  background: var(--navy-d);
+  border-top: 2px solid var(--gold);
+  padding: 14px 18px 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,.3);
+}
+.pwa-banner.hidden { display: none; }
+.pwa-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.pwa-text { flex: 1; }
+.pwa-text strong {
+  display: block;
+  font-size: .85rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.pwa-text span {
+  font-size: .75rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.4;
+}
+.pwa-btn {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.pwa-dismiss {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.4);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
 mark.hl {
   background: rgba(196,154,58,.3);
   color: inherit;
@@ -609,13 +712,19 @@ mark.hl {
   .dcard { grid-template-columns: 1fr; }
 }
 </style>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1C3A5C">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Húsafell">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="site-header" id="top">
   <div class="logo-row">
-    <img src="https://heimkoma.app/guest_handbook/images/logo.svg" alt="Heimkoma" class="logo-img">
+    <img loading="lazy" src="https://heimkoma.app/guest_handbook/images/logo.svg" width="200" height="50" alt="Heimkoma" class="logo-img">
     <div class="logo-sep"></div>
     <span class="logo-lbl">Guest Handbook</span>
   </div>
@@ -713,7 +822,7 @@ mark.hl {
   <div class="sub">
     <span class="sub-lbl">Master Electricity Switch &#9888;&#65039;</span>
     <p>Inside the front door, look to the <strong>right-hand side</strong> &mdash; a light switch above the security system. This is the <strong>master electricity switch</strong>. You do not need to operate the security system.</p>
-    <img src="images/master-switch.jpeg" alt="Master electricity switch inside entrance" style="width:100%;border-radius:5px;display:block;">
+    <img loading="lazy" src="images/master-switch.jpeg" width="1200" height="1933" alt="Master electricity switch inside entrance" style="width:100%;border-radius:5px;display:block;">
     <div class="two-col">
       <div class="lblock">
         <span class="lb-lbl">On Arrival</span>
@@ -801,7 +910,7 @@ mark.hl {
       <li>Ice is ready in approximately 10 minutes</li>
     </ol>
     <p style="margin-top:10px;font-size:.87rem;color:var(--muted);">To empty: remove the plug in the front right corner underneath &mdash; drain into the sink. No need to turn off at checkout.</p>
-    <img src="images/ice-machine.jpeg" alt="Ice machine in laundry room" style="width:100%;border-radius:5px;display:block;">
+    <img loading="lazy" src="images/ice-machine.jpeg" width="1200" height="1600" alt="Ice machine in laundry room" style="width:100%;border-radius:5px;display:block;">
   </div>
 
   <div class="divider"></div>
@@ -828,7 +937,7 @@ mark.hl {
       <li>Sauna turns off automatically when the timer runs out</li>
       <li>Always double-check it is OFF before leaving the house</li>
     </ul>
-    <img src="images/sauna-controls.jpeg" alt="Sauna control panel" style="width:100%;border-radius:5px;display:block;">
+    <img loading="lazy" src="images/sauna-controls.jpeg" width="1200" height="562" alt="Sauna control panel" style="width:100%;border-radius:5px;display:block;">
   </div>
 
   <div class="divider"></div>
@@ -839,7 +948,7 @@ mark.hl {
       <span class="w-ico">&#8505;&#65039;</span>
       <div class="w-txt">The control panel is in the <strong>storage room</strong> inside the guest house &mdash; at the opposite end from the entrance.</div>
     </div>
-    <img src="images/hot-tub-controls.jpeg" alt="Hot tub control panel" style="width:100%;border-radius:5px;display:block;">
+    <img loading="lazy" src="images/hot-tub-controls.jpeg" width="455" height="622" alt="Hot tub control panel" style="width:100%;border-radius:5px;display:block;">
 
     <h3>Controls</h3>
     <ul class="blist">
@@ -871,10 +980,10 @@ mark.hl {
     <h3>Lid Instructions</h3>
     <p>The lid is heavy &mdash; two people recommended. <strong>The patio can be very slippery when wet.</strong></p>
     <div class="ph-grid">
-      <div><img src="images/lid1.jpeg" alt="Step 1 — store lid upright" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 1</p></div>
-      <div><img src="images/lid2.jpeg" alt="Step 2 — fold over and adjust" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 2</p></div>
-      <div><img src="images/lid3.jpeg" alt="Step 3 — push under handrail" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 3</p></div>
-      <div><img src="images/lid4.jpeg" alt="Step 4 — secure with latch" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 4</p></div>
+      <div><img loading="lazy" src="images/lid1.jpeg" width="480" height="360" alt="Step 1 — store lid upright" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 1</p></div>
+      <div><img loading="lazy" src="images/lid2.jpeg" width="480" height="360" alt="Step 2 — fold over and adjust" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 2</p></div>
+      <div><img loading="lazy" src="images/lid3.jpeg" width="1200" height="900" alt="Step 3 — push under handrail" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 3</p></div>
+      <div><img loading="lazy" src="images/lid4.jpeg" width="768" height="1024" alt="Step 4 — secure with latch" style="width:100%;height:140px;object-fit:cover;border-radius:5px;display:block;"><p style="font-size:.72rem;text-align:center;margin-top:5px;color:#999;letter-spacing:.1em;text-transform:uppercase;">Step 4</p></div>
     </div>
   </div>
 
@@ -953,7 +1062,7 @@ mark.hl {
     </table>
     <p style="margin-top:12px;font-size:.87rem;color:var(--muted);">Pay via PayPal QR code, on the <a href="https://www.airbnb.com" target="_blank">Airbnb app</a>, or leave cash in the house.</p>
     <div style="padding:16px 0;text-align:center;">
-      <img src="images/paypal-qr.jpeg" alt="PayPal QR code" style="width:220px;max-width:100%;border-radius:5px;display:block;margin:0 auto;">
+      <img loading="lazy" src="images/paypal-qr.jpeg" width="600" height="1303" alt="PayPal QR code" style="width:220px;max-width:100%;border-radius:5px;display:block;margin:0 auto;">
       <p style="font-size:.8rem;color:#999;margin-top:8px;">Scan to pay via PayPal</p>
     </div>
   </div>
@@ -996,7 +1105,7 @@ mark.hl {
     </ul>
     <p style="margin-top:10px;font-size:.87rem;">Trail map: <a href="https://hja.heimkoma.app/s1h1walk" target="_blank">hja.heimkoma.app/s1h1walk</a></p>
     <div style="padding:16px 0;text-align:center;">
-      <img src="images/hiking-qr.png" alt="Hiking trail map QR code" style="width:220px;max-width:100%;border-radius:5px;display:block;margin:0 auto;">
+      <img loading="lazy" src="images/hiking-qr.jpeg" width="400" height="400" alt="Hiking trail map QR code" style="width:220px;max-width:100%;border-radius:5px;display:block;margin:0 auto;">
       <p style="font-size:.8rem;color:#999;margin-top:8px;">Scan for trail map</p>
     </div>
   </div>
@@ -1196,9 +1305,23 @@ mark.hl {
 </main>
 
 <!-- FOOTER -->
+<!-- FINAL NOTE -->
+<section class="final-note">
+  <h2 class="fn-heading">Final Note</h2>
+  <div class="fn-body">
+    <p>We truly hope you enjoy your stay in this Heimkoma home.</p>
+    <p>This house is meant to be enjoyed slowly &mdash; with comfort, space, and nature all around you. Take your time. Open the windows. Step outside in the evening air. Let the silence of H&uacute;safell settle in.</p>
+    <p>Whether you are here to explore, to rest, or simply to spend meaningful time together, we hope this home gives you exactly what you came for &mdash; and perhaps a little more.</p>
+    <p>If there is anything that would make your stay even better, please let us know. We are happy to help.</p>
+    <p>Welcome to your home in Iceland for the next few days.</p>
+    <p class="fn-closing">We hope you leave with beautiful memories and a wish to return.</p>
+  </div>
+  <img src="images/logo-white.png" alt="Heimkoma" class="fn-logo" width="600" height="105" loading="lazy">
+</section>
+
 <footer class="site-footer">
   <p>
-    <img src="https://heimkoma.app/guest_handbook/images/logo.svg" alt="Heimkoma" class="ft-logo">
+    <img loading="lazy" src="https://heimkoma.app/guest_handbook/images/logo.svg" width="200" height="50" alt="Heimkoma" class="ft-logo">
     Heimkoma Guest Handbook &nbsp;&middot;&nbsp; <a href="#top">&#8593; Back to top</a>
   </p>
   <p style="margin-top:5px;font-size:.76rem;">
@@ -1229,7 +1352,11 @@ mark.hl {
         var active = document.querySelector('.nav-pill[data-s="' + e.target.id + '"]');
         if (active) {
           active.classList.add('on');
-          active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          var nav = active.parentElement;
+          var pillRect = active.getBoundingClientRect();
+          var navRect = nav.getBoundingClientRect();
+          var target = nav.scrollLeft + pillRect.left - navRect.left - (nav.clientWidth - pillRect.width) / 2;
+          nav.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
         }
       }
     });
@@ -1342,5 +1469,71 @@ mark.hl {
   setTimeout(collectOriginals, 300);
 })();
 </script>
+
+<!-- PWA INSTALL BANNER -->
+<div class="pwa-banner hidden" id="pwa-banner">
+  <img src="images/icon-192.png" alt="" class="pwa-icon" width="44" height="44">
+  <div class="pwa-text">
+    <strong>Add to Home Screen</strong>
+    <span id="pwa-instructions">Install this handbook for quick access &mdash; works offline too.</span>
+  </div>
+  <button class="pwa-btn" id="pwa-install">Add</button>
+  <button class="pwa-dismiss" id="pwa-dismiss" aria-label="Dismiss">&times;</button>
+</div>
+
+<script>
+/* PWA INSTALL */
+(function() {
+  var KEY = 'hk_pwa_dismissed';
+  if (localStorage.getItem(KEY)) return;
+
+  var banner  = document.getElementById('pwa-banner');
+  var installBtn = document.getElementById('pwa-install');
+  var dismissBtn = document.getElementById('pwa-dismiss');
+  var instructions = document.getElementById('pwa-instructions');
+  var deferredPrompt = null;
+
+  function dismiss() {
+    banner.classList.add('hidden');
+    try { localStorage.setItem(KEY, '1'); } catch(e) {}
+  }
+
+  dismissBtn.addEventListener('click', dismiss);
+
+  // iOS detection
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var isInStandalone = window.navigator.standalone === true;
+
+  if (isIOS && !isInStandalone) {
+    instructions.textContent = 'Tap the share button ⎋ then “Add to Home Screen”.';
+    installBtn.style.display = 'none';
+    setTimeout(function() { banner.classList.remove('hidden'); }, 2000);
+  }
+
+  // Android / Chrome
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    setTimeout(function() { banner.classList.remove('hidden'); }, 2000);
+  });
+
+  installBtn.addEventListener('click', function() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(result) {
+      deferredPrompt = null;
+      dismiss();
+    });
+  });
+
+  // Register service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/s1h1gb/sw.js');
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

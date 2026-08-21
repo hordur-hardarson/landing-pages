@@ -1,0 +1,23 @@
+AKUREYRI GUEST HANDBOOK — DEPLOYMENT
+=====================================
+
+FOLDER STRUCTURE — upload exactly as shown:
+
+  s1h2gb/
+    index.html
+    manifest.json
+    sw.js
+    DEPLOY.txt
+    images/
+      entrance.jpeg
+      lockbox.jpeg
+      overview.jpeg
+      hot-tub-switch.jpeg
+      fireplace.jpeg
+      paypal-qr.jpeg
+      logo-white.png
+      icon-192.png
+      icon-512.png
+
+Upload s1h2gb/ to the same directory as s1h1gb/.
+Page: https://lp.heimkoma.app/s1h2gb/

@@ -1,0 +1,28 @@
+HUSAFELL GUEST HANDBOOK — DEPLOYMENT
+=====================================
+
+FOLDER STRUCTURE — upload exactly as shown:
+
+  s1h1gb/
+    index.html          (rename husafell-handbook.html)
+    manifest.json
+    sw.js               (service worker — enables offline & install prompt)
+    images/
+      master-switch.jpeg
+      ice-machine.jpeg
+      sauna-controls.jpeg
+      hot-tub-controls.jpeg
+      lid1.jpeg
+      lid2.jpeg
+      lid3.jpeg
+      lid4.jpeg
+      paypal-qr.jpeg
+      hiking-qr.jpeg
+      logo-white.png
+      icon-192.png      (PWA icon)
+      icon-512.png      (PWA icon)
+
+IMPORTANT: sw.js and manifest.json must be in the s1h1gb/ root folder
+alongside index.html — not inside images/.
+
+After upload, the page is live at: https://lp.heimkoma.app/s1h1gb/

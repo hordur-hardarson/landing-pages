@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Guest Handbook — Akureyri | Heimkoma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #1C3A5C;
+  --navy-d:    #12263E;
+  --navy-m:    #2A4D72;
+  --gold:      #C49A3A;
+  --gold-l:    #D4B060;
+  --white:     #FFFFFF;
+  --off:       #F7F7F5;
+  --card:      #FAFAF8;
+  --text:      #1A1A1A;
+  --text-m:    #3C3C3C;
+  --muted:     #6B6B6B;
+  --border:    #E0E0DA;
+  --border-l:  #EBEBE6;
+  --warn-bg:   #FFFBEF;
+  --warn-bdr:  #C49A3A;
+  --red-bg:    #FFF4F4;
+  --red-bdr:   #B84040;
+  --green-ok:  #2A6B45;
+  --blue-bg:   #F0F5FF;
+  --blue-bdr:  #3A6AB8;
+  --nav-h:     56px;
+  --max:       820px;
+  --r:         5px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  font-size: 15.5px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--navy-m); text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { font-weight: 600; }
+code {
+  font-family: 'Inter', monospace;
+  background: rgba(28,58,92,.08);
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: .87em;
+}
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+/* HEADER */
+.site-header {
+  background: var(--navy);
+  padding: 48px 28px 44px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.logo-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; margin-bottom: 36px;
+}
+.logo-img { height: 26px; filter: brightness(0) invert(1); opacity: .9; }
+.logo-sep { width: 1px; height: 20px; background: rgba(255,255,255,.2); }
+.logo-lbl {
+  font-size: .68rem; font-weight: 500; letter-spacing: .22em;
+  text-transform: uppercase; color: rgba(255,255,255,.42);
+}
+.hero-eyebrow {
+  font-size: .65rem; font-weight: 600; letter-spacing: .24em;
+  text-transform: uppercase; color: var(--gold-l); margin-bottom: 12px;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800; color: #fff;
+  letter-spacing: -.01em; line-height: 1; margin-bottom: 10px;
+}
+.hero-sub {
+  font-size: .72rem; font-weight: 400; letter-spacing: .18em;
+  text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 36px;
+}
+
+/* SEARCH */
+.search-wrap { max-width: 440px; margin: 0 auto; position: relative; }
+.search-input {
+  width: 100%; padding: 12px 42px 12px 44px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: var(--r); color: #fff;
+  font-family: 'Inter', sans-serif; font-size: .9rem;
+  outline: none; transition: background .2s, border-color .2s;
+}
+.search-input::placeholder { color: rgba(255,255,255,.35); }
+.search-input:focus { background: rgba(255,255,255,.14); border-color: rgba(196,154,58,.6); }
+.s-ico {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  color: rgba(255,255,255,.38); pointer-events: none;
+}
+.s-clear {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: rgba(255,255,255,.5);
+  cursor: pointer; font-size: 1.1rem; padding: 4px; display: none;
+}
+.s-clear.on { display: block; }
+
+/* NAV */
+.sticky-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--navy-d);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.sticky-nav .wrap {
+  display: flex; align-items: center; height: var(--nav-h);
+  overflow-x: auto; scrollbar-width: none; gap: 0;
+}
+.sticky-nav .wrap::-webkit-scrollbar { display: none; }
+.nav-pill {
+  flex-shrink: 0; padding: 0 15px; height: var(--nav-h);
+  display: flex; align-items: center;
+  font-size: .72rem; font-weight: 500; letter-spacing: .08em;
+  color: rgba(255,255,255,.44); white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color .18s, border-color .18s;
+}
+.nav-pill:hover { color: rgba(255,255,255,.82); text-decoration: none; }
+.nav-pill.on { color: var(--gold-l); border-bottom-color: var(--gold); }
+
+/* CHAPTERS */
+.chapter { padding: 60px 0 40px; border-bottom: 1px solid var(--border); }
+.chapter:last-of-type { border-bottom: none; }
+.ch-head { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 30px; }
+.ch-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem; font-weight: 700; color: #E8E8E4;
+  line-height: 1; flex-shrink: 0; margin-top: 8px;
+}
+.ch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700;
+  color: var(--navy); line-height: 1.2;
+  padding-bottom: 10px; border-bottom: 2px solid var(--gold);
+}
+
+/* SUBSECTION */
+.sub { margin-bottom: 28px; }
+.sub-lbl {
+  font-size: .65rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 12px; display: block;
+}
+.sub h3 { font-size: .94rem; font-weight: 600; color: var(--navy); margin: 20px 0 8px; }
+.sub p { margin-bottom: 10px; color: var(--text-m); }
+.divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+/* DARK CARD */
+.dcard {
+  background: var(--navy); border-radius: var(--r);
+  padding: 20px 22px; margin-bottom: 16px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 18px;
+}
+.dc-lbl {
+  font-size: .62rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--gold-l); display: block; margin-bottom: 5px;
+}
+.dc-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700; color: #fff; line-height: 1.3;
+}
+.dc-val a { color: #fff; }
+.dc-val code {
+  font-family: 'Inter', monospace; font-size: .85rem;
+  background: rgba(255,255,255,.12); padding: 2px 8px; border-radius: 3px;
+}
+
+/* LIGHT BLOCK */
+.lblock {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 16px 18px; margin-bottom: 10px;
+}
+.lb-lbl {
+  font-size: .62rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 5px;
+}
+.lb-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 700; color: var(--navy);
+}
+.lblock p { font-size: .87rem; margin: 4px 0 0; color: var(--muted); }
+
+.two-col {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px; margin-bottom: 14px;
+}
+
+/* LISTS */
+.blist { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.blist li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid var(--border-l);
+  line-height: 1.55; color: var(--text-m); font-size: .93rem;
+}
+.blist li:last-child { border-bottom: none; }
+.blist li::before {
+  content: ''; width: 5px; height: 5px;
+  background: var(--gold); flex-shrink: 0; margin-top: 9px; border-radius: 1px;
+}
+
+.slist { list-style: none; counter-reset: step; display: flex; flex-direction: column; gap: 6px; }
+.slist li {
+  counter-increment: step; display: flex; gap: 13px; align-items: flex-start;
+  padding: 11px 14px; background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r); font-size: .93rem; color: var(--text-m);
+}
+.slist li::before {
+  content: counter(step); min-width: 22px; height: 22px;
+  background: var(--navy); color: #fff; font-size: .7rem; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; border-radius: 2px;
+}
+
+/* WARN BOXES */
+.warn-box {
+  border-radius: var(--r); padding: 12px 16px;
+  display: flex; gap: 12px; margin-bottom: 14px;
+  border-left: 3px solid var(--warn-bdr); background: var(--warn-bg);
+}
+.warn-box.red { border-left-color: var(--red-bdr); background: var(--red-bg); }
+.warn-box.blue { border-left-color: var(--blue-bdr); background: var(--blue-bg); }
+.warn-box .w-ico { flex-shrink: 0; font-size: .9rem; margin-top: 3px; }
+.warn-box .w-txt { font-size: .9rem; color: var(--text-m); line-height: 1.55; }
+
+/* IMAGE */
+.ph-box {
+  width: 100%; min-height: 180px; border-radius: var(--r);
+  background: var(--off); border: 1px dashed var(--border);
+  display: flex; align-items: center; justify-content: center; margin: 14px 0;
+}
+.ph-inner { text-align: center; padding: 24px; }
+.ph-ico { font-size: 1.5rem; display: block; margin-bottom: 8px; opacity: .25; }
+.ph-lbl {
+  font-size: .62rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: #C0C0BA; margin-bottom: 5px;
+}
+.ph-inner p { font-size: .8rem; color: #B0B0AA; }
+
+.img-two {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0;
+}
+.img-caption {
+  font-size: .72rem; text-align: center; margin-top: 5px;
+  color: #999; letter-spacing: .1em; text-transform: uppercase;
+}
+
+/* PRICE TABLE */
+.ptable { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.ptable tr { border-bottom: 1px solid var(--border); }
+.ptable tr:last-child { border-bottom: none; }
+.ptable td { padding: 9px 0; font-size: .91rem; }
+.ptable td:first-child { color: var(--text-m); }
+.ptable td:last-child { text-align: right; font-weight: 600; color: var(--navy); }
+
+/* CHECKLIST */
+.cklist { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+.ci {
+  display: flex; align-items: center; gap: 13px;
+  padding: 11px 15px; border: 1px solid var(--border);
+  border-radius: var(--r); cursor: pointer; background: var(--card);
+  transition: border-color .15s; user-select: none;
+}
+.ci:hover { border-color: var(--navy-m); }
+.ci input { display: none; }
+.ci-box {
+  width: 20px; height: 20px; border: 1.5px solid var(--border);
+  border-radius: 2px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .18s; color: transparent;
+}
+.ci.done { background: #F0F7F3; border-color: #6BAB85; }
+.ci.done .ci-box { background: var(--green-ok); border-color: var(--green-ok); color: #fff; }
+.ci.done .ci-lbl { text-decoration: line-through; color: var(--muted); }
+.ci-lbl { font-size: .91rem; color: var(--text-m); }
+.ck-reset {
+  margin-top: 12px; background: none; border: 1px solid var(--border);
+  border-radius: var(--r); padding: 7px 16px;
+  font-family: 'Inter', sans-serif; font-size: .78rem;
+  color: var(--muted); cursor: pointer; transition: border-color .2s, color .2s;
+}
+.ck-reset:hover { border-color: var(--navy); color: var(--navy); }
+
+/* EMERGENCY */
+#emergency { background: var(--navy-d); padding: 60px 0 70px; }
+#emergency .ch-num { color: rgba(255,255,255,.1); }
+#emergency .ch-title { color: #fff; border-bottom-color: #c84040; }
+#emergency .sub-lbl { color: #e09090; }
+.ec-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px; margin-top: 18px;
+}
+.ec-card {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--r); padding: 20px; text-align: center;
+}
+.ec-lbl {
+  font-size: .62rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: rgba(255,255,255,.35); display: block; margin-bottom: 10px;
+}
+.ec-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem; font-weight: 700; color: #fff; display: block;
+}
+.ec-val.sm { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 400; margin-top: 4px; }
+.ec-card a { color: #fff; text-decoration: none; }
+.ec-card a:hover { color: var(--gold-l); }
+
+/* FAB */
+.fab {
+  position: fixed; bottom: 20px; right: 20px; z-index: 200;
+  background: #B84040; color: #fff; border: none; border-radius: var(--r);
+  padding: 10px 16px 10px 13px;
+  font-family: 'Inter', sans-serif; font-size: .76rem; font-weight: 600;
+  letter-spacing: .05em; display: flex; align-items: center; gap: 7px;
+  text-decoration: none; box-shadow: 0 2px 16px rgba(184,64,64,.4);
+  transition: transform .18s, box-shadow .18s;
+}
+.fab:hover { transform: translateY(-1px); color: #fff; text-decoration: none; }
+
+/* FOOTER */
+.site-footer {
+  background: var(--navy-d); color: rgba(255,255,255,.35);
+  padding: 28px 24px; text-align: center; font-size: .82rem;
+  border-top: 2px solid var(--gold);
+}
+.site-footer a { color: var(--gold-l); }
+.ft-logo { height: 16px; opacity: .35; vertical-align: middle; margin-right: 8px; filter: brightness(0) invert(1); }
+
+
+/* Prevent layout shift on image load */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* FINAL NOTE */
+.final-note {
+  background: var(--navy);
+  padding: 64px 28px 72px;
+  text-align: center;
+  border-top: 3px solid var(--gold);
+}
+.fn-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+  margin: 0 auto 40px;
+  opacity: .9;
+}
+.fn-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 28px;
+  line-height: 1.15;
+}
+.fn-body {
+  max-width: 560px;
+  margin: 0 auto;
+  color: rgba(255,255,255,.62);
+  font-size: .97rem;
+  line-height: 1.8;
+}
+.fn-body p { margin-bottom: 16px; }
+.fn-body p:last-child { margin-bottom: 0; }
+.fn-closing {
+  margin-top: 36px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--gold-l);
+}
+
+
+/* PWA INSTALL BANNER */
+.pwa-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+  background: var(--navy-d); border-top: 2px solid var(--gold);
+  padding: 14px 18px 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,.3);
+}
+.pwa-banner.hidden { display: none; }
+.pwa-icon { width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0; }
+.pwa-text { flex: 1; }
+.pwa-text strong { display: block; font-size: .85rem; color: #fff; font-weight: 600; margin-bottom: 2px; }
+.pwa-text span { font-size: .75rem; color: rgba(255,255,255,.55); line-height: 1.4; }
+.pwa-btn { background: var(--gold); color: #fff; border: none; border-radius: 4px; padding: 8px 14px; font-family: 'Inter', sans-serif; font-size: .78rem; font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+.pwa-dismiss { background: none; border: none; color: rgba(255,255,255,.4); font-size: 1.3rem; cursor: pointer; padding: 4px; flex-shrink: 0; line-height: 1; }
+
+mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; border-radius: 2px; }
+.no-res { text-align: center; padding: 60px 24px; color: var(--muted); display: none; }
+.no-res.on { display: block; }
+.no-res h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--muted); margin-bottom: 8px; }
+
+@media print {
+  .sticky-nav, .fab, .site-footer, .search-wrap { display: none; }
+  .chapter { page-break-inside: avoid; }
+}
+@media (max-width: 600px) {
+  .site-header { padding: 36px 20px 30px; }
+  .chapter { padding: 44px 0 32px; }
+  .ch-num { font-size: 2rem; }
+  .dcard { grid-template-columns: 1fr; }
+  .img-two { grid-template-columns: 1fr; }
+}
+</style>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1C3A5C">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Akureyri">
+  <link rel="apple-touch-icon" href="images/icon-192.png">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="logo-row">
+    <img src="https://heimkoma.app/guest_handbook/images/logo.svg" width="200" height="50" alt="Heimkoma" class="logo-img" loading="lazy">
+    <div class="logo-sep"></div>
+    <span class="logo-lbl">Guest Handbook</span>
+  </div>
+  <p class="hero-eyebrow">Heimkoma &middot; Iceland</p>
+  <h1 class="hero-name">Akureyri</h1>
+  <p class="hero-sub">Luxury Vacation Home</p>
+  <div class="search-wrap">
+    <svg class="s-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input type="search" id="s-input" class="search-input" placeholder="Search handbook&hellip;" autocomplete="off">
+    <button class="s-clear" id="s-clear" aria-label="Clear">&times;</button>
+  </div>
+</header>
+
+<nav class="sticky-nav">
+  <div class="wrap">
+    <a href="#arrival"    class="nav-pill" data-s="arrival">Arrival</a>
+    <a href="#inside"     class="nav-pill" data-s="inside">Inside</a>
+    <a href="#systems"    class="nav-pill" data-s="systems">Systems</a>
+    <a href="#groceries"  class="nav-pill" data-s="groceries">Groceries</a>
+    <a href="#services"   class="nav-pill" data-s="services">Services</a>
+    <a href="#activities" class="nav-pill" data-s="activities">Activities</a>
+    <a href="#trash"      class="nav-pill" data-s="trash">Trash</a>
+    <a href="#checkout"   class="nav-pill" data-s="checkout">Check Out</a>
+    <a href="#emergency"  class="nav-pill" data-s="emergency">Emergency</a>
+  </div>
+</nav>
+
+<main id="content">
+
+<!-- CH 1 ARRIVAL -->
+<section class="chapter" id="arrival">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">01</span>
+    <h2 class="ch-title">Arrival, Access &amp; Parking</h2>
+  </div>
+
+  <div class="sub">
+    <span class="sub-lbl">Address &amp; Navigation</span>
+    <div class="dcard">
+      <div>
+        <span class="dc-lbl">Address</span>
+        <span class="dc-val"><a href="https://maps.app.goo.gl/o3KyfRgZz54xamURA" target="_blank">Hafnarstr&aelig;ti 45, 600 Akureyri</a></span>
+      </div>
+      <div>
+        <span class="dc-lbl">Google Maps</span>
+        <span class="dc-val" style="font-size:1rem;"><a href="https://hja.heimkoma.app/s1h2maps" target="_blank">hja.heimkoma.app/s1h2maps</a></span>
+      </div>
+      <div>
+        <span class="dc-lbl">Plus Code</span>
+        <span class="dc-val"><code>MWG6+395 Akureyri</code></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Parking &#9888;&#65039;</span>
+    <div class="warn-box red">
+      <span class="w-ico">&#128664;</span>
+      <div class="w-txt"><strong>Use only the designated parking space on the left side of the building</strong> when facing the front door. This is the only parking that belongs to the property. It is further from the city center.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Check-in &amp; Lockbox</span>
+    <div class="two-col">
+      <div class="lblock">
+        <span class="lb-lbl">Check-in from</span>
+        <div class="lb-val">15:00</div>
+        <p>Access details in your welcome email</p>
+      </div>
+      <div class="lblock">
+        <span class="lb-lbl">Check-out by</span>
+        <div class="lb-val">11:00</div>
+        <p>See checkout checklist &mdash; Chapter 8</p>
+      </div>
+    </div>
+    <p>The lockbox is on the <strong>right side of the building</strong>, just around the corner from the front door. Code sent by email and on the booking platform.</p>
+    <div class="img-two" style="margin-top:14px;">
+      <div>
+        <img src="images/entrance.jpeg" width="1024" height="768" alt="Front entrance" loading="lazy" style="width:100%;border-radius:5px;display:block;object-fit:cover;height:220px;">
+        <p class="img-caption">Front entrance</p>
+      </div>
+      <div>
+        <img src="images/lockbox.jpeg" width="768" height="1024" alt="Lockbox location on right side of building" loading="lazy" style="width:100%;border-radius:5px;display:block;object-fit:cover;height:220px;">
+        <p class="img-caption">Lockbox &mdash; right side of building</p>
+      </div>
+    </div>
+    <img src="images/overview.jpeg" width="1400" height="862" alt="Aerial overview showing lockbox, parking, hot tub and cold tub locations" loading="lazy" style="width:100%;border-radius:5px;display:block;margin:14px 0;">
+    <p class="img-caption" style="font-size:.72rem;color:#999;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Property overview &mdash; lockbox, parking &amp; outdoor area</p>
+    <ul class="blist">
+      <li>Front door is a manual key lock</li>
+      <li>Please lock the door whenever you leave</li>
+    </ul>
+  </div>
+
+</div>
+</section>
+
+<!-- CH 2 INSIDE -->
+<section class="chapter" id="inside">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">02</span>
+    <h2 class="ch-title">Inside the House</h2>
+  </div>
+
+  <div class="sub">
+    <span class="sub-lbl">General</span>
+    <ul class="blist">
+      <li>Please remove shoes indoors</li>
+      <li>Treat the home as you would your own</li>
+      <li>Pets are welcome &mdash; please clean thoroughly after them</li>
+      <li>Be considerate of neighbours, especially during evening hours</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Wi-Fi</span>
+    <div class="dcard">
+      <div>
+        <span class="dc-lbl">Network name</span>
+        <span class="dc-val"><code>HeimkomaS1</code></span>
+      </div>
+      <div>
+        <span class="dc-lbl">Password</span>
+        <span class="dc-val"><code>FannfergiHugans</code></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Kitchen &amp; Pantry</span>
+    <p>Fully equipped &mdash; microwave, air fryer, spacious stovetop, oven, and a grill.</p>
+    <ul class="blist">
+      <li><strong>Free to use:</strong> all spices, cooking oils, and any food already in the house (opened or unopened)</li>
+      <li>Wine cooler in the kitchen facing the window &mdash; used for the honesty bar (see Chapter 5)</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Fireplace &#9888;&#65039;</span>
+    <p>The house has a wood-burning fireplace. It is safe to use.</p>
+    <ul class="blist">
+      <li>Use logs or wood when available in the house</li>
+      <li>Chemical logs are available at B&oacute;nus and similar stores if needed</li>
+      <li>Never leave the fireplace unattended while burning</li>
+      <li>Ensure the fire is fully extinguished before going to sleep or leaving the house</li>
+    </ul>
+    <img src="images/fireplace.jpeg" width="1200" height="799" alt="Living room with fireplace" loading="lazy" style="width:100%;border-radius:5px;display:block;margin-top:14px;">
+  </div>
+
+</div>
+</section>
+
+<!-- CH 3 SYSTEMS -->
+<section class="chapter" id="systems">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">03</span>
+    <h2 class="ch-title">House Systems &amp; Amenities</h2>
+  </div>
+
+  <!-- ICE MACHINE -->
+  <div class="sub">
+    <span class="sub-lbl">Ice Machine</span>
+    <p>The ice machine is built into the fridge. It does not require a separate unit.</p>
+    <ol class="slist">
+      <li>Open the fridge and locate the small water tank inside</li>
+      <li>Fill the tank with fresh water</li>
+      <li>Ice will form in the icebox in the lower half of the fridge</li>
+    </ol>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- HOT TUB -->
+  <div class="sub">
+    <span class="sub-lbl">Hot Tub</span>
+    <div class="warn-box blue">
+      <span class="w-ico">&#128273;</span>
+      <div class="w-txt">A separate lockbox is located next to the hot tub. It uses the <strong>same code as the main entrance lockbox</strong>. Inside you will find the key for the hot tub switch.</div>
+    </div>
+    <div class="warn-box">
+      <span class="w-ico">&#8505;&#65039;</span>
+      <div class="w-txt">Before using: remove the <strong>tarp and the metal cross</strong> that cover the hot tub. Set them aside and return them before leaving.</div>
+    </div>
+
+    <h3>Using the Hot Tub</h3>
+    <ol class="slist">
+      <li>Use the key from the lockbox to unlock the switch</li>
+      <li>Turn the switch <strong>ON</strong> &mdash; the hot tub will begin filling</li>
+      <li>Keep the switch ON while using the hot tub</li>
+      <li>When finished, turn the switch <strong>OFF</strong> &mdash; the hot tub empties automatically</li>
+      <li>Remove the key and return it to the lockbox</li>
+    </ol>
+
+    <div class="warn-box red" style="margin-top:14px;">
+      <span class="w-ico">&#9888;&#65039;</span>
+      <div class="w-txt"><strong>Before leaving:</strong> make sure the switch is OFF, the tub has emptied, and the tarp and metal cross are back in place.</div>
+    </div>
+
+    <img src="images/hot-tub-switch.jpeg" width="1000" height="1000" alt="Hot tub key switch" loading="lazy" style="width:100%;border-radius:5px;display:block;margin-top:14px;">
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COLD TUB -->
+  <div class="sub">
+    <span class="sub-lbl">Cold Tub</span>
+    <div class="warn-box">
+      <span class="w-ico">&#10052;&#65039;</span>
+      <div class="w-txt">The cold tub is <strong>not available in winter</strong>. It operates in summer only.</div>
+    </div>
+
+    <h3>Using the Cold Tub</h3>
+    <ol class="slist">
+      <li>Remove the wooden cover and set it aside</li>
+      <li>Insert the <strong>cork</strong> into the drain at the bottom</li>
+      <li>Turn the knob to start the cold water</li>
+      <li>When finished, turn off the water</li>
+      <li>Remove the cork &mdash; the tub will drain</li>
+      <li>Replace the wooden cover</li>
+    </ol>
+    <img src="images/overview.jpeg" width="1400" height="862" alt="Overview showing cold tub location in outdoor area" loading="lazy" style="width:100%;border-radius:5px;display:block;margin-top:14px;">
+    <p style="font-size:.72rem;color:#999;letter-spacing:.1em;text-transform:uppercase;margin-top:5px;text-align:center;">Cold tub visible in outdoor area (labelled in photo)</p>
+  </div>
+
+</div>
+</section>
+
+<!-- CH 4 GROCERIES -->
+<section class="chapter" id="groceries">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">04</span>
+    <h2 class="ch-title">Groceries &amp; Services</h2>
+  </div>
+
+  <div class="sub">
+    <div class="warn-box blue">
+      <span class="w-ico">&#128205;</span>
+      <div class="w-txt">Akureyri is a full-service town. Grocery stores, restaurants, bars, ATMs, and most services are <strong>within walking distance</strong> of the house.</div>
+    </div>
+  </div>
+
+  <div class="sub">
+    <span class="sub-lbl">Grocery Stores</span>
+    <ul class="blist">
+      <li>B&oacute;nus &mdash; largest and most affordable</li>
+      <li>Kr&oacute;nan</li>
+      <li>Additional stores available in the town center</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Liquor Store &mdash; V&iacute;nb&uacute;&eth;in</span>
+    <ul class="blist">
+      <li><a href="https://maps.app.goo.gl/o3KyfRgZz54xamURA" target="_blank">V&iacute;nb&uacute;&eth;in Akureyri</a> &mdash; approximately 8 minutes from the house</li>
+      <li><a href="https://maps.app.goo.gl/BXRTejVa2kAeHRbh9" target="_blank">Directions from the house &rarr;</a></li>
+      <li>Limited opening hours &mdash; plan ahead</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub">
+    <span class="sub-lbl">Cards, ATMs &amp; Dining</span>
+    <ul class="blist">
+      <li>Credit and debit cards accepted everywhere in Iceland</li>
+      <li>ATMs available in the town center, walking distance</li>
+      <li>Restaurants and bars are located throughout the center &mdash; a short walk from the house</li>
+    </ul>
+  </div>
+
+</div>
+</section>
+
+<!-- CH 5 SERVICES -->
+<section class="chapter" id="services">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">05</span>
+    <h2 class="ch-title">Extra Services &amp; Comforts</h2>
+  </div>
+
+  <div class="sub">
+    <span class="sub-lbl">Wine &amp; Beer &mdash; Honesty System</span>
+    <p>Wine and beer are available in the wine cooler in the kitchen (facing the window). Please pay only for what you consume.</p>
+    <table class="ptable">
+      <tr><td>Red wine</td><td>&euro;40 / bottle</td></tr>
+      <tr><td>White wine</td><td>&euro;40 / bottle</td></tr>
+      <tr><td>Sparkling wine</td><td>&euro;30 / bottle</td></tr>
+      <tr><td>Beer (pack)</td><td>&euro;50</td></tr>
+    </table>
+    <p style="margin-top:12px;font-size:.87rem;color:var(--muted);">Pay via PayPal QR code, on the <a href="https://www.airbnb.com" target="_blank">Airbnb app</a>, or leave cash in the house.</p>
+    <div style="padding:16px 0;text-align:center;">
+      <img src="images/paypal-qr.jpeg" width="600" height="1303" alt="PayPal QR code" loading="lazy" style="width:220px;max-width:100%;border-radius:5px;display:block;margin:0 auto;">
+      <p style="font-size:.8rem;color:#999;margin-top:8px;">Scan to pay via PayPal</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- CH 6 ACTIVITIES -->
+<section class="chapter" id="activities">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">06</span>
+    <h2 class="ch-title">Activities &amp; Attractions</h2>
+  </div>
+
+  <div class="sub">
+    <p>Akureyri is Iceland&apos;s second largest city and the capital of the north. Most attractions are within walking distance or a short drive.</p>
+
+    <span class="sub-lbl" style="margin-top:20px;">In Town</span>
+    <ul class="blist">
+      <li><strong>Akureyri Swimming Pool (Sundlaug)</strong> &mdash; one of Iceland&apos;s finest public pools, with hot tubs and waterslides</li>
+      <li><strong>Akureyri Botanical Garden (Lystigar&eth;ur)</strong> &mdash; northernmost botanical garden in the world, free entry</li>
+      <li><strong>Akureyri Church (Akureyrarkirkja)</strong> &mdash; landmark building with views over the fjord</li>
+      <li><strong>Restaurants and bars</strong> &mdash; concentrated in the pedestrianised center, a short walk from the house</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <span class="sub-lbl">Winter Activities</span>
+    <ul class="blist">
+      <li><strong>Hl&iacute;&eth;arfjall ski resort</strong> &mdash; Iceland&apos;s largest ski area, 10 minutes from town. Downhill and cross-country skiing.</li>
+      <li><strong>Northern lights viewing</strong> &mdash; Akureyri&apos;s northern latitude makes it one of the best places in Iceland to see the aurora</li>
+      <li><strong>Snowmobiling and dog sledding</strong> &mdash; available in the surrounding area</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <span class="sub-lbl">Summer Activities</span>
+    <ul class="blist">
+      <li><strong>Whale watching</strong> &mdash; Eye&apos;ja&ouml;r&eth;ur fjord is one of the best locations in Iceland for whale watching. Tours depart from Akureyri harbour.</li>
+      <li><strong>Midnight sun hiking</strong> &mdash; June and July offer near-24-hour daylight</li>
+      <li><strong>Horse riding</strong> &mdash; Icelandic horse tours available nearby</li>
+      <li><strong>Fishing</strong> &mdash; river and sea fishing in the surrounding area</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <span class="sub-lbl">Day Trips from Akureyri</span>
+    <ul class="blist">
+      <li><strong>Lake M&yacute;vatn</strong> &mdash; 1 hour east. Geothermal landscape, pseudo-craters, nature baths, and bird life.</li>
+      <li><strong>Goðafoss waterfall</strong> &mdash; 45 minutes east. One of Iceland&apos;s most photographed waterfalls.</li>
+      <li><strong>Dettifoss</strong> &mdash; Europe&apos;s most powerful waterfall, approximately 2 hours east.</li>
+      <li><strong>Siglufjör&eth;ur</strong> &mdash; 1 hour west. Charming fishing village with the Herring Era Museum.</li>
+      <li><strong>Tr&ouml;llaskagi peninsula</strong> &mdash; dramatic mountain and fjord scenery, skiing in winter.</li>
+    </ul>
+    <p style="margin-top:12px;font-size:.87rem;color:var(--muted);">Further information and bookings: <a href="https://www.visitakureyri.is" target="_blank">visitakureyri.is</a></p>
+  </div>
+
+</div>
+</section>
+
+<!-- CH 7 TRASH -->
+<section class="chapter" id="trash">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">07</span>
+    <h2 class="ch-title">Trash &amp; Waste</h2>
+  </div>
+
+  <div class="sub">
+    <p>Three bins are located outside the building. Please sort your waste before disposal.</p>
+    <span class="sub-lbl" style="margin-top:16px;">Three Bins &mdash; Sorting Guide</span>
+    <ul class="blist">
+      <li><strong>Bin 1 &mdash; Plastic</strong> &mdash; plastic packaging and containers</li>
+      <li><strong>Bin 2 &mdash; Paper</strong> &mdash; cardboard, paper, newspapers</li>
+      <li><strong>Bin 3 &mdash; Compost &amp; General waste</strong> &mdash; food waste and everything else</li>
+    </ul>
+  </div>
+
+</div>
+</section>
+
+<!-- CH 8 CHECKOUT -->
+<section class="chapter" id="checkout">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num">08</span>
+    <h2 class="ch-title">Check Out</h2>
+  </div>
+
+  <div class="sub">
+    <div class="dcard">
+      <div>
+        <span class="dc-lbl">Check-out time</span>
+        <span class="dc-val">11:00</span>
+      </div>
+      <div>
+        <span class="dc-lbl">Akureyri Airport</span>
+        <span class="dc-val">5 min by car</span>
+      </div>
+      <div>
+        <span class="dc-lbl">KEF Airport</span>
+        <span class="dc-val">5.5 h &mdash; 430 km</span>
+      </div>
+    </div>
+
+    <div class="warn-box red" style="margin-top:20px;">
+      <span class="w-ico">&#128273;</span>
+      <div class="w-txt"><strong>This property has multiple doors.</strong> Check every door before leaving &mdash; all must be locked. Return the key to the lockbox.</div>
+    </div>
+
+    <span class="sub-lbl" style="margin-top:20px;">Before You Leave &mdash; Checklist</span>
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:4px;">Tap each item when done.</p>
+
+    <div class="cklist">
+      <label class="ci" id="ci-hottub">
+        <input type="checkbox">
+        <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
+        <span class="ci-lbl">Hot tub switch is OFF and tub has emptied</span>
+      </label>
+      <label class="ci" id="ci-hottub-cover">
+        <input type="checkbox">
+        <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
+        <span class="ci-lbl">Tarp and metal cross returned to hot tub</span>
+      </label>
+      <label class="ci" id="ci-hottub-key">
+        <input type="checkbox">
+        <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
+        <span class="ci-lbl">Hot tub key returned to its lockbox</span>
+      </label>
+      <label class="ci" id="ci-coldtub">
+        <input type="checkbox">
+        <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
+        <span class="ci-lbl">Cold tub drained and wooden cover replaced</span>
+      </label>
+      <label class="ci" id="ci-dish">
+        <input type="checkbox">
+        <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
+        <span class="ci-lbl">Dishwasher started (if used)</span>
+      </label>
+      <label class="ci" id="ci-trash">
+        <input type="checkbox">
+        <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
+        <span class="ci-lbl">Trash sorted and placed in outdoor bins</span>
+      </label>
+      <label class="ci" id="ci-doors">
+        <input type="checkbox">
+        <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
+        <span class="ci-lbl"><strong>All doors locked</strong> &mdash; check every door in the property</span>
+      </label>
+      <label class="ci" id="ci-windows">
+        <input type="checkbox">
+        <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
+        <span class="ci-lbl">All windows closed</span>
+      </label>
+      <label class="ci" id="ci-key">
+        <input type="checkbox">
+        <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
+        <span class="ci-lbl">Key returned to main lockbox (right side of building)</span>
+      </label>
+    </div>
+    <button class="ck-reset" id="ck-reset">Reset checklist</button>
+  </div>
+
+</div>
+</section>
+
+<!-- EMERGENCY -->
+<section class="chapter" id="emergency">
+<div class="wrap">
+
+  <div class="ch-head">
+    <span class="ch-num" style="color:rgba(255,255,255,.1);">SOS</span>
+    <h2 class="ch-title">Emergency &amp; Contacts</h2>
+  </div>
+
+  <div class="sub">
+    <div class="ec-grid">
+      <div class="ec-card">
+        <span class="ec-lbl">Emergency Services</span>
+        <a href="tel:112" class="ec-val">112</a>
+      </div>
+      <div class="ec-card">
+        <span class="ec-lbl">Heimkoma (Host)</span>
+        <a href="tel:+3546476000" class="ec-val">+354 647 6000</a>
+      </div>
+      <div class="ec-card">
+        <span class="ec-lbl">Email</span>
+        <a href="mailto:help@heimkoma.app" class="ec-val sm">help@heimkoma.app</a>
+      </div>
+    </div>
+    <div class="warn-box red" style="margin-top:20px;background:rgba(255,255,255,.05);border-left-color:rgba(200,80,80,.45);">
+      <span class="w-ico">&#128222;</span>
+      <div class="w-txt" style="color:rgba(255,255,255,.65);">Contact us immediately if there is damage, a system is not working, or you are unsure how to operate any equipment.</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<div class="no-res" id="no-res"><h2>Nothing found</h2><p>Try a different search term</p></div>
+
+</main>
+
+<!-- FINAL NOTE -->
+<section class="final-note">
+  <h2 class="fn-heading">Final Note</h2>
+  <div class="fn-body">
+    <p>We truly hope you enjoy your stay in this Heimkoma home.</p>
+    <p>This house is meant to be enjoyed slowly &mdash; with comfort, space, and the character of Akureyri all around you. Take your time. Open the windows. Step outside in the evening air.</p>
+    <p>Whether you are here to explore, to rest, or simply to spend meaningful time together, we hope this home gives you exactly what you came for &mdash; and perhaps a little more.</p>
+    <p>If there is anything that would make your stay even better, please let us know. We are happy to help.</p>
+    <p>Welcome to your home in Iceland for the next few days.</p>
+    <p class="fn-closing">We hope you leave with beautiful memories and a wish to return.</p>
+  </div>
+  <img src="images/logo-white.png" alt="Heimkoma" class="fn-logo" width="600" height="105" loading="lazy" style="margin-top:40px;">
+</section>
+
+<footer class="site-footer">
+  <p>
+    <img src="https://heimkoma.app/guest_handbook/images/logo.svg" width="200" height="50" alt="Heimkoma" class="ft-logo" loading="lazy">
+    Heimkoma Guest Handbook &nbsp;&middot;&nbsp; <a href="#top">&#8593; Back to top</a>
+  </p>
+  <p style="margin-top:5px;font-size:.76rem;">
+    <a href="https://heimkoma.app" target="_blank">heimkoma.app</a>
+  </p>
+</footer>
+
+<a class="fab" href="tel:112">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 17z"></path>
+  </svg>
+  Emergency 112
+</a>
+
+<script>
+/* ACTIVE NAV */
+(function() {
+  var pills = document.querySelectorAll('.nav-pill');
+  var sections = document.querySelectorAll('section.chapter');
+  if (!window.IntersectionObserver) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        pills.forEach(function(p) { p.classList.remove('on'); });
+        var active = document.querySelector('.nav-pill[data-s="' + e.target.id + '"]');
+        if (active) {
+          active.classList.add('on');
+          var nav = active.parentElement;
+          var pillRect = active.getBoundingClientRect();
+          var navRect = nav.getBoundingClientRect();
+          var target = nav.scrollLeft + pillRect.left - navRect.left - (nav.clientWidth - pillRect.width) / 2;
+          nav.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+        }
+      }
+    });
+  }, { rootMargin: '-56px 0px -50% 0px', threshold: 0 });
+  sections.forEach(function(s) { obs.observe(s); });
+})();
+
+/* CHECKLIST */
+(function() {
+  var KEY = 'hk_co_akureyri';
+  var items = document.querySelectorAll('.ci');
+  function save() {
+    var s = {};
+    items.forEach(function(el) { s[el.id] = el.classList.contains('done'); });
+    try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e) {}
+  }
+  function load() {
+    try {
+      var s = JSON.parse(localStorage.getItem(KEY) || '{}');
+      items.forEach(function(el) {
+        if (s[el.id]) { el.classList.add('done'); var cb = el.querySelector('input'); if (cb) cb.checked = true; }
+      });
+    } catch(e) {}
+  }
+  items.forEach(function(el) {
+    el.addEventListener('click', function() {
+      el.classList.toggle('done');
+      var cb = el.querySelector('input'); if (cb) cb.checked = el.classList.contains('done');
+      save();
+    });
+  });
+  var btn = document.getElementById('ck-reset');
+  if (btn) btn.addEventListener('click', function() {
+    items.forEach(function(el) { el.classList.remove('done'); var cb = el.querySelector('input'); if (cb) cb.checked = false; });
+    save();
+  });
+  load();
+})();
+
+/* SEARCH */
+(function() {
+  var inp = document.getElementById('s-input');
+  var clr = document.getElementById('s-clear');
+  var chapters = document.querySelectorAll('section.chapter');
+  var noRes = document.getElementById('no-res');
+  if (!inp) return;
+  var originals = [];
+  function collectOriginals() {
+    originals = [];
+    var nodes = document.querySelectorAll('section.chapter p, section.chapter li, section.chapter h2, section.chapter h3');
+    nodes.forEach(function(el) { originals.push({ el: el, html: el.innerHTML }); });
+  }
+  function restore() { originals.forEach(function(o) { o.el.innerHTML = o.html; }); }
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function run(q) {
+    restore(); q = q.trim();
+    clr.classList.toggle('on', q.length > 0);
+    if (!q) { chapters.forEach(function(c) { c.style.display = ''; }); if (noRes) noRes.classList.remove('on'); return; }
+    var re = new RegExp('(' + escRe(q) + ')', 'gi'); var any = false;
+    chapters.forEach(function(c) {
+      if (c.textContent.toLowerCase().indexOf(q.toLowerCase()) !== -1) {
+        c.style.display = ''; any = true;
+        originals.forEach(function(o) { if (c.contains(o.el)) o.el.innerHTML = o.html.replace(re, '<mark class="hl">$1</mark>'); });
+      } else { c.style.display = 'none'; }
+    });
+    if (noRes) noRes.classList.toggle('on', !any);
+  }
+  inp.addEventListener('input', function() { run(inp.value); });
+  clr.addEventListener('click', function() { inp.value = ''; run(''); });
+  setTimeout(collectOriginals, 300);
+})();
+</script>
+
+<div class="pwa-banner hidden" id="pwa-banner">
+  <img src="images/icon-192.png" alt="" class="pwa-icon" width="44" height="44">
+  <div class="pwa-text">
+    <strong>Add to Home Screen</strong>
+    <span id="pwa-instructions">Install this handbook for quick access &mdash; works offline too.</span>
+  </div>
+  <button class="pwa-btn" id="pwa-install">Add</button>
+  <button class="pwa-dismiss" id="pwa-dismiss" aria-label="Dismiss">&times;</button>
+</div>
+<script>
+(function() {
+  var KEY = 'hk_pwa_dismissed_akureyri';
+  if (localStorage.getItem(KEY)) return;
+  var banner = document.getElementById('pwa-banner');
+  var installBtn = document.getElementById('pwa-install');
+  var dismissBtn = document.getElementById('pwa-dismiss');
+  var instructions = document.getElementById('pwa-instructions');
+  var deferredPrompt = null;
+  function dismiss() { banner.classList.add('hidden'); try { localStorage.setItem(KEY, '1'); } catch(e) {} }
+  dismissBtn.addEventListener('click', dismiss);
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var isInStandalone = window.navigator.standalone === true;
+  if (isIOS && !isInStandalone) {
+    instructions.textContent = 'Tap the share button ⎋ then “Add to Home Screen”.';
+    installBtn.style.display = 'none';
+    setTimeout(function() { banner.classList.remove('hidden'); }, 2000);
+  }
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault(); deferredPrompt = e;
+    setTimeout(function() { banner.classList.remove('hidden'); }, 2000);
+  });
+  installBtn.addEventListener('click', function() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function() { deferredPrompt = null; dismiss(); });
+  });
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() { navigator.serviceWorker.register('/s1h2gb/sw.js'); });
+  }
+})();
+</script>
+
+</body>
+</html>
