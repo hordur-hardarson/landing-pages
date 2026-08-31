@@ -1,0 +1,75 @@
+name: Deploy guest handbooks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "s1h1gb/**"
+      - "s1h2gb/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-lp
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Each handbook caches itself for offline use with a fixed cache name, so a
+      # returning guest would keep seeing the old version forever. Stamping the
+      # commit into the name makes every deploy a new cache, which the service
+      # worker's own activate handler then swaps to - offline still works, but
+      # updates actually arrive.
+      - name: Version the service worker caches
+        run: |
+          for page in s1h1gb s1h2gb; do
+            sed -i "s|const CACHE = '\([^']*\)'|const CACHE = '\1-${GITHUB_SHA::7}'|" "$page/sw.js"
+            grep -n "const CACHE" "$page/sw.js"
+          done
+
+      - name: Load deploy keys
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.LP_S1H1GB_DEPLOY_KEY }}" > ~/.ssh/s1h1gb_key
+          printf '%s\n' "${{ secrets.LP_S1H2GB_DEPLOY_KEY }}" > ~/.ssh/s1h2gb_key
+          chmod 600 ~/.ssh/s1h1gb_key ~/.ssh/s1h2gb_key
+          # Host key is public, so it is pinned here rather than kept as a secret.
+          printf '%s\n' '[82.180.175.89]:65002 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAAOCTG0pbsCsYui1VBsDGAmCp37d73W8y9xdyUvB4mX' > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      # A separate key per handbook. Each is pinned on the server to a forced
+      # rsync-only command locked to that one directory, so neither can reach the
+      # other, nor the seven unrelated pages that also live under /lp/.
+      - name: Publish Husafell handbook
+        run: |
+          rsync -rltvz --delete --delete-excluded --chmod=D755,F644 \
+            --exclude 'DEPLOY.txt' --exclude '.DS_Store' \
+            -e "ssh -i ~/.ssh/s1h1gb_key -p 65002 -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
+            s1h1gb/ u861019222@82.180.175.89:/
+
+      - name: Publish Akureyri handbook
+        run: |
+          rsync -rltvz --delete --delete-excluded --chmod=D755,F644 \
+            --exclude 'DEPLOY.txt' --exclude '.DS_Store' \
+            -e "ssh -i ~/.ssh/s1h2gb_key -p 65002 -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
+            s1h2gb/ u861019222@82.180.175.89:/
+
+      - name: Confirm both handbooks are serving
+        run: |
+          for page in s1h1gb s1h2gb; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://lp.heimkoma.app/$page/")
+            echo "$page -> $code"
+            test "$code" = "200"
+            # DEPLOY.txt was publicly readable; confirm it is gone.
+            gone=$(curl -s -o /dev/null -w '%{http_code}' "https://lp.heimkoma.app/$page/DEPLOY.txt")
+            echo "$page/DEPLOY.txt -> $gone"
+            test "$gone" != "200"
+          done
