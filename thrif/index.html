@@ -30,8 +30,13 @@
   </header>
 
   <main class="wrap">
-    <form id="cleaning-form" method="POST" enctype="multipart/form-data">
+    <form id="cleaning-form" method="POST" enctype="multipart/form-data"
+          action="https://heimkoma.app/wp-admin/admin-post.php">
       <input type="hidden" name="language" id="form-language" value="is">
+      <input type="hidden" name="action" value="heimkoma_thrif">
+      <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+        <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
 
       <section class="card">
         <span class="section-kicker" data-i18n="welcomeKicker">Velkomin</span>
@@ -170,11 +175,46 @@
         <span class="section-kicker" data-i18n="step5">05 · Staðfesting</span>
         <h2 data-i18n="confirmTitle">Staðfesta og senda</h2>
         <label class="check final-check"><input id="confirm" name="completion_confirmed" type="checkbox" value="yes" required><span data-i18n="confirm">Ég staðfesti að þrifum sé lokið, húsið sé tilbúið fyrir næstu gesti og allar athugasemdir hafi verið skráðar.</span></label>
+        <label class="field" style="display:block;margin:18px 0 6px">
+          <span data-i18n="accessCode">Aðgangskóði</span>
+          <input name="access_code" type="text" inputmode="latin" autocapitalize="characters"
+                 autocomplete="off" required placeholder="••••••••">
+        </label>
+        <p class="help" data-i18n="accessCodeHelp">Kóðinn sem Heimkoma úthlutaði ræstingarteyminu.</p>
+
         <button class="submit" type="submit" data-i18n="submit">Senda þrifaskýrslu</button>
         <p class="privacy" data-i18n="sendNote">Skýrslan og myndirnar verða sendar á thrif@heimkoma.app.</p>
         <div class="status" id="form-status" role="status" aria-live="polite"></div>
       </section>
     </form>
+
+    <script>
+      // The endpoint redirects back here with ?sent=1 or ?error=<reason>.
+      (function () {
+        var q = new URLSearchParams(location.search);
+        var box = document.getElementById("form-status");
+        if (!box) return;
+        var messages = {
+          code: "Rangur aðgangskóði. Reyndu aftur.",
+          missing: "Fylltu út eign, nafn og dagsetningu.",
+          rate: "Of margar sendingar. Reyndu aftur síðar.",
+          spam: "Sendingin var stöðvuð.",
+          save: "Ekki tókst að vista skýrsluna. Reyndu aftur.",
+          method: "Ógild beiðni."
+        };
+        if (q.get("sent")) {
+          box.textContent = "Takk! Skýrslan hefur verið send.";
+          box.className = "status ok";
+          document.getElementById("cleaning-form").reset();
+        } else if (q.get("error")) {
+          box.textContent = messages[q.get("error")] || "Eitthvað fór úrskeiðis.";
+          box.className = "status error";
+        }
+        if (q.get("sent") || q.get("error")) {
+          box.scrollIntoView({ block: "center" });
+        }
+      })();
+    </script>
   </main>
   <footer>Heimkoma · Þrif og úttekt</footer>
 
