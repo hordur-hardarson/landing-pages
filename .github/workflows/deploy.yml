@@ -1,4 +1,4 @@
-name: Deploy guest handbooks
+name: Deploy internal pages
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
     paths:
       - "s1h1gb/**"
       - "s1h2gb/**"
+      - "thrif/**"
       - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
@@ -40,7 +41,8 @@ jobs:
           mkdir -p ~/.ssh
           printf '%s\n' "${{ secrets.LP_S1H1GB_DEPLOY_KEY }}" > ~/.ssh/s1h1gb_key
           printf '%s\n' "${{ secrets.LP_S1H2GB_DEPLOY_KEY }}" > ~/.ssh/s1h2gb_key
-          chmod 600 ~/.ssh/s1h1gb_key ~/.ssh/s1h2gb_key
+          printf '%s\n' "${{ secrets.LP_THRIF_DEPLOY_KEY }}" > ~/.ssh/thrif_key
+          chmod 600 ~/.ssh/s1h1gb_key ~/.ssh/s1h2gb_key ~/.ssh/thrif_key
           # Host key is public, so it is pinned here rather than kept as a secret.
           printf '%s\n' '[82.180.175.89]:65002 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAAOCTG0pbsCsYui1VBsDGAmCp37d73W8y9xdyUvB4mX' > ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
@@ -62,9 +64,19 @@ jobs:
             -e "ssh -i ~/.ssh/s1h2gb_key -p 65002 -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
             s1h2gb/ u861019222@82.180.175.89:/
 
-      - name: Confirm both handbooks are serving
+      # The cleaning checklist page. Not a handbook, so it has no service
+      # worker and nothing to version - it is a form the cleaning team fills in
+      # on a phone, and it should always be the current version.
+      - name: Publish cleaning checklist page
         run: |
-          for page in s1h1gb s1h2gb; do
+          rsync -rltvz --delete --delete-excluded --chmod=D755,F644 \
+            --exclude '.DS_Store' \
+            -e "ssh -i ~/.ssh/thrif_key -p 65002 -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
+            thrif/ u861019222@82.180.175.89:/
+
+      - name: Confirm the pages are serving
+        run: |
+          for page in s1h1gb s1h2gb thrif; do
             code=$(curl -s -o /dev/null -w '%{http_code}' "https://lp.heimkoma.app/$page/")
             echo "$page -> $code"
             test "$code" = "200"

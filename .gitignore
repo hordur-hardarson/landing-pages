@@ -1,2 +1,6 @@
 # Ignore Claude internal files
 .claude/
+
+# macOS finder metadata — these were committed by accident before
+.DS_Store
+**/.DS_Store
