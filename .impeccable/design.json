@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "title": "Design System: Heimkoma",
+  "extensions": {
+    "colorMeta": {
+      "navy": { "role": "primary", "displayName": "Navy", "canonical": "#1F3D59", "tonalRamp": ["#1F3D59", "#576E82", "#8F9EAC", "#C7CED6", "#F7FBFE"] },
+      "navy-action": { "role": "secondary", "displayName": "Navy Action", "canonical": "#113968", "tonalRamp": ["#113968", "#4C6A8E", "#889CB4", "#C4CED9", "#F7FBFE"] },
+      "gold": { "role": "secondary", "displayName": "Gold", "canonical": "#FDB400", "tonalRamp": ["#FDB400", "#FEC740", "#FEDA80", "#FEECBF", "#F7FBFE"] },
+      "sky": { "role": "tertiary", "displayName": "Sky", "canonical": "#8AB9ED", "tonalRamp": ["#8AB9ED", "#A7CAF2", "#C4DCF6", "#E2EEFA", "#F7FBFE"] },
+      "sand": { "role": "tertiary", "displayName": "Sand", "canonical": "#D4CEBE", "tonalRamp": ["#D4CEBE", "#DFDACE", "#EAE6DE", "#F4F3EF", "#F7FBFE"] },
+      "charcoal": { "role": "neutral", "displayName": "Charcoal", "canonical": "#36393E", "tonalRamp": ["#36393E", "#686A6E", "#9A9C9E", "#CDCECF", "#F7FBFE"] },
+      "offwhite": { "role": "neutral", "displayName": "Off-white", "canonical": "#F7FBFE" }
+    },
+    "typographyMeta": {
+      "heading": { "displayName": "Heading", "purpose": "Primary heading driver — page titles, section headings, nav. DM Sans Bold." },
+      "heading-secondary": { "displayName": "Secondary Heading", "purpose": "Occasional accent voice only (DM Serif Display) — never the top-level heading." },
+      "body": { "displayName": "Body", "purpose": "Paragraph text, DM Sans Light, 16px/150%." },
+      "mono": { "displayName": "Mono / Label", "purpose": "Numerals and tabular data — ownership %, week counts, prices, dates." }
+    },
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Navy Action fill, off-white text, 8px radius, 1pt inset border. The system's only confirmed button treatment.",
+      "html": "<button class=\"ds-btn-primary\">Request Access</button>",
+      "css": ".ds-btn-primary { background: #113968; color: #F7FBFE; font-family: 'DM Sans', system-ui, sans-serif; font-size: 18pt; font-weight: 700; height: 48px; padding: 0 32px; border: 1px solid #113968; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(247,251,254,0.15); cursor: pointer; transition: background 0.2s, transform 0.15s; } .ds-btn-primary:hover { background: #4C6A8E; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid #8AB9ED; outline-offset: 2px; }"
+    },
+    {
+      "name": "Icon Circle",
+      "kind": "custom",
+      "refersTo": "icon-circle",
+      "description": "Circular icon container sharing the button's Navy Action fill and off-white icon color.",
+      "html": "<span class=\"ds-icon-circle\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M12 2 2 9l10 7 10-7z\"/><path d=\"M2 9v9l10 5 10-5V9\"/></svg></span>",
+      "css": ".ds-icon-circle { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: #113968; color: #F7FBFE; }"
+    },
+    {
+      "name": "Heading",
+      "kind": "custom",
+      "refersTo": "heading",
+      "description": "Primary heading — DM Sans Bold, the system's main hierarchy driver.",
+      "html": "<h2 class=\"ds-heading\">Þriggja eigna samfélag</h2>",
+      "css": ".ds-heading { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; color: #1F3D59; margin: 0; }"
+    },
+    {
+      "name": "Secondary Heading",
+      "kind": "custom",
+      "refersTo": "heading-secondary",
+      "description": "Occasional accent heading voice — DM Serif Display. Never used as the top-level heading.",
+      "html": "<p class=\"ds-heading-secondary\">A share of something real.</p>",
+      "css": ".ds-heading-secondary { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; color: #1F3D59; margin: 0; }"
+    },
+    {
+      "name": "Mono Figure",
+      "kind": "custom",
+      "refersTo": "mono",
+      "description": "Numerals and tabular data — ownership percentages, week counts, prices, dates.",
+      "html": "<span class=\"ds-mono\">12%</span>",
+      "css": ".ds-mono { font-family: 'DM Sans Mono', ui-monospace, monospace; color: #36393E; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Coastal Ledger",
+    "overview": "Heimkoma sells something precise and something scenic at once: a registered, countable ownership share (weeks, percentages, property counts) in a place defined by Iceland's coastline and light. The system should read like a well-kept ledger for a beautiful asset — exact where it counts (numerals, shares, dates set in mono type; sharp 8px corners; a thin, deliberate 1pt inset border on primary actions) and quietly scenic where it doesn't (navy grounding every surface like dusk water, sky-blue and sand as the only warmth, gold used as sparingly as a wax seal). Nothing about it should feel like a rental listing or a travel brochure — it should feel like the paperwork for owning something real, designed by people who also care about how the light hits a fjord. The primary heading voice is sans, not serif — DM Sans Bold carries the hierarchy. DM Serif Display exists only as a secondary, occasional accent, never as the system's main voice. This is a deliberate inversion of typical luxury-property design habits (serif-led hero type) and should be protected, not softened back toward convention.",
+    "keyCharacteristics": [
+      "Navy-grounded, coastal-accented — sky blue and sand are the only permitted warmth beyond gold",
+      "Two distinct navies: navy (#1F3D59, palette/surface) and navy-action (#113968, buttons and icon-circles only) — related, never collapsed",
+      "Sans-led hierarchy: DM Sans Bold headings, DM Serif Display strictly secondary",
+      "Numerals and tabular data set in DM Sans Mono — the ledger detail",
+      "Gold is an accent color, never a primary button fill",
+      "Sharp, bordered, restrained — 8px button radius, 1pt inset borders, no confirmed shadow system"
+    ],
+    "rules": [
+      { "name": "The Two-Navy Rule", "body": "Navy (#1F3D59) is the palette's surface color; Navy Action (#113968) exists only for buttons and icon-circle fills. Never use Navy Action for backgrounds or large surfaces, and never fill a button with plain palette Navy.", "section": "colors" },
+      { "name": "The Gold Reserve Rule", "body": "Gold (#FDB400) appears on accents, never as a primary button or CTA fill. Its rarity is what makes it read as premium rather than promotional.", "section": "colors" },
+      { "name": "The Sans-Led Hierarchy Rule", "body": "Primary headings are always DM Sans Bold. DM Serif Display is a secondary, occasional voice — it never carries the top-level heading role, even at hero scale.", "section": "typography" }
+    ],
+    "dos": [
+      "Do use Navy (#1F3D59) for surfaces and grounding, and keep Navy Action (#113968) exclusive to buttons and icon-circle fills — two related but distinct tokens.",
+      "Do set primary headings in DM Sans Bold; use DM Serif Display only as a secondary, occasional accent voice.",
+      "Do set body copy in DM Sans Light, 16px, 150% line-height.",
+      "Do set numerals and tabular data (ownership shares, week counts, prices, dates) in DM Sans Mono.",
+      "Do reserve Gold (#FDB400) for accents — icons, dividers, highlights — never a primary button fill.",
+      "Do hold to the 20px / 40px spacing rhythm.",
+      "Do use the Heimkoma logo only at 128px / 64px / 32px, at its native proportions, unmodified."
+    ],
+    "donts": [
+      "Don't use #1C3A5C navy or #C49A3A gold anywhere — this pairing (currently live in s1h1gb/, s1h2gb/, and thrif/) is drift from the authoritative #1F3D59 / #FDB400 / #113968 palette, not an alternate expression of it.",
+      "Don't use Cormorant Garamond, Playfair Display, or Inter — none are part of the brand system. DM Sans, DM Serif Display, and DM Sans Mono are the only approved families. (Cormorant Garamond is currently live in luxury-villa/ and passport/; Playfair Display + Inter in s1h1gb/ and s1h2gb/.)",
+      "Don't set DM Serif Display as a page's primary/top-level heading font, as thrif/ currently does — it is a secondary accent voice only, never the main driver.",
+      "Don't fill a primary button with Gold — Gold is accent-only; primary buttons are Navy Action with Off-white text.",
+      "Don't rotate, recolor, outline, distort, or redraw the Heimkoma logotype."
+    ]
+  }
+}
