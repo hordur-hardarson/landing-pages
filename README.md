@@ -5,14 +5,15 @@ Static pages hosted at <https://lp.heimkoma.app>.
 | Folder | Page | Live |
 |---|---|---|
 | `s1h1gb/` | Húsafell guest handbook | <https://lp.heimkoma.app/s1h1gb/> |
-| `s1h2gb/` | Akureyri guest handbook | <https://lp.heimkoma.app/s1h2gb/> |
+| `s1h2gb/` | Akureyri guest handbook — English (primary) | <https://lp.heimkoma.app/s1h2gb/> |
+| s1h2gb/is/ | Akureyri guest handbook — Icelandic | <https://lp.heimkoma.app/s1h2gb/is/> |
 | `thrif/` | Cleaning checklist and inspection | <https://lp.heimkoma.app/thrif/> |
 | `passport/` | — | not currently deployed from this repository |
 | `luxury-villa/` | — | not currently deployed from this repository |
 
 ## Publishing
 
-Commit to `main` and push. That is all — the three pages above publish automatically and are
+Commit to `main` and push. That is all — the published folders above update automatically and are
 live in about a minute. Follow a run under the repository's **Actions** tab.
 
 To undo a change, revert the commit on `main`; the revert republishes the previous version.
@@ -35,6 +36,27 @@ there is signal.
 `DEPLOY.txt` in each handbook describes the old manual upload process and no longer applies.
 It is kept in the repository for reference but excluded from publishing, and removed from the
 server, because it was publicly readable.
+
+### Akureyri languages and consent
+
+English stays at the original s1h2gb/ address; Icelandic is at s1h2gb/is/.
+Both pages have labelled flag links that preserve the current chapter. Their
+checkout checklist uses the same saved progress. Both languages, manifests,
+photos and consent assets are included in the offline cache.
+
+Keep operational details, checklist IDs, contacts and Wi-Fi QR payloads aligned
+when editing the two HTML files. The Icelandic overview labels are positioned
+HTML over the original photo; the switch photo frames the control below its
+English annotation, with the full instructions in the translated text above.
+
+The s1h2gb/consent/ folder reuses Heimkoma's existing Complianz adapter and current
+WordPress banner configuration (7.5.5, policy 36, banner 16, checked 2026-10-02).
+Only the asset paths and display language are adapted. Cookie names, categories,
+policy, expiry and host-only scope are preserved. Choices therefore carry between
+these two pages; host-only WordPress choices cannot cross to lp.heimkoma.app.
+The handbook has enableAnalytics set to false and installs no tracking tags.
+Keep the vendor files and both translated banner templates aligned with the
+approved WordPress setup when its policy or configuration changes.
 
 ## The cleaning checklist page
 
@@ -92,3 +114,4 @@ gets its own key rather than reusing an existing one.
 If a deploy step fails with `error in libcrypto` and `Permission denied (publickey)`, the
 secret is missing or was pasted with a line broken. Re-add it whole, including the
 `-----BEGIN` and `-----END` lines.
+

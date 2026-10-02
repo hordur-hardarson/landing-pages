@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="is">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +10,12 @@
 <script>
 window.HEIMKOMA_CONFIG = {
   enableAnalytics: false,
-  complianzSourceUrl: '/s1h2gb/consent/source-en.html',
+  complianzSourceUrl: '/s1h2gb/consent/source-is.html',
   cookieSettingsUrl: 'https://heimkoma.app/cookies-settings/'
 };
 </script>
 <script src="/s1h2gb/consent/consent.js"></script>
-<title>Guest Handbook — Akureyri | Heimkoma</title>
+<title>Gestahandbók — Akureyri | Heimkoma</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -458,6 +458,19 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 .site-footer .language-nav a[aria-current="page"] { background:var(--navy); color:#fff; }
 .site-footer [data-cookie-settings] { display:inline-block; min-height:44px; padding:10px 4px; text-decoration:underline; }
 .ci:has(input:focus-visible) { outline:2px solid var(--navy); outline-offset:3px; }
+
+.property-overview { position:relative; container-type:inline-size; margin:14px 0; }
+.property-overview img { display:block; width:100%; height:auto; border-radius:5px; }
+.overview-label { position:absolute; display:flex; align-items:center; justify-content:center; background:#dededc; color:#173a55; font-weight:700; line-height:1; font-size:2.65cqw; white-space:nowrap; height:6.85%; }
+.overview-label.lockbox { left:.6%; top:3.1%; width:13%; }
+.overview-label.parking { left:80%; top:11%; width:17%; }
+.overview-label.hot { left:60.6%; top:19.8%; width:21.5%; }
+.overview-label.cold { left:70.5%; top:57.2%; width:22%; }
+.switch-photo { position:relative; overflow:hidden; aspect-ratio:1000/575; margin-top:14px; border-radius:5px; }
+.switch-photo img { position:absolute; width:100%; height:auto; bottom:0; display:block; }
+.paypal-photo { position:relative; width:220px; max-width:100%; margin:auto; container-type:inline-size; }
+.paypal-photo img { display:block; width:100%; height:auto; border-radius:5px; }
+.paypal-photo .payment-label { position:absolute; left:12%; top:60.5%; width:76%; height:4.2%; display:flex; align-items:center; justify-content:center; background:#fff; color:#111; font-size:3.3cqw; line-height:1.2; }
 </style>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1C3A5C">
@@ -469,35 +482,35 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 <body>
 
 <header class="site-header" id="top">
-  <nav class="language-nav" aria-label="Choose language"><a href="/s1h2gb/" data-handbook-language="/s1h2gb/" lang="en" hreflang="en" aria-current="page"><span class="flag" aria-hidden="true">🇬🇧</span><span>English</span></a><a href="/s1h2gb/is/" data-handbook-language="/s1h2gb/is/" lang="is" hreflang="is"><span class="flag" aria-hidden="true">🇮🇸</span><span>Íslenska</span></a></nav>
+  <nav class="language-nav" aria-label="Veljið tungumál"><a href="/s1h2gb/" data-handbook-language="/s1h2gb/" lang="en" hreflang="en"><span class="flag" aria-hidden="true">🇬🇧</span><span>English</span></a><a href="/s1h2gb/is/" data-handbook-language="/s1h2gb/is/" lang="is" hreflang="is" aria-current="page"><span class="flag" aria-hidden="true">🇮🇸</span><span>Íslenska</span></a></nav>
   <div class="logo-row">
     <img src="https://heimkoma.app/guest_handbook/images/logo.svg" width="200" height="50" alt="Heimkoma" class="logo-img" loading="lazy">
     <div class="logo-sep"></div>
-    <span class="logo-lbl">Guest Handbook</span>
+    <span class="logo-lbl">Gestahandbók</span>
   </div>
-  <p class="hero-eyebrow">Heimkoma &middot; Iceland</p>
+  <p class="hero-eyebrow">Heimkoma · Ísland</p>
   <h1 class="hero-name">Akureyri</h1>
-  <p class="hero-sub">Luxury Vacation Home</p>
+  <p class="hero-sub">Vandað frístundaheimili</p>
   <div class="search-wrap">
     <svg class="s-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
     </svg>
-    <input type="search" id="s-input" aria-label="Search handbook" class="search-input" placeholder="Search handbook&hellip;" autocomplete="off">
-    <button class="s-clear" id="s-clear" aria-label="Clear">&times;</button>
+    <input type="search" id="s-input" aria-label="Leita í handbókinni" class="search-input" placeholder="Leita í handbókinni…" autocomplete="off">
+    <button class="s-clear" id="s-clear" aria-label="Hreinsa leit">×</button>
   </div>
 </header>
 
-<nav class="sticky-nav" aria-label="Handbook sections">
+<nav class="sticky-nav" aria-label="Kaflar handbókar">
   <div class="wrap">
-    <a href="#arrival"    class="nav-pill" data-s="arrival">Arrival</a>
-    <a href="#inside"     class="nav-pill" data-s="inside">Inside</a>
-    <a href="#systems"    class="nav-pill" data-s="systems">Systems</a>
-    <a href="#groceries"  class="nav-pill" data-s="groceries">Groceries</a>
-    <a href="#services"   class="nav-pill" data-s="services">Services</a>
-    <a href="#activities" class="nav-pill" data-s="activities">Activities</a>
-    <a href="#trash"      class="nav-pill" data-s="trash">Trash</a>
-    <a href="#checkout"   class="nav-pill" data-s="checkout">Check Out</a>
-    <a href="#emergency"  class="nav-pill" data-s="emergency">Emergency</a>
+    <a href="#arrival"    class="nav-pill" data-s="arrival">Koma</a>
+    <a href="#inside"     class="nav-pill" data-s="inside">Í húsinu</a>
+    <a href="#systems"    class="nav-pill" data-s="systems">Búnaður</a>
+    <a href="#groceries"  class="nav-pill" data-s="groceries">Verslanir</a>
+    <a href="#services"   class="nav-pill" data-s="services">Þjónusta</a>
+    <a href="#activities" class="nav-pill" data-s="activities">Afþreying</a>
+    <a href="#trash"      class="nav-pill" data-s="trash">Sorp</a>
+    <a href="#checkout"   class="nav-pill" data-s="checkout">Brottför</a>
+    <a href="#emergency"  class="nav-pill" data-s="emergency">Neyðarnúmer</a>
   </div>
 </nav>
 
@@ -509,22 +522,22 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <div class="ch-head">
     <span class="ch-num">01</span>
-    <h2 class="ch-title">Arrival, Access &amp; Parking</h2>
+    <h2 class="ch-title">Koma, aðgangur og bílastæði</h2>
   </div>
 
   <div class="sub">
-    <span class="sub-lbl">Address &amp; Navigation</span>
+    <span class="sub-lbl">Heimilisfang og leiðarlýsing</span>
     <div class="dcard">
       <div>
-        <span class="dc-lbl">Address</span>
-        <span class="dc-val"><a href="https://maps.app.goo.gl/o3KyfRgZz54xamURA" target="_blank">Hafnarstr&aelig;ti 45, 600 Akureyri</a></span>
+        <span class="dc-lbl">Heimilisfang</span>
+        <span class="dc-val"><a href="https://maps.app.goo.gl/o3KyfRgZz54xamURA" target="_blank">Hafnarstræti 45, 600 Akureyri</a></span>
       </div>
       <div>
         <span class="dc-lbl">Google Maps</span>
         <span class="dc-val" style="font-size:1rem;"><a href="https://hja.heimkoma.app/s1h2maps" target="_blank">hja.heimkoma.app/s1h2maps</a></span>
       </div>
       <div>
-        <span class="dc-lbl">Plus Code</span>
+        <span class="dc-lbl">Staðsetningarkóði</span>
         <span class="dc-val"><code>MWG6+395 Akureyri</code></span>
       </div>
     </div>
@@ -533,45 +546,45 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
   <div class="divider"></div>
 
   <div class="sub">
-    <span class="sub-lbl">Parking &#9888;&#65039;</span>
+    <span class="sub-lbl">Bílastæði ⚠️</span>
     <div class="warn-box red">
-      <span class="w-ico">&#128664;</span>
-      <div class="w-txt"><strong>Use only the designated parking space on the left side of the building</strong> when facing the front door. This is the only parking that belongs to the property. It is further from the city center.</div>
+      <span class="w-ico">🚘</span>
+      <div class="w-txt"><strong>Notið aðeins bílastæðið vinstra megin við húsið</strong> sé staðið andspænis aðalinnganginum. Þetta er eina bílastæðið sem tilheyrir eigninni og er það fjær miðbænum.</div>
     </div>
   </div>
 
   <div class="divider"></div>
 
   <div class="sub">
-    <span class="sub-lbl">Check-in &amp; Lockbox</span>
+    <span class="sub-lbl">Innritun og lyklabox</span>
     <div class="two-col">
       <div class="lblock">
-        <span class="lb-lbl">Check-in from</span>
+        <span class="lb-lbl">Innritun frá kl.</span>
         <div class="lb-val">15:00</div>
-        <p>Access details in your welcome email</p>
+        <p>Upplýsingar um aðgang eru í móttökupóstinum</p>
       </div>
       <div class="lblock">
-        <span class="lb-lbl">Check-out by</span>
+        <span class="lb-lbl">Brottför fyrir kl.</span>
         <div class="lb-val">11:00</div>
-        <p>See checkout checklist &mdash; Chapter 8</p>
+        <p>Sjá gátlista fyrir brottför í 8. kafla</p>
       </div>
     </div>
-    <p>The lockbox is on the <strong>right side of the building</strong>, just around the corner from the front door. Code sent by email and on the booking platform.</p>
+    <p>Lyklaboxið er á <strong>hægri hlið hússins</strong>, rétt fyrir hornið við aðalinnganginn. Kóðinn er sendur í tölvupósti og í gegnum bókunarsíðuna.</p>
     <div class="img-two" style="margin-top:14px;">
       <div>
-        <img src="/s1h2gb/images/entrance.jpeg" width="1024" height="768" alt="Front entrance" loading="lazy" style="width:100%;border-radius:5px;display:block;object-fit:cover;height:220px;">
-        <p class="img-caption">Front entrance</p>
+        <img src="/s1h2gb/images/entrance.jpeg" width="1024" height="768" alt="Aðalinngangur" loading="lazy" style="width:100%;border-radius:5px;display:block;object-fit:cover;height:220px;">
+        <p class="img-caption">Aðalinngangur</p>
       </div>
       <div>
-        <img src="/s1h2gb/images/lockbox.jpeg" width="768" height="1024" alt="Lockbox location on right side of building" loading="lazy" style="width:100%;border-radius:5px;display:block;object-fit:cover;height:220px;">
-        <p class="img-caption">Lockbox &mdash; right side of building</p>
+        <img src="/s1h2gb/images/lockbox.jpeg" width="768" height="1024" alt="Staðsetning lyklaboxsins hægra megin við húsið" loading="lazy" style="width:100%;border-radius:5px;display:block;object-fit:cover;height:220px;">
+        <p class="img-caption">Lyklabox — hægri hlið hússins</p>
       </div>
     </div>
-    <img src="/s1h2gb/images/overview.jpeg" width="1400" height="862" alt="Aerial overview showing lockbox, parking, hot tub and cold tub locations" loading="lazy" style="width:100%;border-radius:5px;display:block;margin:14px 0;">
-    <p class="img-caption" style="font-size:.72rem;color:#999;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Property overview &mdash; lockbox, parking &amp; outdoor area</p>
+    <div class="property-overview"><img src="/s1h2gb/images/overview.jpeg" width="1400" height="862" alt="Yfirlitsmynd sem sýnir lyklabox, bílastæði, heitan pott og kaldan pott" loading="lazy"><span class="overview-label lockbox">Lyklabox</span><span class="overview-label parking">Bílastæði</span><span class="overview-label hot">Heitur pottur</span><span class="overview-label cold">Kaldur pottur</span></div>
+    <p class="img-caption" style="font-size:.72rem;color:#999;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Yfirlitsmynd — lyklabox, bílastæði og útisvæði</p>
     <ul class="blist">
-      <li>Front door is a manual key lock</li>
-      <li>Please lock the door whenever you leave</li>
+      <li>Útidyrnar eru læstar með hefðbundnum lykli</li>
+      <li>Læsið alltaf útidyrunum þegar þið farið út</li>
     </ul>
   </div>
 
@@ -584,41 +597,41 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <div class="ch-head">
     <span class="ch-num">02</span>
-    <h2 class="ch-title">Inside the House</h2>
+    <h2 class="ch-title">Í húsinu</h2>
   </div>
 
   <div class="sub">
-    <span class="sub-lbl">General</span>
+    <span class="sub-lbl">Almennar upplýsingar</span>
     <ul class="blist">
-      <li>Please remove shoes indoors</li>
-      <li>Treat the home as you would your own</li>
-      <li>Pets are welcome &mdash; please clean thoroughly after them</li>
-      <li>Be considerate of neighbours, especially during evening hours</li>
+      <li>Vinsamlegast farið úr skónum innandyra</li>
+      <li>Gangið um heimilið eins og það væri ykkar eigið</li>
+      <li>Gæludýr eru velkomin — þrífið vandlega eftir þau</li>
+      <li>Sýnið nágrönnum tillitssemi, sérstaklega á kvöldin</li>
     </ul>
   </div>
 
   <div class="divider"></div>
 
   <div class="sub">
-    <span class="sub-lbl">Wi-Fi</span>
+    <span class="sub-lbl">Þráðlaust net</span>
     <div class="dcard wifi-card">
       <div class="wifi-details">
         <div>
-          <span class="dc-lbl">Network name</span>
+          <span class="dc-lbl">Heiti nets</span>
           <span class="dc-val"><code>H158-381_0D27</code></span>
         </div>
         <div>
-          <span class="dc-lbl">Network name (5 GHz)</span>
+          <span class="dc-lbl">Heiti nets (5 GHz)</span>
           <span class="dc-val"><code>H158-381_0D27_5G</code></span>
         </div>
         <div>
-          <span class="dc-lbl">Password (both networks)</span>
+          <span class="dc-lbl">Lykilorð fyrir bæði netin</span>
           <span class="dc-val"><code>D34gYG767dg</code></span>
         </div>
       </div>
       <figure class="wifi-qr">
-        <svg xmlns="http://www.w3.org/2000/svg" width="185" height="185" role="img" aria-labelledby="wifi-qr-title" viewBox="0 0 37 37" shape-rendering="crispEdges"><title id="wifi-qr-title">Scan to join H158-381_0D27 Wi-Fi</title><path fill="#FFFFFF" d="M0 0h37v37H0z"/><path stroke="#000000" d="M4 4.5h7m1 0h2m1 0h3m3 0h3m2 0h7M4 5.5h1m5 0h1m2 0h3m1 0h2m1 0h2m4 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m1 0h2m2 0h3m1 0h2m1 0h1m2 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m3 0h3m1 0h1m2 0h1m4 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m2 0h1m2 0h3m2 0h4m1 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m1 0h1m1 0h1m2 0h2m1 0h2m2 0h1m1 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M15 11.5h1m3 0h1m2 0h2M4 12.5h1m1 0h1m3 0h2m7 0h1m3 0h1m3 0h1m2 0h1m1 0h1M4 13.5h1m1 0h1m1 0h2m4 0h2m2 0h3m1 0h3m3 0h2m1 0h2M4 14.5h2m1 0h4m2 0h1m2 0h1m1 0h2m2 0h1m3 0h1m1 0h2M5 15.5h1m1 0h2m2 0h1m2 0h6m1 0h2m1 0h2m3 0h1m1 0h2M5 16.5h2m2 0h2m3 0h1m3 0h2m2 0h2m4 0h1m2 0h1M5 17.5h1m2 0h2m3 0h1m2 0h1m1 0h3m1 0h1m1 0h4m1 0h2m1 0h1M4 18.5h1m1 0h1m2 0h2m1 0h1m5 0h4m1 0h1m4 0h2m2 0h1M4 19.5h1m2 0h3m1 0h2m2 0h1m1 0h2m1 0h1m1 0h1m4 0h1m1 0h3M4 20.5h1m2 0h4m1 0h2m2 0h1m1 0h2m1 0h9m2 0h1M7 21.5h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h3m2 0h1m2 0h1M4 22.5h2m1 0h2m1 0h9m3 0h2m1 0h1m1 0h1m1 0h4M6 23.5h1m4 0h1m8 0h3m3 0h1m2 0h1m1 0h2M4 24.5h2m1 0h1m1 0h5m1 0h5m2 0h1m1 0h6m1 0h1M12 25.5h3m2 0h1m1 0h2m3 0h1m3 0h4M4 26.5h7m1 0h3m4 0h3m2 0h1m1 0h1m1 0h1m3 0h1M4 27.5h1m5 0h1m4 0h3m1 0h2m2 0h2m3 0h2m1 0h1M4 28.5h1m1 0h3m1 0h1m2 0h1m1 0h3m1 0h3m1 0h8m1 0h1M4 29.5h1m1 0h3m1 0h1m5 0h2m2 0h1m2 0h1m1 0h1m1 0h2M4 30.5h1m1 0h3m1 0h1m1 0h3m1 0h1m2 0h1m2 0h3m2 0h1m1 0h4M4 31.5h1m5 0h1m2 0h2m1 0h1m1 0h2m2 0h1m3 0h3m3 0h1M4 32.5h7m1 0h1m1 0h3m2 0h1m2 0h1m3 0h3m1 0h3"/></svg>
-        <figcaption><strong>Scan to connect</strong>H158-381_0D27</figcaption>
+        <svg xmlns="http://www.w3.org/2000/svg" width="185" height="185" role="img" aria-labelledby="wifi-qr-title" viewBox="0 0 37 37" shape-rendering="crispEdges"><title id="wifi-qr-title">Skannið kóðann til að tengjast þráðlausa netinu H158-381_0D27</title><path fill="#FFFFFF" d="M0 0h37v37H0z"/><path stroke="#000000" d="M4 4.5h7m1 0h2m1 0h3m3 0h3m2 0h7M4 5.5h1m5 0h1m2 0h3m1 0h2m1 0h2m4 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m1 0h2m2 0h3m1 0h2m1 0h1m2 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m3 0h3m1 0h1m2 0h1m4 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m2 0h1m2 0h3m2 0h4m1 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m1 0h1m1 0h1m2 0h2m1 0h2m2 0h1m1 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M15 11.5h1m3 0h1m2 0h2M4 12.5h1m1 0h1m3 0h2m7 0h1m3 0h1m3 0h1m2 0h1m1 0h1M4 13.5h1m1 0h1m1 0h2m4 0h2m2 0h3m1 0h3m3 0h2m1 0h2M4 14.5h2m1 0h4m2 0h1m2 0h1m1 0h2m2 0h1m3 0h1m1 0h2M5 15.5h1m1 0h2m2 0h1m2 0h6m1 0h2m1 0h2m3 0h1m1 0h2M5 16.5h2m2 0h2m3 0h1m3 0h2m2 0h2m4 0h1m2 0h1M5 17.5h1m2 0h2m3 0h1m2 0h1m1 0h3m1 0h1m1 0h4m1 0h2m1 0h1M4 18.5h1m1 0h1m2 0h2m1 0h1m5 0h4m1 0h1m4 0h2m2 0h1M4 19.5h1m2 0h3m1 0h2m2 0h1m1 0h2m1 0h1m1 0h1m4 0h1m1 0h3M4 20.5h1m2 0h4m1 0h2m2 0h1m1 0h2m1 0h9m2 0h1M7 21.5h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m5 0h3m2 0h1m2 0h1M4 22.5h2m1 0h2m1 0h9m3 0h2m1 0h1m1 0h1m1 0h4M6 23.5h1m4 0h1m8 0h3m3 0h1m2 0h1m1 0h2M4 24.5h2m1 0h1m1 0h5m1 0h5m2 0h1m1 0h6m1 0h1M12 25.5h3m2 0h1m1 0h2m3 0h1m3 0h4M4 26.5h7m1 0h3m4 0h3m2 0h1m1 0h1m1 0h1m3 0h1M4 27.5h1m5 0h1m4 0h3m1 0h2m2 0h2m3 0h2m1 0h1M4 28.5h1m1 0h3m1 0h1m2 0h1m1 0h3m1 0h3m1 0h8m1 0h1M4 29.5h1m1 0h3m1 0h1m5 0h2m2 0h1m2 0h1m1 0h1m1 0h2M4 30.5h1m1 0h3m1 0h1m1 0h3m1 0h1m2 0h1m2 0h3m2 0h1m1 0h4M4 31.5h1m5 0h1m2 0h2m1 0h1m1 0h2m2 0h1m3 0h3m3 0h1M4 32.5h7m1 0h1m1 0h3m2 0h1m2 0h1m3 0h3m1 0h3"/></svg>
+        <figcaption><strong>Skannið til að tengjast</strong>H158-381_0D27</figcaption>
       </figure>
     </div>
   </div>
@@ -626,26 +639,26 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
   <div class="divider"></div>
 
   <div class="sub">
-    <span class="sub-lbl">Kitchen &amp; Pantry</span>
-    <p>Fully equipped &mdash; microwave, air fryer, spacious stovetop, oven, and a grill.</p>
+    <span class="sub-lbl">Eldhús og matvara</span>
+    <p>Eldhúsið er vel búið með örbylgjuofni, loftsteikingarpotti, rúmgóðri eldavélarhellu, bakarofni og grilli.</p>
     <ul class="blist">
-      <li><strong>Free to use:</strong> all spices, cooking oils, and any food already in the house (opened or unopened)</li>
-      <li>Wine cooler in the kitchen facing the window &mdash; used for the honesty bar (see Chapter 5)</li>
+      <li><strong>Ykkur er velkomið að nota:</strong> öll krydd, matarolíur og matvöru sem er fyrir í húsinu, hvort sem umbúðir hafa verið opnaðar eða ekki</li>
+      <li>Vínkælirinn í eldhúsinu snýr að glugganum. Þar eru drykkir sem greiða má fyrir eftir notkun (sjá 5. kafla)</li>
     </ul>
   </div>
 
   <div class="divider"></div>
 
   <div class="sub">
-    <span class="sub-lbl">Fireplace &#9888;&#65039;</span>
-    <p>The house has a wood-burning fireplace. It is safe to use.</p>
+    <span class="sub-lbl">Arinn ⚠️</span>
+    <p>Í húsinu er arinn fyrir eldivið sem gestum er velkomið að nota.</p>
     <ul class="blist">
-      <li>Use logs or wood when available in the house</li>
-      <li>Chemical logs are available at B&oacute;nus and similar stores if needed</li>
-      <li>Never leave the fireplace unattended while burning</li>
-      <li>Ensure the fire is fully extinguished before going to sleep or leaving the house</li>
+      <li>Notið eldivið sem er til í húsinu</li>
+      <li>Tilbúnir arinkubbar fást í Bónus og sambærilegum verslunum ef þarf</li>
+      <li>Skiljið aldrei eftir logandi eld í arninum án eftirlits</li>
+      <li>Gangið úr skugga um að eldurinn sé alveg slokknaður áður en þið farið að sofa eða yfirgefið húsið</li>
     </ul>
-    <img src="/s1h2gb/images/fireplace.jpeg" width="1200" height="799" alt="Living room with fireplace" loading="lazy" style="width:100%;border-radius:5px;display:block;margin-top:14px;">
+    <img src="/s1h2gb/images/fireplace.jpeg" width="1200" height="799" alt="Stofa með arni" loading="lazy" style="width:100%;border-radius:5px;display:block;margin-top:14px;">
   </div>
 
 </div>
@@ -657,17 +670,17 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <div class="ch-head">
     <span class="ch-num">03</span>
-    <h2 class="ch-title">House Systems &amp; Amenities</h2>
+    <h2 class="ch-title">Búnaður hússins og aðstaða</h2>
   </div>
 
   <!-- ICE MACHINE -->
   <div class="sub">
-    <span class="sub-lbl">Ice Machine</span>
-    <p>The ice machine is built into the fridge. It does not require a separate unit.</p>
+    <span class="sub-lbl">Klakavél</span>
+    <p>Klakavélin er innbyggð í ísskápinn og því þarf ekki sérstakt tæki.</p>
     <ol class="slist">
-      <li>Open the fridge and locate the small water tank inside</li>
-      <li>Fill the tank with fresh water</li>
-      <li>Ice will form in the icebox in the lower half of the fridge</li>
+      <li>Opnið ísskápinn og finnið litla vatnsgeyminn inni í honum</li>
+      <li>Fyllið geyminn með fersku vatni</li>
+      <li>Klakar myndast í klakaboxinu í neðri hluta ísskápsins</li>
     </ol>
   </div>
 
@@ -675,58 +688,58 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <!-- HOT TUB -->
   <div class="sub">
-    <span class="sub-lbl">Hot Tub</span>
+    <span class="sub-lbl">Heiti potturinn</span>
     <div class="warn-box blue">
-      <span class="w-ico">&#128273;</span>
-      <div class="w-txt">A separate lockbox is located next to the hot tub. It uses the <strong>same code as the main entrance lockbox</strong>. Inside you will find the key for the hot tub switch.</div>
+      <span class="w-ico">🔑</span>
+      <div class="w-txt">Við heita pottinn er sérstakt lyklabox. Á því er <strong>sami kóði og á lyklaboxinu fyrir útidyrnar</strong>. Í boxinu er lykillinn að rofa heita pottsins.</div>
     </div>
 
-    <img src="/s1h2gb/images/hot-tub-lockbox.jpeg" width="1050" height="1400" alt="Lockbox beside the hot tub containing the key used to operate the hot tub" loading="lazy" style="width:100%;border-radius:5px;display:block;margin:14px 0 0;">
-    <p class="img-caption">Hot tub lockbox &mdash; contains the key used to turn on the hot tub. The code is the same as the code for the house-key lockbox.</p>
+    <img src="/s1h2gb/images/hot-tub-lockbox.jpeg" width="1050" height="1400" alt="Lyklabox við heita pottinn með lykli að rofa pottsins" loading="lazy" style="width:100%;border-radius:5px;display:block;margin:14px 0 0;">
+    <p class="img-caption">Lyklabox við heita pottinn — þar er lykillinn sem notaður er til að kveikja á pottinum. Kóðinn er sá sami og á lyklaboxinu fyrir útidyrnar.</p>
 
     <div class="warn-box">
-      <span class="w-ico">&#8505;&#65039;</span>
-      <div class="w-txt">Before using: remove the <strong>tarp and the metal cross</strong> that cover the hot tub. Set them aside and return them before leaving.</div>
+      <span class="w-ico">ℹ️</span>
+      <div class="w-txt">Áður en potturinn er notaður skal fjarlægja <strong>ábreiðuna og málmkrossinn</strong> sem liggja yfir pottinum. Leggið þau til hliðar og setjið aftur á sinn stað fyrir brottför.</div>
     </div>
 
-    <h3>Using the Hot Tub</h3>
+    <h3>Notkun heita pottsins</h3>
     <ol class="slist">
-      <li>Use the key from the lockbox to unlock the switch</li>
-      <li>Turn the switch <strong>ON</strong> &mdash; the hot tub will begin filling</li>
-      <li>Keep the switch ON while using the hot tub</li>
-      <li>When finished, turn the switch <strong>OFF</strong> &mdash; the hot tub empties automatically</li>
-      <li>Remove the key and return it to the lockbox</li>
+      <li>Notið lykilinn úr lyklaboxinu til að aflæsa rofanum</li>
+      <li>Stillið rofann á <strong>ON (kveikt)</strong> — þá byrjar potturinn að fyllast</li>
+      <li>Hafið rofann á ON (kveikt) meðan potturinn er í notkun</li>
+      <li>Að notkun lokinni skal stilla rofann á <strong>OFF (slökkt)</strong> — þá tæmist potturinn sjálfkrafa</li>
+      <li>Takið lykilinn úr og setjið hann aftur í lyklaboxið</li>
     </ol>
 
     <div class="warn-box red" style="margin-top:14px;">
-      <span class="w-ico">&#9888;&#65039;</span>
-      <div class="w-txt"><strong>Before leaving:</strong> make sure the switch is OFF, the tub has emptied, and the tarp and metal cross are back in place.</div>
+      <span class="w-ico">⚠️</span>
+      <div class="w-txt"><strong>Fyrir brottför:</strong> Gangið úr skugga um að rofinn sé á OFF (slökkt), potturinn sé tómur og ábreiðan og málmkrossinn séu aftur á sínum stað.</div>
     </div>
 
-    <img src="/s1h2gb/images/hot-tub-switch.jpeg" width="1000" height="1000" alt="Hot tub key switch" loading="lazy" style="width:100%;border-radius:5px;display:block;margin-top:14px;">
+    <div class="switch-photo"><img src="/s1h2gb/images/hot-tub-switch.jpeg" width="1000" height="1000" alt="Lykilrofi heita pottsins" loading="lazy"></div>
   </div>
 
   <div class="divider"></div>
 
   <!-- COLD TUB -->
   <div class="sub">
-    <span class="sub-lbl">Cold Tub</span>
+    <span class="sub-lbl">Kaldi potturinn</span>
     <div class="warn-box">
-      <span class="w-ico">&#10052;&#65039;</span>
-      <div class="w-txt">The cold tub is <strong>not available in winter</strong>. It operates in summer only.</div>
+      <span class="w-ico">❄️</span>
+      <div class="w-txt">Kaldi potturinn er <strong>ekki í notkun yfir vetrarmánuðina</strong>. Hann er aðeins í notkun á sumrin.</div>
     </div>
 
-    <h3>Using the Cold Tub</h3>
+    <h3>Notkun kalda pottsins</h3>
     <ol class="slist">
-      <li>Remove the wooden cover and set it aside</li>
-      <li>Insert the <strong>cork</strong> into the drain at the bottom</li>
-      <li>Turn the knob to start the cold water</li>
-      <li>When finished, turn off the water</li>
-      <li>Remove the cork &mdash; the tub will drain</li>
-      <li>Replace the wooden cover</li>
+      <li>Takið trélokið af og leggið það til hliðar</li>
+      <li>Setjið <strong>tappann</strong> í niðurfallið á botni pottsins</li>
+      <li>Snúið krananum til að hleypa köldu vatni í pottinn</li>
+      <li>Skrúfið fyrir vatnið að notkun lokinni</li>
+      <li>Takið tappann úr — þá tæmist potturinn</li>
+      <li>Setjið trélokið aftur á</li>
     </ol>
-    <img src="/s1h2gb/images/overview.jpeg" width="1400" height="862" alt="Overview showing cold tub location in outdoor area" loading="lazy" style="width:100%;border-radius:5px;display:block;margin-top:14px;">
-    <p style="font-size:.72rem;color:#999;letter-spacing:.1em;text-transform:uppercase;margin-top:5px;text-align:center;">Cold tub visible in outdoor area (labelled in photo)</p>
+    <div class="property-overview"><img src="/s1h2gb/images/overview.jpeg" width="1400" height="862" alt="Yfirlitsmynd sem sýnir staðsetningu kalda pottsins á útisvæðinu" loading="lazy"><span class="overview-label lockbox">Lyklabox</span><span class="overview-label parking">Bílastæði</span><span class="overview-label hot">Heitur pottur</span><span class="overview-label cold">Kaldur pottur</span></div>
+    <p style="font-size:.72rem;color:#999;letter-spacing:.1em;text-transform:uppercase;margin-top:5px;text-align:center;">Kaldi potturinn er á útisvæðinu (merktur á myndinni)</p>
   </div>
 
 </div>
@@ -738,44 +751,44 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <div class="ch-head">
     <span class="ch-num">04</span>
-    <h2 class="ch-title">Groceries &amp; Services</h2>
+    <h2 class="ch-title">Verslanir og þjónusta</h2>
   </div>
 
   <div class="sub">
     <div class="warn-box blue">
-      <span class="w-ico">&#128205;</span>
-      <div class="w-txt">Akureyri is a full-service town. Grocery stores, restaurants, bars, ATMs, and most services are <strong>within walking distance</strong> of the house.</div>
+      <span class="w-ico">📍</span>
+      <div class="w-txt">Á Akureyri er fjölbreytt þjónusta. Matvöruverslanir, veitingastaðir, barir, hraðbankar og flest önnur þjónusta eru <strong>í göngufæri</strong> frá húsinu.</div>
     </div>
   </div>
 
   <div class="sub">
-    <span class="sub-lbl">Grocery Stores</span>
+    <span class="sub-lbl">Matvöruverslanir</span>
     <ul class="blist">
-      <li>B&oacute;nus &mdash; largest and most affordable</li>
-      <li>Kr&oacute;nan</li>
-      <li>Additional stores available in the town center</li>
+      <li>Bónus — mikið úrval á hagstæðu verði</li>
+      <li>Krónan</li>
+      <li>Fleiri verslanir eru í miðbænum</li>
     </ul>
   </div>
 
   <div class="divider"></div>
 
   <div class="sub">
-    <span class="sub-lbl">Liquor Store &mdash; V&iacute;nb&uacute;&eth;in</span>
+    <span class="sub-lbl">Vínbúðin</span>
     <ul class="blist">
-      <li><a href="https://maps.app.goo.gl/o3KyfRgZz54xamURA" target="_blank">V&iacute;nb&uacute;&eth;in Akureyri</a> &mdash; approximately 8 minutes from the house</li>
-      <li><a href="https://maps.app.goo.gl/BXRTejVa2kAeHRbh9" target="_blank">Directions from the house &rarr;</a></li>
-      <li>Limited opening hours &mdash; plan ahead</li>
+      <li><a href="https://maps.app.goo.gl/o3KyfRgZz54xamURA" target="_blank">Vínbúðin Akureyri</a> — í um átta mínútna fjarlægð frá húsinu</li>
+      <li><a href="https://maps.app.goo.gl/BXRTejVa2kAeHRbh9" target="_blank">Leiðarlýsing frá húsinu →</a></li>
+      <li>Athugið opnunartíma áður en lagt er af stað</li>
     </ul>
   </div>
 
   <div class="divider"></div>
 
   <div class="sub">
-    <span class="sub-lbl">Cards, ATMs &amp; Dining</span>
+    <span class="sub-lbl">Greiðslukort, hraðbankar og veitingastaðir</span>
     <ul class="blist">
-      <li>Credit and debit cards accepted everywhere in Iceland</li>
-      <li>ATMs available in the town center, walking distance</li>
-      <li>Restaurants and bars are located throughout the center &mdash; a short walk from the house</li>
+      <li>Greiðslukort eru almennt tekin við á Íslandi</li>
+      <li>Hraðbankar eru í miðbænum, í göngufæri frá húsinu</li>
+      <li>Fjölbreytt úrval veitingastaða og bara er í miðbænum, í stuttri göngufjarlægð frá húsinu</li>
     </ul>
   </div>
 
@@ -788,22 +801,22 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <div class="ch-head">
     <span class="ch-num">05</span>
-    <h2 class="ch-title">Extra Services &amp; Comforts</h2>
+    <h2 class="ch-title">Þjónusta og þægindi</h2>
   </div>
 
   <div class="sub">
-    <span class="sub-lbl">Wine &amp; Beer &mdash; Honesty System</span>
-    <p>Wine and beer are available in the wine cooler in the kitchen (facing the window). Please pay only for what you consume.</p>
+    <span class="sub-lbl">Vín og bjór — greiðið eftir notkun</span>
+    <p>Vín og bjór eru í vínkælinum í eldhúsinu, sem snýr að glugganum. Greiðið fyrir það sem þið takið.</p>
     <table class="ptable">
-      <tr><td>Red wine</td><td>&euro;40 / bottle</td></tr>
-      <tr><td>White wine</td><td>&euro;40 / bottle</td></tr>
-      <tr><td>Sparkling wine</td><td>&euro;30 / bottle</td></tr>
-      <tr><td>Beer (pack)</td><td>&euro;50</td></tr>
+      <tr><td>Rauðvín</td><td>40 € / flaska</td></tr>
+      <tr><td>Hvítvín</td><td>40 € / flaska</td></tr>
+      <tr><td>Freyðivín</td><td>30 € / flaska</td></tr>
+      <tr><td>Bjór (pakki)</td><td>50 €</td></tr>
     </table>
-    <p style="margin-top:12px;font-size:.87rem;color:var(--muted);">Pay via PayPal QR code, on the <a href="https://www.airbnb.com" target="_blank">Airbnb app</a>, or leave cash in the house.</p>
+    <p style="margin-top:12px;font-size:.87rem;color:var(--muted);">Greiðið með PayPal með því að skanna QR-kóðann, í <a href="https://www.airbnb.com" target="_blank">Airbnb-appinu</a> eða skiljið eftir reiðufé í húsinu.</p>
     <div style="padding:16px 0;text-align:center;">
-      <img src="/s1h2gb/images/paypal-qr.jpeg" width="600" height="1303" alt="PayPal QR code" loading="lazy" style="width:220px;max-width:100%;border-radius:5px;display:block;margin:0 auto;">
-      <p style="font-size:.8rem;color:#999;margin-top:8px;">Scan to pay via PayPal</p>
+      <div class="paypal-photo"><img src="/s1h2gb/images/paypal-qr.jpeg" width="600" height="1303" alt="QR-kóði fyrir greiðslu með PayPal" loading="lazy"><span class="payment-label">Skannið til að greiða Herði Harðarsyni</span></div>
+      <p style="font-size:.8rem;color:#999;margin-top:8px;">Skannið til að greiða með PayPal</p>
     </div>
   </div>
 
@@ -816,50 +829,50 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <div class="ch-head">
     <span class="ch-num">06</span>
-    <h2 class="ch-title">Activities &amp; Attractions</h2>
+    <h2 class="ch-title">Afþreying og áhugaverðir staðir</h2>
   </div>
 
   <div class="sub">
-    <p>Akureyri is Iceland&apos;s second largest city and the capital of the north. Most attractions are within walking distance or a short drive.</p>
+    <p>Akureyri er höfuðstaður Norðurlands. Margt áhugavert er í göngufæri eða í stuttri akstursfjarlægð frá húsinu.</p>
 
-    <span class="sub-lbl" style="margin-top:20px;">In Town</span>
+    <span class="sub-lbl" style="margin-top:20px;">Í bænum</span>
     <ul class="blist">
-      <li><strong>Akureyri Swimming Pool (Sundlaug)</strong> &mdash; one of Iceland&apos;s finest public pools, with hot tubs and waterslides</li>
-      <li><strong>Akureyri Botanical Garden (Lystigar&eth;ur)</strong> &mdash; northernmost botanical garden in the world, free entry</li>
-      <li><strong>Akureyri Church (Akureyrarkirkja)</strong> &mdash; landmark building with views over the fjord</li>
-      <li><strong>Restaurants and bars</strong> &mdash; concentrated in the pedestrianised center, a short walk from the house</li>
+      <li><strong>Sundlaug Akureyrar</strong> — sundlaug með heitum pottum og vatnsrennibrautum</li>
+      <li><strong>Lystigarður Akureyrar</strong> — fallegur grasagarður. Aðgangur er ókeypis</li>
+      <li><strong>Akureyrarkirkja</strong> — eitt helsta kennileiti bæjarins, með útsýni yfir fjörðinn</li>
+      <li><strong>Veitingastaðir og barir</strong> — margir við göngugötuna í miðbænum, í stuttri göngufjarlægð frá húsinu</li>
     </ul>
 
     <div class="divider"></div>
 
-    <span class="sub-lbl">Winter Activities</span>
+    <span class="sub-lbl">Afþreying að vetri</span>
     <ul class="blist">
-      <li><strong>Hl&iacute;&eth;arfjall ski resort</strong> &mdash; Iceland&apos;s largest ski area, 10 minutes from town. Downhill and cross-country skiing.</li>
-      <li><strong>Northern lights viewing</strong> &mdash; Akureyri&apos;s northern latitude makes it one of the best places in Iceland to see the aurora</li>
-      <li><strong>Snowmobiling and dog sledding</strong> &mdash; available in the surrounding area</li>
+      <li><strong>Hlíðarfjall</strong> — skíðasvæði í um tíu mínútna akstursfjarlægð frá bænum. Aðstaða fyrir bæði svigskíði og gönguskíði.</li>
+      <li><strong>Norðurljósaskoðun</strong> — á heiðskírum vetrarnóttum má leita norðurljósa í nágrenni Akureyrar</li>
+      <li><strong>Vélsleðaferðir og hundasleðaferðir</strong> — í boði í nágrenninu</li>
     </ul>
 
     <div class="divider"></div>
 
-    <span class="sub-lbl">Summer Activities</span>
+    <span class="sub-lbl">Afþreying að sumri</span>
     <ul class="blist">
-      <li><strong>Whale watching</strong> &mdash; Eye&apos;ja&ouml;r&eth;ur fjord is one of the best locations in Iceland for whale watching. Tours depart from Akureyri harbour.</li>
-      <li><strong>Midnight sun hiking</strong> &mdash; June and July offer near-24-hour daylight</li>
-      <li><strong>Horse riding</strong> &mdash; Icelandic horse tours available nearby</li>
-      <li><strong>Fishing</strong> &mdash; river and sea fishing in the surrounding area</li>
+      <li><strong>Hvalaskoðun</strong> — farið er í ferðir um Eyjafjörð frá Akureyrarhöfn.</li>
+      <li><strong>Gönguferðir á björtum sumarnóttum</strong> — í júní og júlí er bjart nánast allan sólarhringinn</li>
+      <li><strong>Hestaferðir</strong> — boðið er upp á reiðtúra í nágrenninu</li>
+      <li><strong>Veiði</strong> — bæði árveiði og sjóstangaveiði í nágrenninu</li>
     </ul>
 
     <div class="divider"></div>
 
-    <span class="sub-lbl">Day Trips from Akureyri</span>
+    <span class="sub-lbl">Dagsferðir frá Akureyri</span>
     <ul class="blist">
-      <li><strong>Lake M&yacute;vatn</strong> &mdash; 1 hour east. Geothermal landscape, pseudo-craters, nature baths, and bird life.</li>
-      <li><strong>Goðafoss waterfall</strong> &mdash; 45 minutes east. One of Iceland&apos;s most photographed waterfalls.</li>
-      <li><strong>Dettifoss</strong> &mdash; Europe&apos;s most powerful waterfall, approximately 2 hours east.</li>
-      <li><strong>Siglufjör&eth;ur</strong> &mdash; 1 hour west. Charming fishing village with the Herring Era Museum.</li>
-      <li><strong>Tr&ouml;llaskagi peninsula</strong> &mdash; dramatic mountain and fjord scenery, skiing in winter.</li>
+      <li><strong>Mývatn</strong> — um klukkustund í austur. Jarðhitasvæði, gervigígar, jarðböð og fjölskrúðugt fuglalíf.</li>
+      <li><strong>Goðafoss</strong> — um 45 mínútur í austur. Einn þekktasti foss landsins.</li>
+      <li><strong>Dettifoss</strong> — stórbrotinn foss í um tveggja klukkustunda akstursfjarlægð til austurs.</li>
+      <li><strong>Siglufjörður</strong> — um klukkustund í vestur. Fallegur sjávarbær þar sem meðal annars má heimsækja Síldarminjasafnið.</li>
+      <li><strong>Tröllaskagi</strong> — stórbrotið fjalla- og fjarðalandslag og skíðamennska að vetri.</li>
     </ul>
-    <p style="margin-top:12px;font-size:.87rem;color:var(--muted);">Further information and bookings: <a href="https://www.visitakureyri.is" target="_blank">visitakureyri.is</a></p>
+    <p style="margin-top:12px;font-size:.87rem;color:var(--muted);">Nánari upplýsingar og bókanir: <a href="https://www.visitakureyri.is" target="_blank">visitakureyri.is</a></p>
   </div>
 
 </div>
@@ -871,16 +884,16 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <div class="ch-head">
     <span class="ch-num">07</span>
-    <h2 class="ch-title">Trash &amp; Waste</h2>
+    <h2 class="ch-title">Sorp og flokkun</h2>
   </div>
 
   <div class="sub">
-    <p>Three bins are located outside the building. Please sort your waste before disposal.</p>
-    <span class="sub-lbl" style="margin-top:16px;">Three Bins &mdash; Sorting Guide</span>
+    <p>Þrjár sorptunnur eru fyrir utan húsið. Vinsamlegast flokkið sorpið áður en því er hent.</p>
+    <span class="sub-lbl" style="margin-top:16px;">Þrjár tunnur — svona er flokkað</span>
     <ul class="blist">
-      <li><strong>Bin 1 &mdash; Plastic</strong> &mdash; plastic packaging and containers</li>
-      <li><strong>Bin 2 &mdash; Paper</strong> &mdash; cardboard, paper, newspapers</li>
-      <li><strong>Bin 3 &mdash; Compost &amp; General waste</strong> &mdash; food waste and everything else</li>
+      <li><strong>Tunna 1 — plast</strong> — plastumbúðir og plastílát</li>
+      <li><strong>Tunna 2 — pappír</strong> — pappi, pappír og dagblöð</li>
+      <li><strong>Tunna 3 — lífrænn og blandaður úrgangur</strong> — matarleifar og annar úrgangur</li>
     </ul>
   </div>
 
@@ -893,81 +906,81 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <div class="ch-head">
     <span class="ch-num">08</span>
-    <h2 class="ch-title">Check Out</h2>
+    <h2 class="ch-title">Brottför</h2>
   </div>
 
   <div class="sub">
     <div class="dcard">
       <div>
-        <span class="dc-lbl">Check-out time</span>
+        <span class="dc-lbl">Brottför fyrir kl.</span>
         <span class="dc-val">11:00</span>
       </div>
       <div>
-        <span class="dc-lbl">Akureyri Airport</span>
-        <span class="dc-val">5 min by car</span>
+        <span class="dc-lbl">Akureyrarflugvöllur</span>
+        <span class="dc-val">5 mín. akstur</span>
       </div>
       <div>
-        <span class="dc-lbl">KEF Airport</span>
-        <span class="dc-val">5.5 h &mdash; 430 km</span>
+        <span class="dc-lbl">Keflavíkurflugvöllur</span>
+        <span class="dc-val">5,5 klst. — 430 km</span>
       </div>
     </div>
 
     <div class="warn-box red" style="margin-top:20px;">
-      <span class="w-ico">&#128273;</span>
-      <div class="w-txt"><strong>This property has multiple doors.</strong> Check every door before leaving &mdash; all must be locked. Return the key to the lockbox.</div>
+      <span class="w-ico">🔑</span>
+      <div class="w-txt"><strong>Á húsinu eru margar útidyr.</strong> Yfirfarið allar dyr fyrir brottför og tryggið að þær séu læstar. Setjið lykilinn aftur í lyklaboxið.</div>
     </div>
 
-    <span class="sub-lbl" style="margin-top:20px;">Before You Leave &mdash; Checklist</span>
-    <p style="font-size:.85rem;color:var(--muted);margin-bottom:4px;">Tap each item when done.</p>
+    <span class="sub-lbl" style="margin-top:20px;">Gátlisti fyrir brottför</span>
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:4px;">Merkið við hvert atriði þegar því er lokið.</p>
 
     <div class="cklist">
       <label class="ci" id="ci-hottub">
         <input type="checkbox">
         <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
-        <span class="ci-lbl">Hot tub switch is OFF and tub has emptied</span>
+        <span class="ci-lbl">Slökkt á rofa heita pottsins (OFF) og potturinn tómur</span>
       </label>
       <label class="ci" id="ci-hottub-cover">
         <input type="checkbox">
         <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
-        <span class="ci-lbl">Tarp and metal cross returned to hot tub</span>
+        <span class="ci-lbl">Ábreiðan og málmkrossinn aftur á heita pottinum</span>
       </label>
       <label class="ci" id="ci-hottub-key">
         <input type="checkbox">
         <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
-        <span class="ci-lbl">Hot tub key returned to its lockbox</span>
+        <span class="ci-lbl">Lykill heita pottsins kominn aftur í lyklaboxið</span>
       </label>
       <label class="ci" id="ci-coldtub">
         <input type="checkbox">
         <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
-        <span class="ci-lbl">Cold tub drained and wooden cover replaced</span>
+        <span class="ci-lbl">Kaldi potturinn tæmdur og trélokið sett á</span>
       </label>
       <label class="ci" id="ci-dish">
         <input type="checkbox">
         <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
-        <span class="ci-lbl">Dishwasher started (if used)</span>
+        <span class="ci-lbl">Uppþvottavélin sett í gang (ef hún var notuð)</span>
       </label>
       <label class="ci" id="ci-trash">
         <input type="checkbox">
         <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
-        <span class="ci-lbl">Trash sorted and placed in outdoor bins</span>
+        <span class="ci-lbl">Sorpið flokkað og sett í tunnurnar úti</span>
       </label>
       <label class="ci" id="ci-doors">
         <input type="checkbox">
         <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
-        <span class="ci-lbl"><strong>All doors locked</strong> &mdash; check every door in the property</span>
+        <span class="ci-lbl"><strong>Allar útidyr læstar</strong> — yfirfarið allar dyr hússins</span>
       </label>
       <label class="ci" id="ci-windows">
         <input type="checkbox">
         <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
-        <span class="ci-lbl">All windows closed</span>
+        <span class="ci-lbl">Allir gluggar lokaðir</span>
       </label>
       <label class="ci" id="ci-key">
         <input type="checkbox">
         <span class="ci-box"><svg width="11" height="8" viewBox="0 0 11 8"><polyline points="1,4 4,7 10,1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline></svg></span>
-        <span class="ci-lbl">Key returned to main lockbox (right side of building)</span>
+        <span class="ci-lbl">Lykillinn kominn aftur í lyklaboxið hægra megin við húsið</span>
       </label>
     </div>
-    <button class="ck-reset" id="ck-reset">Reset checklist</button>
+    <button class="ck-reset" id="ck-reset">Hreinsa gátlista</button>
   </div>
 
 </div>
@@ -979,68 +992,68 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 
   <div class="ch-head">
     <span class="ch-num" style="color:rgba(255,255,255,.1);">SOS</span>
-    <h2 class="ch-title">Emergency &amp; Contacts</h2>
+    <h2 class="ch-title">Neyðarnúmer og tengiliðir</h2>
   </div>
 
   <div class="sub">
     <div class="ec-grid">
       <div class="ec-card">
-        <span class="ec-lbl">Emergency Services</span>
+        <span class="ec-lbl">Neyðarlínan</span>
         <a href="tel:112" class="ec-val">112</a>
       </div>
       <div class="ec-card">
-        <span class="ec-lbl">Heimkoma (Host)</span>
+        <span class="ec-lbl">Heimkoma — gestgjafi</span>
         <a href="tel:+3546476000" class="ec-val">+354 647 6000</a>
       </div>
       <div class="ec-card">
-        <span class="ec-lbl">Email</span>
+        <span class="ec-lbl">Netfang</span>
         <a href="mailto:help@heimkoma.app" class="ec-val sm">help@heimkoma.app</a>
       </div>
     </div>
     <div class="warn-box red" style="margin-top:20px;background:rgba(255,255,255,.05);border-left-color:rgba(200,80,80,.45);">
-      <span class="w-ico">&#128222;</span>
-      <div class="w-txt" style="color:rgba(255,255,255,.65);">Contact us immediately if there is damage, a system is not working, or you are unsure how to operate any equipment.</div>
+      <span class="w-ico">📞</span>
+      <div class="w-txt" style="color:rgba(255,255,255,.65);">Hafið strax samband ef eitthvað skemmist, búnaður virkar ekki eða þið eruð óviss um notkun hans.</div>
     </div>
   </div>
 
 </div>
 </section>
 
-<div class="no-res" id="no-res"><h2>Nothing found</h2><p>Try a different search term</p></div>
+<div class="no-res" id="no-res"><h2>Ekkert fannst</h2><p>Prófið annað leitarorð</p></div>
 
 </main>
 
 <!-- FINAL NOTE -->
 <section class="final-note">
-  <h2 class="fn-heading">Final Note</h2>
+  <h2 class="fn-heading">Njótið dvalarinnar</h2>
   <div class="fn-body">
-    <p>We truly hope you enjoy your stay in this Heimkoma home.</p>
-    <p>This house is meant to be enjoyed slowly &mdash; with comfort, space, and the character of Akureyri all around you. Take your time. Open the windows. Step outside in the evening air.</p>
-    <p>Whether you are here to explore, to rest, or simply to spend meaningful time together, we hope this home gives you exactly what you came for &mdash; and perhaps a little more.</p>
-    <p>If there is anything that would make your stay even better, please let us know. We are happy to help.</p>
-    <p>Welcome to your home in Iceland for the next few days.</p>
-    <p class="fn-closing">We hope you leave with beautiful memories and a wish to return.</p>
+    <p>Við vonum að þið njótið dvalarinnar hér hjá Heimkomu.</p>
+    <p>Hér er gott að slaka á, njóta þægindanna og upplifa Akureyri á eigin hraða. Gefið ykkur tíma, opnið gluggana og stígið út í kvöldloftið.</p>
+    <p>Hvort sem þið komið til að skoða ykkur um, hvílast eða eiga góðar stundir saman, vonum við að dvölin verði eins og þið óskuðuð ykkur — og jafnvel aðeins betri.</p>
+    <p>Látið okkur vita ef eitthvað gæti gert dvölina enn betri. Við aðstoðum ykkur með ánægju.</p>
+    <p>Verið velkomin á heimili ykkar á Akureyri næstu dagana.</p>
+    <p class="fn-closing">Við vonum að þið farið heim með góðar minningar og löngun til að koma aftur.</p>
   </div>
   <img src="/s1h2gb/images/logo-white.png" alt="Heimkoma" class="fn-logo" width="600" height="105" loading="lazy" style="margin-top:40px;">
 </section>
 
 <footer class="site-footer">
-  <nav class="language-nav" aria-label="Choose language"><a href="/s1h2gb/" data-handbook-language="/s1h2gb/" lang="en" hreflang="en" aria-current="page"><span class="flag" aria-hidden="true">🇬🇧</span><span>English</span></a><a href="/s1h2gb/is/" data-handbook-language="/s1h2gb/is/" lang="is" hreflang="is"><span class="flag" aria-hidden="true">🇮🇸</span><span>Íslenska</span></a></nav>
+  <nav class="language-nav" aria-label="Veljið tungumál"><a href="/s1h2gb/" data-handbook-language="/s1h2gb/" lang="en" hreflang="en"><span class="flag" aria-hidden="true">🇬🇧</span><span>English</span></a><a href="/s1h2gb/is/" data-handbook-language="/s1h2gb/is/" lang="is" hreflang="is" aria-current="page"><span class="flag" aria-hidden="true">🇮🇸</span><span>Íslenska</span></a></nav>
   <p>
     <img src="https://heimkoma.app/guest_handbook/images/logo.svg" width="200" height="50" alt="Heimkoma" class="ft-logo" loading="lazy">
-    Heimkoma Guest Handbook &nbsp;&middot;&nbsp; <a href="#top">&#8593; Back to top</a>
+    Gestahandbók Heimkomu  ·  <a href="#top">↑ Efst á síðu</a>
   </p>
   <p style="margin-top:5px;font-size:.76rem;">
     <a href="https://heimkoma.app" target="_blank">heimkoma.app</a>
   </p>
-  <p><a href="https://heimkoma.app/cookies-settings/" data-cookie-settings aria-label="Cookie settings / Vafrakökustillingar">Cookie settings</a></p>
+  <p><a href="https://heimkoma.app/cookies-settings/" data-cookie-settings>Vafrakökustillingar</a></p>
 </footer>
 
 <a class="fab" href="tel:112">
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 17z"></path>
   </svg>
-  Emergency 112
+  Neyðarlínan 112
 </a>
 
 <script>
@@ -1137,11 +1150,11 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
 <div class="pwa-banner hidden" id="pwa-banner">
   <img src="/s1h2gb/images/icon-192.png" alt="" class="pwa-icon" width="44" height="44">
   <div class="pwa-text">
-    <strong>Add to Home Screen</strong>
-    <span id="pwa-instructions">Install this handbook for quick access &mdash; works offline too.</span>
+    <strong>Bæta á heimaskjá</strong>
+    <span id="pwa-instructions">Bætið handbókinni á heimaskjáinn til að nálgast hana fljótt — hún virkar líka án nettengingar.</span>
   </div>
-  <button class="pwa-btn" id="pwa-install">Add</button>
-  <button class="pwa-dismiss" id="pwa-dismiss" aria-label="Dismiss">&times;</button>
+  <button class="pwa-btn" id="pwa-install">Bæta við</button>
+  <button class="pwa-dismiss" id="pwa-dismiss" aria-label="Loka">×</button>
 </div>
 <script>
 (function() {
@@ -1157,7 +1170,7 @@ mark.hl { background: rgba(196,154,58,.3); color: inherit; padding: 0 2px; borde
   var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
   var isInStandalone = window.navigator.standalone === true;
   if (isIOS && !isInStandalone) {
-    instructions.textContent = 'Tap the share button ⎋ then “Add to Home Screen”.';
+    instructions.textContent = 'Ýtið á deilihnappinn ⎋ og veljið síðan „Bæta á heimaskjá“ (Add to Home Screen).';
     installBtn.style.display = 'none';
     setTimeout(function() { banner.classList.remove('hidden'); }, 2000);
   }
