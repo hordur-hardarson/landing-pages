@@ -4,7 +4,8 @@ Static pages hosted at <https://lp.heimkoma.app>.
 
 | Folder | Page | Live |
 |---|---|---|
-| `s1h1gb/` | Húsafell guest handbook | <https://lp.heimkoma.app/s1h1gb/> |
+| `s1h1gb/` | Húsafell guest handbook — English (primary) | <https://lp.heimkoma.app/s1h1gb/> |
+| s1h1gb/is/ | Húsafell guest handbook — Icelandic | <https://lp.heimkoma.app/s1h1gb/is/> |
 | `s1h2gb/` | Akureyri guest handbook — English (primary) | <https://lp.heimkoma.app/s1h2gb/> |
 | s1h2gb/is/ | Akureyri guest handbook — Icelandic | <https://lp.heimkoma.app/s1h2gb/is/> |
 | `thrif/` | Cleaning checklist and inspection | <https://lp.heimkoma.app/thrif/> |
@@ -36,6 +37,20 @@ there is signal.
 `DEPLOY.txt` in each handbook describes the old manual upload process and no longer applies.
 It is kept in the repository for reference but excluded from publishing, and removed from the
 server, because it was publicly readable.
+
+### Húsafell languages and consent
+
+English remains at s1h1gb/ and the Icelandic edition is at s1h1gb/is/.
+Both editions use the same language controls, shared checkout progress,
+translated install prompts, and offline support as the Akureyri handbook.
+Operational details, Wi-Fi credentials, links and existing QR images are kept
+in sync. Icelandic photo annotations are HTML over the original images, so
+equipment, controls, arrows and QR codes remain unchanged.
+
+The s1h1gb/consent/ folder reuses the same approved Complianz setup described
+below. Its configuration was checked against heimkoma.app on 2026-10-02.
+Consent choices are shared between handbook pages on lp.heimkoma.app.
+Analytics remains disabled; no tracking tags are installed.
 
 ### Akureyri languages and consent
 
@@ -114,4 +129,5 @@ gets its own key rather than reusing an existing one.
 If a deploy step fails with `error in libcrypto` and `Permission denied (publickey)`, the
 secret is missing or was pasted with a line broken. Re-add it whole, including the
 `-----BEGIN` and `-----END` lines.
+
 
