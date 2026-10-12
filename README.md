@@ -9,6 +9,7 @@ Static pages hosted at <https://lp.heimkoma.app>.
 | `s1h2gb/` | Akureyri guest handbook — English (primary) | <https://lp.heimkoma.app/s1h2gb/> |
 | s1h2gb/is/ | Akureyri guest handbook — Icelandic | <https://lp.heimkoma.app/s1h2gb/is/> |
 | `thrif/` | Cleaning checklist and inspection | <https://lp.heimkoma.app/thrif/> |
+| `gym/` | Bilingual Heimkoma workout guide | [Live Sites version](https://heimkoma-gym.musterid.chatgpt.site/) — server deployment not configured |
 | `passport/` | — | not currently deployed from this repository |
 | `luxury-villa/` | — | not currently deployed from this repository |
 
