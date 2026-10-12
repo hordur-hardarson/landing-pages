@@ -1,13 +1,17 @@
 name: Deploy internal pages
 
+# Every top-level folder containing an index.html is published to
+# lp.heimkoma.app/<folder>/. Adding a page means adding a folder and pushing:
+# no key, no server change and no edit to this file.
+#
+# This replaced a key per page, which cost five setup steps each and had left
+# seven of the ten pages under /lp/ with no deployment at all.
+
 on:
   push:
     branches: [main]
-    paths:
-      - "s1h1gb/**"
-      - "s1h2gb/**"
-      - "thrif/**"
-      - ".github/workflows/deploy.yml"
+    paths-ignore:
+      - "**/*.md"
   workflow_dispatch:
 
 permissions:
@@ -24,64 +28,69 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      # Each handbook caches itself for offline use with a fixed cache name, so a
+      - name: List the pages to publish
+        id: pages
+        run: |
+          pages=""
+          for dir in */; do
+            page="${dir%/}"
+            case "$page" in .*) continue ;; esac
+            if [ -f "$page/index.html" ]; then
+              pages="$pages $page"
+            else
+              echo "skip $page (no index.html)"
+            fi
+          done
+          pages="${pages# }"
+          [ -n "$pages" ] || { echo "::error::no publishable pages found"; exit 1; }
+          echo "list=$pages" >> "$GITHUB_OUTPUT"
+          echo "publishing:$pages"
+
+      # A handbook caches itself for offline use under a fixed cache name, so a
       # returning guest would keep seeing the old version forever. Stamping the
       # commit into the name makes every deploy a new cache, which the service
-      # worker's own activate handler then swaps to - offline still works, but
-      # updates actually arrive.
+      # worker's own activate handler then swaps to: offline still works, but
+      # updates actually arrive. Pages without a service worker skip this.
       - name: Version the service worker caches
         run: |
-          for page in s1h1gb s1h2gb; do
+          for page in ${{ steps.pages.outputs.list }}; do
+            [ -f "$page/sw.js" ] || continue
             sed -i "s|const CACHE = '\([^']*\)'|const CACHE = '\1-${GITHUB_SHA::7}'|" "$page/sw.js"
             grep -n "const CACHE" "$page/sw.js"
           done
 
-      - name: Load deploy keys
+      - name: Load the deploy key
         run: |
           mkdir -p ~/.ssh
-          printf '%s\n' "${{ secrets.LP_S1H1GB_DEPLOY_KEY }}" > ~/.ssh/s1h1gb_key
-          printf '%s\n' "${{ secrets.LP_S1H2GB_DEPLOY_KEY }}" > ~/.ssh/s1h2gb_key
-          printf '%s\n' "${{ secrets.LP_THRIF_DEPLOY_KEY }}" > ~/.ssh/thrif_key
-          chmod 600 ~/.ssh/s1h1gb_key ~/.ssh/s1h2gb_key ~/.ssh/thrif_key
-          # Host key is public, so it is pinned here rather than kept as a secret.
+          printf '%s\n' "${{ secrets.LP_DEPLOY_KEY }}" > ~/.ssh/lp_key
+          chmod 600 ~/.ssh/lp_key
+          # The host key is public, so it is pinned here rather than kept secret.
           printf '%s\n' '[82.180.175.89]:65002 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAAOCTG0pbsCsYui1VBsDGAmCp37d73W8y9xdyUvB4mX' > ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
-      # A separate key per handbook. Each is pinned on the server to a forced
-      # rsync-only command locked to that one directory, so neither can reach the
-      # other, nor the seven unrelated pages that also live under /lp/.
-      - name: Publish Husafell handbook
+      # The key is pinned on the server to a forced command that accepts one
+      # plain folder name under /lp/ and refuses anything else: no traversal, no
+      # nested paths, no reading back. It cannot reach the main site, WordPress,
+      # the uploaded media or the cleaning-form backend.
+      - name: Publish each page
         run: |
-          rsync -rltvz --delete --delete-excluded --chmod=D755,F644 \
-            --exclude 'DEPLOY.txt' --exclude '.DS_Store' \
-            -e "ssh -i ~/.ssh/s1h1gb_key -p 65002 -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
-            s1h1gb/ u861019222@82.180.175.89:/
-
-      - name: Publish Akureyri handbook
-        run: |
-          rsync -rltvz --delete --delete-excluded --chmod=D755,F644 \
-            --exclude 'DEPLOY.txt' --exclude '.DS_Store' \
-            -e "ssh -i ~/.ssh/s1h2gb_key -p 65002 -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
-            s1h2gb/ u861019222@82.180.175.89:/
-
-      # The cleaning checklist page. Not a handbook, so it has no service
-      # worker and nothing to version - it is a form the cleaning team fills in
-      # on a phone, and it should always be the current version.
-      - name: Publish cleaning checklist page
-        run: |
-          rsync -rltvz --delete --delete-excluded --chmod=D755,F644 \
-            --exclude '.DS_Store' \
-            -e "ssh -i ~/.ssh/thrif_key -p 65002 -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
-            thrif/ u861019222@82.180.175.89:/
+          for page in ${{ steps.pages.outputs.list }}; do
+            echo "--- $page"
+            rsync -rltvz --delete --delete-excluded --chmod=D755,F644 \
+              --exclude 'DEPLOY.txt' --exclude '.DS_Store' --exclude 'README.md' \
+              -e "ssh -i ~/.ssh/lp_key -p 65002 -o UserKnownHostsFile=~/.ssh/known_hosts -o StrictHostKeyChecking=yes" \
+              "$page/" "u861019222@82.180.175.89:$page"
+          done
 
       - name: Confirm the pages are serving
         run: |
-          for page in s1h1gb s1h2gb thrif; do
+          fail=0
+          for page in ${{ steps.pages.outputs.list }}; do
             code=$(curl -s -o /dev/null -w '%{http_code}' "https://lp.heimkoma.app/$page/")
             echo "$page -> $code"
-            test "$code" = "200"
-            # DEPLOY.txt was publicly readable; confirm it is gone.
+            [ "$code" = "200" ] || fail=1
+            # DEPLOY.txt was publicly readable once; confirm it is not served.
             gone=$(curl -s -o /dev/null -w '%{http_code}' "https://lp.heimkoma.app/$page/DEPLOY.txt")
-            echo "$page/DEPLOY.txt -> $gone"
-            test "$gone" != "200"
+            [ "$gone" = "200" ] && { echo "$page/DEPLOY.txt is public"; fail=1; }
           done
+          exit $fail
