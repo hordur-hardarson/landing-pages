@@ -40,5 +40,26 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET' || new URL(e.request.url).origin !== self.location.origin) return;
+  const url = new URL(e.request.url);
+  const pages = ['/s1h2gb/', '/s1h2gb/index.html', '/s1h2gb/is/', '/s1h2gb/is/index.html'];
+  if (e.request.mode === 'navigate' && pages.includes(url.pathname)) {
+    e.respondWith((async () => {
+      const cache = await caches.open(CACHE);
+      const key = url.origin + url.pathname;
+      try {
+        const response = await fetch(e.request, { cache: 'no-store' });
+        if (response.ok) {
+          await cache.put(key, response.clone());
+          return response;
+        }
+        return (await cache.match(key)) || response;
+      } catch (error) {
+        const cached = await cache.match(key);
+        if (cached) return cached;
+        throw error;
+      }
+    })());
+    return;
+  }
   e.respondWith(caches.match(e.request).then(cached => cached || fetch(e.request)));
 });
